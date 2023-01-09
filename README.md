@@ -1,2 +1,2 @@
 # CTF-Writeups-and-Scripts
-In the CTFs I joined, I share the solutions to the questions I like and the scripts that may be important.
+I share the solutions and scripts of the questions I like in the CTF I enter.
