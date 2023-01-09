@@ -1,0 +1,9 @@
+apktool d test.apk -> Decompile eder ve classes dex dosyasını çözer.
+
+apktool b test -> Decompile edilmiş apkyı geri birleştirir.
+
+d2j-dex2jar -f apk_to_decompile.apk -> Decompile eder
+
+jd-gui -> Decompile ve analyze aracı
+
+strings -> ???????

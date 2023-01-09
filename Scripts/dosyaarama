@@ -1,0 +1,3 @@
+grep -Ril "blabla"
+cat
+cat file | grep "blabla"

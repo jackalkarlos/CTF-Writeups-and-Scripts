@@ -1,0 +1,5 @@
+python3 vol.py -f victim.raw imageinfo
+python3 vol.py -f victim.raw --profile=Win7SP1x64 pslist
+python3 vol.py -f victim.raw --profile=Win7SP1x64 shellbags
+
+python3 winSuperMem.py -f memdump.mem -o output/ -tt 1
