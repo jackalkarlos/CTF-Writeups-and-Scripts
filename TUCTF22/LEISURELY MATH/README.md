@@ -1,0 +1,4 @@
+# TUCTF22-LEISURELY-MATH
+LEISURELY MATH QUESTION SOLVE
+TUCTF{7h4nk5_f0r_74k1n6_7h1n65_4_l177l3_5l0w_4268285}
+![image](https://user-images.githubusercontent.com/88983987/205506333-af00e5ae-f608-49b6-97be-7010e5b9b03c.png)
