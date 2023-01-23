@@ -29,4 +29,4 @@ Oyunu azıcık oynayıp, gizli asansör tümseği bulduktan sonra flag'e erişiy
 <b>bi0sctf{GG!_H4X_FOR_TH3_WIN}</b>
 <h1>NOT: Kendiniz deneyebilmeniz için orjinal oyun dosyasını rar olarak paylaştım. Ayriyeten benim sırf can sıkıntısına yaptığım süper zıplama, ölümsüzlük, anti jumpstun gibi hilelerin olduğu dll dosyasını paylaştım. Denemek isterseniz bakabilirsinizskfdmkodsmo. Son olarak SUPER DOGE videosu...</h1>
 
-<iframe width="1269" height="480" src="https://www.youtube.com/embed/gjoUSHgr7Cw" title="SUPER DOGE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+https://www.youtube.com/watch?v=gjoUSHgr7Cw&ab_channel=AMK
