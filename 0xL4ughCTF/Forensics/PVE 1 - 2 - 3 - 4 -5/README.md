@@ -292,6 +292,101 @@ Beklenmeyen Çözüm:
 ## Flag
 0xL4ugh{S4D_Y0U_G07_M3}
 
+# PVE 5 [379 pts]
+
+**Category:** Forensics
+**Solves:** 12
+
+## Description
+>Q5: The attack got the password of the user but can you?
+
+Files: Same as PVE 1
+
+Author: xElessaway
+
+## Solution
+
+Bana kalırsa, en eğlenceli soru buydu. Ayrıca, neden soruları beklenen yolla yapmalısınız sorusunun cevabı niteliğindeydi. Soruda bizden bir kullanıcının parolasını istiyor. Kullanıcı paroları nerde saklanır? /etc/shadow ve /etc/passwd dosyaları. Bunları bulup extract edeceğiz. 
+```
+┌──(kali㉿kali)-[~/Scripts/volatility]
+└─$ python2 vol.py -f /home/kali/Desktop/PVE.vmem  --profile=LinuxUbuntu_4_4_0-186-generic_profilex64 linux_find_file -F /etc/shadow
+Volatility Foundation Volatility Framework 2.6.1
+Inode Number                  Inode File Path
+---------------- ------------------ ---------
+         1044994 0xffff88001817bbf8 /etc/shadow
+                                                                                                                                                                         
+┌──(kali㉿kali)-[~/Scripts/volatility]
+└─$ python2 vol.py -f /home/kali/Desktop/PVE.vmem  --profile=LinuxUbuntu_4_4_0-186-generic_profilex64 linux_find_file -i 0xffff88001817bbf8 -O /home/kali/Desktop/hash/shadow
+Volatility Foundation Volatility Framework 2.6.1
+                                                                                                                                                                         
+┌──(kali㉿kali)-[~/Scripts/volatility]
+└─$ python2 vol.py -f /home/kali/Desktop/PVE.vmem  --profile=LinuxUbuntu_4_4_0-186-generic_profilex64 linux_find_file -F /etc/passwd
+Volatility Foundation Volatility Framework 2.6.1
+Inode Number                  Inode File Path
+---------------- ------------------ ---------
+         1048952 0xffff88001e144468 /etc/passwd
+                                                                                                                                                                         
+┌──(kali㉿kali)-[~/Scripts/volatility]
+└─$ python2 vol.py -f /home/kali/Desktop/PVE.vmem  --profile=LinuxUbuntu_4_4_0-186-generic_profilex64 linux_find_file -i 0xffff88001e14446  -O /home/kali/Desktop/hash/passwd
+Volatility Foundation Volatility Framework 2.6.1
+```
+
+John ile kırabilmek için uygun formata getiriyoruz.
+
+```
+┌──(kali㉿kali)-[~/Desktop/hash]
+└─$ unshadow passwd shadow 
+```
+
+```
+┌──(kali㉿kali)-[~/Desktop/hash]
+└─$ cat shadow 
+root:!:19402:0:99999:7:::
+daemon:*:18484:0:99999:7:::
+bin:*:18484:0:99999:7:::
+sys:*:18484:0:99999:7:::
+sync:*:18484:0:99999:7:::
+games:*:18484:0:99999:7:::
+man:*:18484:0:99999:7:::
+lp:*:18484:0:99999:7:::
+mail:*:18484:0:99999:7:::
+news:*:18484:0:99999:7:::
+uucp:*:18484:0:99999:7:::
+proxy:*:18484:0:99999:7:::
+www-data:*:18484:0:99999:7:::
+backup:*:18484:0:99999:7:::
+list:*:18484:0:99999:7:::
+irc:*:18484:0:99999:7:::
+gnats:*:18484:0:99999:7:::
+nobody:*:18484:0:99999:7:::
+systemd-timesync:*:18484:0:99999:7:::
+systemd-network:*:18484:0:99999:7:::
+systemd-resolve:*:18484:0:99999:7:::
+systemd-bus-proxy:*:18484:0:99999:7:::
+syslog:*:18484:0:99999:7:::
+_apt:*:18484:0:99999:7:::
+messagebus:*:19402:0:99999:7:::
+uuidd:*:19402:0:99999:7:::
+mrx:$6$AkhWkiSy$MV4YekoydUoqhdnoJYWTHFpSWSsSTe53cTvuGNJLrE7FVMrKgDIEyyQio3ZPtnEX6524nSCenk2fYYV8mxwkL0:19404:0:99999:7:::
+xElessaway:!:19403:0:99999:7:::
+```
+Normalde Linux üzerinde kırılabilir, fakat çok uzun sürdüğü için ben işlemi host makinem olan Windows'a aldım.
+
+Ben daha önceden kırdığım için kırma aşaması gözükmüyor fakat hash %97 civarlarında kırılıyor. Kırarken biraz stres olmanız normal :)
+```
+D:\Siber Güvenlik\john-1.9.0-jumbo-1-win64\run>john.exe passwords.txt --wordlist=rockyou.txt
+Warning: detected hash type "sha512crypt", but the string is also recognized as "sha512crypt-opencl"
+Use the "--format=sha512crypt-opencl" option to force loading these as that type instead
+Using default input encoding: UTF-8
+Loaded 1 password hash (sha512crypt, crypt(3) $6$ [SHA512 256/256 AVX2 4x])
+No password hashes left to crack (see FAQ)
+
+D:\Siber Güvenlik\john-1.9.0-jumbo-1-win64\run>john --show passwords.txt
+mrx:08041632890804163289:1000:1000:Super Mario,,,:/home/mrx:/bin/bash
+```
+## Flag
+
+0xL4ugh{08041632890804163289}
 
 
 
