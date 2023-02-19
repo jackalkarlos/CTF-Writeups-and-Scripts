@@ -361,3 +361,60 @@ Name: hibsys.WNCRYT
 ## Flag
 
 0xL4ugh{13AM4VW2dhxYgXeQepoHkHSQuy6NgaEb94_0xffffa20fea3487d0_hibsys.WNCRYT}
+
+# Wanna 5 [428 pts]
+
+**Category:** Forensics
+**Solves:** 13
+
+## Description
+>Q9: There are 2 Mutex that the malware check for to stop if it exist what are it's name?
+
+Files: Same as Wanna 1
+flag format:  0xL4ugh{Mutex1_metux2}
+Author: MMOX
+
+## Solution
+Doğru Mutex'i bulmak için handles kaydına tekrar bakmamız gerekiyor.
+```
+┌──(root㉿kali)-[/home/kali/Scripts/volatility]
+└─# python2 vol.py -f /home/kali/Desktop/WANNA/Wanna-MEM.vmem --profile=Win10x64_19041 handles --pid=4296
+```
+```
+0xffffa20fe8ee2cd0   4296              0x11c           0x1f0001 Mutant           MsWinZonesCacheCounterMutexA0
+0xffffa20fe9cd5650   4296              0x120              0x804 EtwRegistration  
+0xffffdd8d014b7150   4296              0x124                0x8 Key              USER\S-1-5-21-2458872239-1274884396-3144110078-1117\SOFTWARE\MICROSOFT\WINDOWS NT\CURRENTVERSION
+0xffffa20fea1257e0   4296              0x128           0x100003 Semaphore        
+0xffffdd8d014b6270   4296              0x12c                0x1 Key              MACHINE\SYSTEM\CONTROLSET001\CONTROL\SESSION MANAGER
+0xffffa20fe9cd6b50   4296              0x130              0x804 EtwRegistration  
+0xffffa20fe9cd6c30   4296              0x134              0x804 EtwRegistration  
+0xffffa20fea124d60   4296              0x138           0x100003 Semaphore        
+0xffffa20fe9cd7bf0   4296              0x13c              0x804 EtwRegistration  
+0xffffa20fea1235e0   4296              0x140           0x100003 Semaphore        
+0xffffa20fea123fe0   4296              0x144           0x100003 Semaphore        
+0xffffa20fea123560   4296              0x148           0x1f0003 Event            
+0xffffa20fe933d650   4296              0x14c           0x100003 File             \Device\KsecDD
+0xffffa20fe9cd7950   4296              0x150              0x804 EtwRegistration  
+0xffffa20fe9cd75d0   4296              0x154              0x804 EtwRegistration  
+0xffffa20fe9cd8590   4296              0x158              0x804 EtwRegistration  
+0xffffa20fe9cd74f0   4296              0x15c              0x804 EtwRegistration  
+0xffffa20fea124be0   4296              0x160           0x100003 Semaphore        
+0xffffa20fe933ce80   4296              0x164           0x100001 File             \Device\CNG
+0xffffa20fe9cda7b0   4296              0x168              0x804 EtwRegistration  
+0xffffa20fe9cd91d0   4296              0x16c              0x804 EtwRegistration  
+0xffffa20fe9cda890   4296              0x170              0x804 EtwRegistration  
+0xffffa20fe9cd8e50   4296              0x174              0x804 EtwRegistration  
+0xffffa20fe9cd9470   4296              0x178              0x804 EtwRegistration  
+0xffffa20fe9cd9550   4296              0x17c              0x804 EtwRegistration  
+0xffffa20fe9cda190   4296              0x180              0x804 EtwRegistration  
+0xffffa20fe9cd9d30   4296              0x184              0x804 EtwRegistration  
+0xffffa20fe9cda270   4296              0x188              0x804 EtwRegistration  
+0xffffa20fe9cd99b0   4296              0x18c              0x804 EtwRegistration  
+0xffffa20fe9cd8f30   4296              0x190              0x804 EtwRegistration  
+0xffffa20fe8ee3d50   4296              0x194           0x1f0001 Mutant           MsWinZonesCacheCounterMutexA
+```
+MsWinZonesCacheCounterMutexA
+MsWinZonesCacheCounterMutexA0
+## Flag
+0xL4ugh{MsWinZonesCacheCounterMutexA0_MsWinZonesCacheCounterMutexA}
+
