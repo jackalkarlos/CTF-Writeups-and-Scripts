@@ -231,7 +231,6 @@ Beklenmeyen çözüm:
 ```
 ┌──(kali㉿kali)-[~/Scripts/volatility]
 └─$ strings /home/kali/Desktop/PVE.vmem | grep --text "0xL4ugh" | head
-[23dsudo echo "0xL4ugh{S4D_Y0U_G07_M3}" > flag.txt
     char flag[] = "0xL4ugh{H1DD3N_1N_PR0CE$$}";
 0xL4ugh{H
 0xL4ugh{H1DD3N_1N_PR0CE$$}
