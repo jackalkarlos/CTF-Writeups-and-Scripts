@@ -113,6 +113,12 @@ ifconfig ile cihazımızın ipsini öğreniyoruz.
 ```
 python3 -m http.server 8081
 ```
+![image](https://user-images.githubusercontent.com/88983987/219967266-61e28a39-1136-4abd-8913-9ade4fc887e1.png)
+
+Host makinemizde:
+```
+wget http://192.168.1.46:8081/Ubuntu_4.4.0-186-generic_profile.zip
+```
 
 
 
