@@ -119,6 +119,53 @@ Host makinemizde:
 ```
 wget http://192.168.1.46:8081/Ubuntu_4.4.0-186-generic_profile.zip
 ```
+Artık Ubuntu ile bir işimiz kalmadı, kapatabiliriz.
+
+Host makinesine aldığımız zip dosyasını volatility içerisinde aşağıdaki gibi volatility/plugins/overlays/linux konumuna kopyalıyoruz.
+
+![image](https://user-images.githubusercontent.com/88983987/219967792-27559012-f712-4e06-b09d-53922ecb64da.png)
+
+Kopyaladığımız profilin ismini öğrenmek için aşağıdaki komutu çalıştırıyoruz.
+```
+python vol2.py --info | grep "Linux"
+```
+![image](https://user-images.githubusercontent.com/88983987/219967867-9dfecbe1-3ecd-410c-8257-889a63d5dcdf.png)
+
+Artık soruların nasıl çözüldüğüne geçebiliriz. 4. soruya kadar beklenen ve beklenmeyen çözüm türlerini paylaşacağım. Son soruda neden bunu yaptığımı anlayacaksınız.
+
+# PVE 2 [100 pts]
+
+**Category:** Forensics
+**Solves:** 54
+
+## Description
+>Q2: What is the version of the apache server?
+
+Files: Same as PVE 1
+flag format : 0xL4ugh{*.*.*}
+
+Author xElessaway
+
+## Solution
+Beklenen çözüm türü:
+
+Bunu öğrenebilmek için memory imajı alınırken bu paketin kurulmuş ya da açılmış olması gerekiyor, memory içinde bir yerinin olması gerekiyor. Bu yüzden bash_history içerisinde apache komutunu aratıyoruz.
+
+```
+python2 vol.py -f /home/kali/Desktop/PVE.vmem  --profile=LinuxUbuntu_4_4_0-186-generic_profilex64 linux_bash | grep "apache"
+```
+![image](https://user-images.githubusercontent.com/88983987/219968150-42e0b9dd-2f3e-4224-a047-8fabbc96eb83.png)
+
+En son kurulmuş olan paketin numarasını alıyoruz.
+
+Beklenmeyen çözüm türü:
+```
+strings /home/kali/Desktop/PVE.vmem | grep --text "apache" | head
+```
+![image](https://user-images.githubusercontent.com/88983987/219968111-40db994f-9e78-47e0-aa34-62bb2c41c7a7.png)
+
+## Flag
+
 
 
 
