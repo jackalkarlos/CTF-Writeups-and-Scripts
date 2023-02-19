@@ -13,6 +13,6 @@ Author : abdoghazy
 #### Hint 
 
 ## Solution
-
+Bu bir PHP sayfasıdır ve ziyaret eden kullanıcıların IP adreslerini kaydeder ve web sitesine erişen en az 20 benzersiz IP adresi olup olmadığını kontrol eder. Yani 20'den fazla ip eriştiğinde flag geliyor. O an zaten 20 kişiden fazla kişi eriştiği için bir şey yapmaya gerek kalmıyordu. Yapmaya gerek kalırsa da proxy botları ile yapabilirsiniz.
 ## Flag
 
