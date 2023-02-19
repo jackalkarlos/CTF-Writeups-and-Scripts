@@ -18,6 +18,8 @@ Author: xElessaway
 
 Dürüst olmam gerekirse daha önce görmediğim bir encoding türüydü, kullanılan cipher türü Hexahue. (thanks to "xElessaway")
 
+https://www.dcode.fr/hexahue-cipher
+
 ![image](https://user-images.githubusercontent.com/88983987/219950033-f210b98b-bcef-48d5-99eb-709cbd30fb3c.png)
 
 ![image](https://user-images.githubusercontent.com/88983987/219950651-fd287efd-dfa9-4b27-958a-6805f1e8f452.png)
