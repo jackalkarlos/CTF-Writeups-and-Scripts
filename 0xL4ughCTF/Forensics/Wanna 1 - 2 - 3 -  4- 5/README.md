@@ -347,7 +347,17 @@ Author: MMOX
 
 İlk sorunun cevabı: 13AM4VW2dhxYgXeQepoHkHSQuy6NgaEb94
 
+İkinci sorunun ingilizcesini biraz sorguladım... Ama hint geldikten sonra anladığım kadarıyla ortada başka bir process yaratan bir process var. Bizden bunun offsetini ve ismini istiyor. Thunder'in suspect olduğunu biliyorduk. PID'si 4296. Process'in eventlerini incelemeye yardımcı olan "handles" seçeneğini kullanacağız.
+```
+┌──(root㉿kali)-[/home/kali/Scripts/volatility]
+└─# python2 vol.py -f /home/kali/Desktop/WANNA/Wanna-MEM.vmem --profile=Win10x64_19041 handles --pid=4296
+```
 
+![image](https://user-images.githubusercontent.com/88983987/219973572-0cc458da-1306-425e-bb7c-5d862c81b935.png)
+
+Offset: 0xffffa20fea3487d0
+Name: hibsys.WNCRYT
 
 ## Flag
 
+0xL4ugh{13AM4VW2dhxYgXeQepoHkHSQuy6NgaEb94_0xffffa20fea3487d0_hibsys.WNCRYT}
