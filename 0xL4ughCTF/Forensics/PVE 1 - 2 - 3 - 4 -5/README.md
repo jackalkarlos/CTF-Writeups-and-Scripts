@@ -149,7 +149,7 @@ Author xElessaway
 ## Solution
 Beklenen çözüm türü:
 
-Bunu öğrenebilmek için memory imajı alınırken bu paketin kurulmuş ya da açılmış olması gerekiyor, memory içinde bir yerinin olması gerekiyor. Bu yüzden bash_history içerisinde apache komutunu aratıyoruz.
+Bunu öğrenebilmek için memory imajı alınırken bu paketin kurulmuş ya da açılmış olması gerekiyor, memory içinde bir yerinin olması gerekiyor. Bu yüzden bash history içerisinde apache komutunu aratıyoruz.
 
 ```
 python2 vol.py -f /home/kali/Desktop/PVE.vmem  --profile=LinuxUbuntu_4_4_0-186-generic_profilex64 linux_bash | grep "apache"
@@ -165,6 +165,8 @@ strings /home/kali/Desktop/PVE.vmem | grep --text "apache" | head
 ![image](https://user-images.githubusercontent.com/88983987/219968111-40db994f-9e78-47e0-aa34-62bb2c41c7a7.png)
 
 ## Flag
+0xL4ugh{2.2.14}
+
 
 
 
