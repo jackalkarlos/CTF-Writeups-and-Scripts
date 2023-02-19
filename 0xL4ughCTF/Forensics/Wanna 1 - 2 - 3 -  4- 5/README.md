@@ -322,3 +322,32 @@ Thunder.exe zaten şüpheliydi, 2 adet @WanaDecryptor adlı WannaCry Decryptor p
 ## Flag
 0xL4ugh{192.168.30.50:8585_3780_4240_4296}
 
+# Wanna 4 [469 pts]
+
+**Category:** Forensics
+**Solves:** 7
+
+## Description
+>Q7: What is the Bitcion address that will be used to pay the ransom?
+Q8: There is an interesting file That the process dump what is the files name and it's offset ?
+
+Files: Same as Wanna 1
+
+Flag format: 0xL4ugh{ans1_offset_name}
+
+Author: MMOX
+
+#### Hint
+* For the Q8 the main malious process dumps a file there is a vol2 plugin that will help u if u u give it the right prameters 
+
+## Solution
+İlk soru için daha öncesinde Ransomware notunun bırakıldığı yeri belirlemiştik. Hemen FTK Imager'den notu alıp bitcoin adresini buluyoruz.
+
+![image](https://user-images.githubusercontent.com/88983987/219973374-d08d1e92-fd55-4b29-ab56-a39ccac259b1.png)
+
+İlk sorunun cevabı: 13AM4VW2dhxYgXeQepoHkHSQuy6NgaEb94
+
+
+
+## Flag
+
