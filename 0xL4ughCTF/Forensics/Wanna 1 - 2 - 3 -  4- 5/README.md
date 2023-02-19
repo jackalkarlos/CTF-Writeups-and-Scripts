@@ -28,7 +28,7 @@ Author: MMOX
 
 Profili öğrenmek için imageinfo komutunu çalıştırıyoruz.
 
-Not: Windows 10 ve üzeri imajlarda volatility'i güncel tutmak çok önemli, yeni profiller eklendiğinde volatility'in imageinfo komutu başarısız olabilir.
+Not: Windows 10 ve üzeri imajlar için volatility'i güncel tutmak çok önemli, yeni profiller eklendiğinde volatility'in imageinfo komutu başarısız olabilir.
 
 ```
 ┌──(kali㉿kali)-[~/Scripts/volatility]
