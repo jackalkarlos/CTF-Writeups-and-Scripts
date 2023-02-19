@@ -8,9 +8,9 @@
 
 **https://discord.gg/invite/JyCGhgDnCq**
 
-#### Hint 
-
 ## Solution
+![image](https://user-images.githubusercontent.com/88983987/219953826-8932c975-f179-4b61-9fac-2e99a507c29f.png)
 
 ## Flag
 
+0xL4ugh{W3LC0ME_T0_0UR_C7F_FREE_PALESTINE}
