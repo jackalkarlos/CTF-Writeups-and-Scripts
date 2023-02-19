@@ -214,8 +214,111 @@ Ayrıca Thunder.exe process'inin suspect olduğunu aklımızda tutuyoruz.
 
 İlk sorunun cevabı: 192.168.30.50:8585
 
+2. sorunun cevabı için processleri inceliyoruz.
+```
+┌──(root㉿kali)-[/home/kali/Scripts/volatility]
+└─# python2 vol.py -f /home/kali/Desktop/WANNA/Wanna-MEM.vmem --profile=Win10x64_19041 pstree
+Volatility Foundation Volatility Framework 2.6.1
+Name                                                  Pid   PPid   Thds   Hnds Time
+-------------------------------------------------- ------ ------ ------ ------ ----
+ 0xffffa20fe6652080:wininit.exe                       528    420      1      0 2023-02-15 13:48:16 UTC+0000
+. 0xffffa20fe664b080:services.exe                     668    528      7      0 2023-02-15 13:48:17 UTC+0000
+.. 0xffffa20fe710c2c0:svchost.exe                    1032    668      3      0 2023-02-15 13:48:18 UTC+0000
+.. 0xffffa20fe7733080:svchost.exe                    3104    668     26      0 2023-02-15 13:48:25 UTC+0000
+.. 0xffffa20fe70f2240:svchost.exe                     552    668     66      0 2023-02-15 13:48:18 UTC+0000
+... 0xffffa20fe8061080:sihost.exe                    1084    552     10      0 2023-02-15 13:50:54 UTC+0000
+... 0xffffa20fe9189080:wuauclt.exe                   5924    552      7      0 2023-02-15 16:22:36 UTC+0000
+.... 0xffffa20fea04a080:AM_Delta_Patch               6216   5924      3      0 2023-02-15 16:22:36 UTC+0000
+..... 0xffffa20fe9f1d240:MpSigStub.exe               3752   6216      4      0 2023-02-15 16:22:37 UTC+0000
+... 0xffffa20fe804e300:taskhostw.exe                 3920    552      8      0 2023-02-15 13:50:54 UTC+0000
+.. 0xffffa20fe76b4300:MsMpEng.exe                    2568    668     32      0 2023-02-15 13:48:21 UTC+0000
+... 0xffffa20fe919d080:MpCmdRun.exe                  7032   2568      9      0 2023-02-15 16:21:21 UTC+0000
+.... 0xffffa20fe8851080:conhost.exe                  6976   7032      5      0 2023-02-15 16:21:21 UTC+0000
+.. 0xffffa20fe78102c0:svchost.exe                    2612    668     13      0 2023-02-15 13:48:21 UTC+0000
+.. 0xffffa20fe7760080:svchost.exe                    1100    668      4      0 2023-02-15 13:48:25 UTC+0000
+.. 0xffffa20fe768e0c0:VGAuthService.                 2492    668      2      0 2023-02-15 13:48:21 UTC+0000
+.. 0xffffa20fe2b27080:SearchIndexer.                 2144    668     17      0 2023-02-15 13:50:25 UTC+0000
+... 0xffffa20fe923b080:SearchProtocol                5224   2144      6      0 2023-02-15 16:21:13 UTC+0000
+... 0xffffa20fe4f30080:SearchProtocol                4216   2144     19      0 2023-02-15 16:20:56 UTC+0000
+... 0xffffa20fe8a852c0:SearchProtocol                6036   2144      7      0 2023-02-15 16:21:15 UTC+0000
+.. 0xffffa20fe7136240:svchost.exe                    1128    668     19      0 2023-02-15 13:48:18 UTC+0000
+... 0xffffa20fe7b57280:dasHost.exe                   3196   1128      5      0 2023-02-15 13:48:25 UTC+0000
+... 0xffffa20fe81ae280:ctfmon.exe                    3496   1128     10      0 2023-02-15 13:50:54 UTC+0000
+.. 0xffffa20fe75aa340:spoolsv.exe                    2200    668     12      0 2023-02-15 13:48:20 UTC+0000
+.. 0xffffa20fe2b55080:NisSrv.exe                     3268    668     12      0 2023-02-15 13:48:35 UTC+0000
+.. 0xffffa20fe9221080:svchost.exe                    6768    668      8      0 2023-02-15 16:22:25 UTC+0000
+.. 0xffffa20fe47782c0:svchost.exe                     704    668     14      0 2023-02-15 13:48:18 UTC+0000
+.. 0xffffa20fe80a3080:svchost.exe                    1144    668      9      0 2023-02-15 13:50:54 UTC+0000
+.. 0xffffa20fe71162c0:svchost.exe                    1064    668      9      0 2023-02-15 13:48:18 UTC+0000
+.. 0xffffa20fe71c02c0:svchost.exe                    1248    668     23      0 2023-02-15 13:48:18 UTC+0000
+.. 0xffffa20fe8c52240:SecurityHealth                 5348    668      8      0 2023-02-15 13:51:17 UTC+0000
+.. 0xffffa20fe75ac240:svchost.exe                    2172    668      9      0 2023-02-15 13:48:20 UTC+0000
+.. 0xffffa20fe47752c0:svchost.exe                     748    668     16      0 2023-02-15 13:48:18 UTC+0000
+.. 0xffffa20fe7489080:svchost.exe                    1792    668      7      0 2023-02-15 13:48:20 UTC+0000
+.. 0xffffa20fe6736240:svchost.exe                     788    668     20      0 2023-02-15 13:48:17 UTC+0000
+... 0xffffa20fe2adc080:RuntimeBroker.                4196    788      2      0 2023-02-15 13:53:08 UTC+0000
+... 0xffffa20fe70c8080:StartMenuExper                4720    788      8      0 2023-02-15 13:51:01 UTC+0000
+... 0xffffa20fe7285080:backgroundTask                3716    788      7      0 2023-02-15 16:22:58 UTC+0000
+... 0xffffa20fe755a080:ShellExperienc                5280    788     11      0 2023-02-15 13:53:07 UTC+0000
+... 0xffffa20fe8da6300:RuntimeBroker.                1708    788      1      0 2023-02-15 13:51:51 UTC+0000
+... 0xffffa20fe8aaa300:RuntimeBroker.                4792    788      3      0 2023-02-15 13:51:02 UTC+0000
+... 0xffffa20fe80912c0:ApplicationFra                5332    788      4      0 2023-02-15 13:53:41 UTC+0000
+... 0xffffa20fe8ccb2c0:dllhost.exe                   4820    788      4      0 2023-02-15 13:54:23 UTC+0000
+... 0xffffa20fe9af2080:WmiPrvSE.exe                  3412    788     10      0 2023-02-15 16:22:30 UTC+0000
+... 0xffffa20fe79ca280:WmiPrvSE.exe                  2876    788     10      0 2023-02-15 13:48:22 UTC+0000
+... 0xffffa20fe8b4d080:SearchApp.exe                 4924    788     28      0 2023-02-15 13:51:03 UTC+0000
+... 0xffffa20fe7e4f080:PhoneExperienc                6008    788     13      0 2023-02-15 13:51:27 UTC+0000
+... 0xffffa20fe8c46080:smartscreen.ex                5272    788      5      0 2023-02-15 13:51:16 UTC+0000
+... 0xffffa20fe94020c0:TextInputHost.                1448    788     10      0 2023-02-15 13:53:22 UTC+0000
+... 0xffffa20fe8c47300:RuntimeBroker.                5180    788      3      0 2023-02-15 13:51:13 UTC+0000
+... 0xffffa20fe8b67300:RuntimeBroker.                5052    788      9      0 2023-02-15 13:51:04 UTC+0000
+... 0xffffa20fe7d980c0:WmiPrvSE.exe                  3528    788      7      0 2023-02-15 13:48:42 UTC+0000
+... 0xffffa20fe8c312c0:dllhost.exe                    988    788      7      0 2023-02-15 13:53:24 UTC+0000
+.. 0xffffa20fe7df6340:SgrmBroker.exe                 1304    668      7      0 2023-02-15 13:50:24 UTC+0000
+.. 0xffffa20fe755b2c0:svchost.exe                    2608    668      7      0 2023-02-15 13:50:25 UTC+0000
+.. 0xffffa20fe7e522c0:svchost.exe                    3900    668     11      0 2023-02-15 13:48:55 UTC+0000
+.. 0xffffa20fe7bd1280:msdtc.exe                      3404    668     11      0 2023-02-15 13:48:26 UTC+0000
+.. 0xffffa20fe76362c0:svchost.exe                    2384    668     15      0 2023-02-15 13:48:21 UTC+0000
+.. 0xffffa20fe8888300:svchost.exe                    4452    668      6      0 2023-02-15 13:50:58 UTC+0000
+.. 0xffffa20fe73c72c0:svchost.exe                    1920    668     11      0 2023-02-15 13:48:19 UTC+0000
+.. 0xffffa20fe679b2c0:svchost.exe                     912    668     13      0 2023-02-15 13:48:17 UTC+0000
+.. 0xffffa20fe74882c0:svchost.exe                     436    668      6      0 2023-02-15 13:48:20 UTC+0000
+.. 0xffffa20fe7735280:dllhost.exe                    3000    668     12      0 2023-02-15 13:48:23 UTC+0000
+.. 0xffffa20fe477e2c0:svchost.exe                    1012    668     30      0 2023-02-15 13:48:18 UTC+0000
+.. 0xffffa20fe769b080:vm3dservice.ex                 2500    668      2      0 2023-02-15 13:48:21 UTC+0000
+... 0xffffa20fe78a5200:vm3dservice.ex                2680   2500      2      0 2023-02-15 13:48:21 UTC+0000
+.. 0xffffa20fe7267080:svchost.exe                    1496    668     13      0 2023-02-15 13:48:18 UTC+0000
+.. 0xffffa20fe769d300:vmtoolsd.exe                   2536    668     13      0 2023-02-15 13:48:21 UTC+0000
+.. 0xffffa20fe743d2c0:svchost.exe                    2036    668     11      0 2023-02-15 13:48:20 UTC+0000
+... 0xffffa20fe9346080:audiodg.exe                   4864   2036      8      0 2023-02-15 16:22:20 UTC+0000
+. 0xffffa20fe66c2080:lsass.exe                        692    528      9      0 2023-02-15 13:48:17 UTC+0000
+. 0xffffa20fe673a180:fontdrvhost.ex                   812    528      5      0 2023-02-15 13:48:17 UTC+0000
+ 0xffffa20fe4ff0140:csrss.exe                         444    420     10      0 2023-02-15 13:48:16 UTC+0000
+ 0xffffa20fe2a7e080:System                              4      0    150      0 2023-02-15 13:48:14 UTC+0000
+. 0xffffa20fe2abc080:Registry                          92      4      4      0 2023-02-15 13:48:07 UTC+0000
+. 0xffffa20fe2b5a040:MemCompression                  1800      4     26      0 2023-02-15 13:48:19 UTC+0000
+. 0xffffa20fe4ad1040:smss.exe                         328      4      2      0 2023-02-15 13:48:14 UTC+0000
+ 0xffffa20fe6659080:csrss.exe                         548    520     12      0 2023-02-15 13:48:16 UTC+0000
+ 0xffffa20fe669f080:winlogon.exe                      620    520      5      0 2023-02-15 13:48:16 UTC+0000
+. 0xffffa20fe8230340:userinit.exe                    1072    620      0 ------ 2023-02-15 13:50:55 UTC+0000
+.. 0xffffa20fe8235340:explorer.exe                   2324   1072     79      0 2023-02-15 13:50:55 UTC+0000
+... 0xffffa20fe92570c0:WINWORD.EXE                   2064   2324     14      0 2023-02-15 13:52:40 UTC+0000
+.... 0xffffa20fe85472c0:Thunder.exe                  4296   2064      9      0 2023-02-15 16:21:14 UTC+0000
+..... 0xffffa20fea057240:@WanaDecryptor              4240   4296      6      0 2023-02-15 16:22:16 UTC+0000
+..... 0xffffa20fe8d5b300:@WanaDecryptor              3780   4296      2      0 2023-02-15 16:22:03 UTC+0000
+...... 0xffffa20fe9216080:taskhsvc.exe               6916   3780      9      0 2023-02-15 16:22:09 UTC+0000
+....... 0xffffa20fe9225080:conhost.exe               5904   6916      4      0 2023-02-15 16:22:09 UTC+0000
+... 0xffffa20fe8d7d080:OUTLOOK.EXE                   5796   2324     25      0 2023-02-15 16:20:45 UTC+0000
+... 0xffffa20fe91ae080:vmtoolsd.exe                  5424   2324     10      0 2023-02-15 13:51:17 UTC+0000
+... 0xffffa20fe8c4a240:SecurityHealth                5316   2324      1      0 2023-02-15 13:51:16 UTC+0000
+. 0xffffa20fe673b080:fontdrvhost.ex                   820    620      5      0 2023-02-15 13:48:17 UTC+0000
+. 0xffffa20fe70d10c0:dwm.exe                         1016    620     15      0 2023-02-15 13:48:18 UTC+0000
+ 0xffffa20fe8d89340:OneDrive.exe                     3852   5860     24      0 2023-02-15 13:52:17 UTC+0000
+ 0xffffa20fe92ce080:MpCmdRun.exe                     5920   3756      7      0 2023-02-15 16:21:20 UTC+0000
+```
 
-
+Thunder.exe zaten şüpheliydi, 2 adet @WanaDecryptor adlı WannaCry Decryptor process'imiz var. Kendisi fidye istemesi ile meşhurdur.
+2. sorunun cevabı: 3780,4240,4296
 ## Flag
-
+0xL4ugh{192.168.30.50:8585_3780_4240_4296}
 
