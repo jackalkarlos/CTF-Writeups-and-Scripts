@@ -51,6 +51,7 @@ Kalan favicon dosyasını incelemeden önce sonraki stream'i inceliyoruz. İçin
 .secret adlı dosyayı tersten okuyor, base64 ile şifreliyor, daha sonrasında base64ü tersine çeviriyor. wtf dude?
 
 favicon(2) dosyamıza bakıyoruz. Ters bir base64 kodu buluyoruz.
+
 ![image](https://user-images.githubusercontent.com/88983987/219964673-6555e6bf-232d-4d84-8d80-d64da2977c15.png)
 
 Tersine çeviriyoruz.
