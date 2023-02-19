@@ -19,7 +19,7 @@ Author: xElessaway
 
 Bu seride imajı inceleyebilmemiz için bir volatility profili inşaa etmemiz gerekicek. Hem ilk soruyu cevaplayabilmek için, hem bu profili inşaa edebilmek için çalıştırmamız gereken bir komut var.
 
-NOT: 4. soruya kadar hepsini sadece strings ve grep ile çözebilirsiniz fakat bu durumda 5. soruyu çözemeyeceksiniz, ayrıca bu beklenmeyen bir çözüm türüdür. CTF üzerindeyseniz strings ile çözebildiğinizi çözüp 5. soruya öyle başlayın, zaman bazında size puan kazandıracaktır.
+NOT: 4. soruya kadar hepsini sadece strings ve grep ile çözebilirsiniz fakat bu durumda 5. soruyu çözemeyeceksiniz, ayrıca bu beklenmeyen bir çözüm türüdür. CTF üzerindeyseniz strings ile çözebildiğinizi çözüp 5. soruya öyle başlayın, zaman bazında size puan kazandıracaktır. İlk önce nasıl bir profil inşaa edebileceğinizi anlatacağım, sonrasında soruları çözmeye başlayacağım. Örneğin ikinci soru normalde bash history ile alınıyor, ama grep "apache" ile de çekilebiliyor.
 ```
 
 └─# strings PVE.vmem | grep -i --text "Linux " | head
