@@ -185,3 +185,37 @@ Export edip sha256 değerini alıyoruz.
 ## Flag
 0xL4ugh{hr@mm0x.lab_12913f9984b8b5a940ef114579b831c0f361feb5f5618ccea11f5cb166a08c47}
 
+# Wanna 3 [329 pts]
+
+**Category:** Forensics
+**Solves:** 15
+
+## Description
+>Q5: What is the IP and the port that the attacker used to deliver the malware?
+Q6: What is the pid of the 3 malicious process (Numerical order) ?
+
+Files: Same as Wanna 1
+
+Flag Format: 0xL4ugh{IP:Port_pid1_pid2_pid3}
+
+Author:MMOX
+
+## Solution
+
+İlk soru için dropper olan doc dosyamızı online malware analiz araçlarına sokmamız yetiyor.
+
+Dosyayı VirusTotal'e yükledim, Comments kısmında otomatik olarak tarayan malware analiz araçlarının yorumları ile karşılaştım. Inquest Labs sitesinin oluşturduğu linke girdim ve aşağı indim.
+
+https://labs.inquest.net/dfi/hash/12913f9984b8b5a940ef114579b831c0f361feb5f5618ccea11f5cb166a08c47
+
+![image](https://user-images.githubusercontent.com/88983987/219973033-eee19a37-7015-4243-bbce-44aa4591aced.png)
+
+Ayrıca Thunder.exe process'inin suspect olduğunu aklımızda tutuyoruz.
+
+İlk sorunun cevabı: 192.168.30.50:8585
+
+
+
+## Flag
+
+
