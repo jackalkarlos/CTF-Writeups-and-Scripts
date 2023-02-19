@@ -179,8 +179,6 @@ Files: Same As PVE 1
 
 Author: xElessaway
 
-#### Hint 
-
 ## Solution
 Beklenen Çözüm:
 Processlere aşağıdaki komut ile bakıyoruz.
@@ -243,6 +241,57 @@ echo "0xL4ugh{S4D_Y0U_G07_M3}" > flag.txt
  ```                                            
 ## Flag
 0xL4ugh{H1DD3N_1N_PR0CE$$}
+
+# PVE 4 [100 pts]
+
+**Category:** Forensics
+**Solves:** 58
+
+## Description
+>Q4: There is something hidden in somewhere but can you find where ?
+
+
+Files: Same as PVE 1
+
+Author: xElessaway
+
+## Solution
+Bir şeyler suspect, görebiliyorum.. Bash history okumaya dönüyoruz.
+Beklenen Çözüm:
+```
+┌──(kali㉿kali)-[~/Scripts/volatility]
+└─$ python2 vol.py -f /home/kali/Desktop/PVE.vmem  --profile=LinuxUbuntu_4_4_0-186-generic_profilex64 linux_bash | head -n 20
+Volatility Foundation Volatility Framework 2.6.1
+Pid      Name                 Command Time                   Command
+-------- -------------------- ------------------------------ -------
+    1034 bash                 2023-02-15 16:33:22 UTC+0000   pwd
+    1034 bash                 2023-02-15 16:33:22 UTC+0000   cat flag.txt
+    1034 bash                 2023-02-15 16:33:22 UTC+0000   ls
+    1034 bash                 2023-02-15 16:33:22 UTC+0000   apache2 --version
+    1034 bash                 2023-02-15 16:33:22 UTC+0000   sudo apt-get install apache2
+    1034 bash                 2023-02-15 16:33:22 UTC+0000   clear
+    1034 bash                 2023-02-15 16:33:22 UTC+0000   ls
+    1034 bash                 2023-02-15 16:33:22 UTC+0000   are you ready ?
+    1034 bash                 2023-02-15 16:33:22 UTC+0000   su
+    1034 bash                 2023-02-15 16:33:22 UTC+0000   echo "0xL4ugh{S4D_Y0U_G07_M3}" > flag.txt
+    1034 bash                 2023-02-15 16:33:22 UTC+0000   apache2 -version
+    1034 bash                 2023-02-15 16:33:22 UTC+0000   sudo apt install apache=2.4.51-1+ubuntu20.04.1+deb.sury.org+1
+    1034 bash                 2023-02-15 16:33:22 UTC+0000   sudo apt-get install apache2=2.2.14-5ubuntu16.04.7
+    1034 bash                 2023-02-15 16:33:22 UTC+0000   clear
+    1034 bash                 2023-02-15 16:33:22 UTC+0000   sudo apt-get install apache
+    1034 bash                 2023-02-15 16:33:22 UTC+0000   sudo su
+    1034 bash                 2023-02-15 16:33:22 UTC+0000   ls
+    1034 bash                 2023-02-15 16:33:22 UTC+0000   sudo apt install apache=2.4.51-1+ubuntu16.04.7+deb.sury.org+1
+```
+Beklenmeyen Çözüm:
+```
+┌──(kali㉿kali)-[~/Scripts/volatility]
+└─$ strings /home/kali/Desktop/PVE.vmem | grep --text "0xL4ugh" | head                                             
+[23dsudo echo "0xL4ugh{S4D_Y0U_G07_M3}" > flag.txt
+```
+## Flag
+0xL4ugh{S4D_Y0U_G07_M3}
+
 
 
 
