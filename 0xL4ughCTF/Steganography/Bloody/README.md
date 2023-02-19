@@ -15,7 +15,9 @@ Author: xElessaway
 
 Açıklamadaki linkte RickRoll'landıktan sonra zip'ten çıkarıp ilgili görseli alıyoruz. "just line ? but it contain a lot of infoooooooos" açıklaması biraz düşündürüyor.
 
-Daha sonrasında daha önceki CTF'lerimden tecrübe ile metinler ile fotoğraf oluşturulabildiği geliyor aklıma. Her bir kare yada piksel bir harfi anlam ifade ediyor aslında. Biraz anlatmakta zorlandım ama birazdan daha iyi anlayacaksınız. Normalde bu veriyi çıkartma işlemini script ile yapmak daha verimli sonuç verir. Lakin CTF sırasında online tool'lar varken script yazmakla vakit kaybetmek bana pek mantıklı gelmiyor. Zaten kısıtlı bir süre için yarışıyoruz. 
+Daha sonrasında daha önceki CTF'lerimden tecrübe ile metinler ile fotoğraf oluşturulabildiği geliyor aklıma. Her bir kare yada piksel bir harfi anlam ifade ediyor aslında. Biraz anlatmakta zorlandım ama birazdan daha iyi anlayacaksınız. 
+
+Normalde bu veriyi çıkartma işlemini script ile yapmak daha verimli sonuç verir. Lakin CTF sırasında online tool'lar varken script yazmakla vakit kaybetmek bana pek mantıklı gelmiyor. Zaten kısıtlı bir süre için yarışıyoruz. 
 
 https://stegonline.georgeom.net/upload
 
