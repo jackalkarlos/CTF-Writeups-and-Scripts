@@ -250,13 +250,13 @@ echo "0xL4ugh{S4D_Y0U_G07_M3}" > flag.txt
 ## Description
 >Q4: There is something hidden in somewhere but can you find where ?
 
-
 Files: Same as PVE 1
 
 Author: xElessaway
 
 ## Solution
 Bir şeyler suspect, görebiliyorum.. Bash history okumaya dönüyoruz.
+
 Beklenen Çözüm:
 ```
 ┌──(kali㉿kali)-[~/Scripts/volatility]
