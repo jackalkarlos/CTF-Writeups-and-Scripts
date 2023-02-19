@@ -167,6 +167,83 @@ strings /home/kali/Desktop/PVE.vmem | grep --text "apache" | head
 ## Flag
 0xL4ugh{2.2.14}
 
+# PVE 3 [150 pts]
+
+**Category:** Forensics
+**Solves:** 55
+
+## Description
+>Q3: We think that there was a suspicious process can you look what is it and reterive the flag ?
+
+Files: Same As PVE 1
+
+Author: xElessaway
+
+#### Hint 
+
+## Solution
+Beklenen Çözüm:
+Processlere aşağıdaki komut ile bakıyoruz.
+```
+python2 vol.py -f /home/kali/Desktop/PVE.vmem  --profile=LinuxUbuntu_4_4_0-186-generic_profilex64 linux_psaux 
+```
+5808 process no'lu DontRunMeImVirus dosyası dikkatimizi çekiyor.
+
+![image](https://user-images.githubusercontent.com/88983987/219968693-31631658-8d22-441c-85bb-1d5151a45a4c.png)
+
+Dosyayı almak için linux_find_file kullanacağız. Fakat bunun için dosyanın konumunu bilmemiz gerekiyor. Bize yardımcı olacak bir şey sunup sunmadığına bakmak için linux_bash komutunu çalıştırıyoruz.
+```
+python2 vol.py -f /home/kali/Desktop/PVE.vmem  --profile=LinuxUbuntu_4_4_0-186-generic_profilex64 linux_bash
+```
+
+![image](https://user-images.githubusercontent.com/88983987/219968780-49e5da89-ec0b-4628-8473-79e8d28a5303.png)
+
+Bingo! Dosyanın C kodunun nerede olduğunu biliyoruz. Yapmamız gereken tek şey onu extract edip okumak. 
+
+İlk önce linux_find_file ile offset'ini çıkarıyoruz.
+```
+└─$ python2 vol.py -f /home/kali/Desktop/PVE.vmem  --profile=LinuxUbuntu_4_4_0-186-generic_profilex64 linux_find_file -F /mnt/f/dontopenmenimvirus.c
+Volatility Foundation Volatility Framework 2.6.1
+Inode Number                  Inode File Path
+---------------- ------------------ ---------
+            2103 0xffff880017c68600 /mnt/f/dontopenmenimvirus.c
+```
+Sonrasında yine linux_find_file ile extract ediyoruz.
+```
+└─$ python2 vol.py -f /home/kali/Desktop/PVE.vmem  --profile=LinuxUbuntu_4_4_0-186-generic_profilex64 linux_find_file -i 0xffff880017c68600 -O virus.c
+Volatility Foundation Volatility Framework 2.6.1
+```
+Ve dosyayı cat ile okuyoruz.
+```
+└─$ cat virus.c                      
+#include<stdio.h>
+#include <unistd.h>
+
+
+
+int main(void){
+    char flag[] = "0xL4ugh{H1DD3N_1N_PR0CE$$}";
+        sleep(696969);
+        return 0;
+}             
+```
+Beklenmeyen çözüm:
+```
+┌──(kali㉿kali)-[~/Scripts/volatility]
+└─$ strings /home/kali/Desktop/PVE.vmem | grep --text "0xL4ugh" | head
+[23dsudo echo "0xL4ugh{S4D_Y0U_G07_M3}" > flag.txt
+    char flag[] = "0xL4ugh{H1DD3N_1N_PR0CE$$}";
+0xL4ugh{H
+0xL4ugh{H1DD3N_1N_PR0CE$$}
+sudo echo "0xL4ugh{S4D_Y0U_G07_M3}" > flag.txt
+echo "0xL4ugh{S4D_Y0U_G07_M3}" > flag.txt
+0xL4ugh{H
+    char flag[] = "0xL4ugh{H1DD3N_1N_PR0CE$$}";
+    char flag[] = "0xL4ugh{H1DD3N_1N_PR0CE$$}";
+0xL4ugh{H
+ ```                                            
+## Flag
+0xL4ugh{H1DD3N_1N_PR0CE$$}
 
 
 
