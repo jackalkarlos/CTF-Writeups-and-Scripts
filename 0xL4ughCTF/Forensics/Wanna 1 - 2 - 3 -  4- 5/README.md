@@ -173,6 +173,8 @@ Owner: Process OUTLOOK.EXE Pid 5796
 
 Atamer kullanıcısının masaüstü dizinine gittiğimizde dropper olan "doc" dosyası ve ransomware notu ile karşılaşıyoruz.
 
+![image](https://user-images.githubusercontent.com/88983987/219972863-6507a7b9-3844-4aa8-b5ec-1bb7297218dc.png)
+
 Export edip sha256 değerini alıyoruz.
 ```
 ┌──(root㉿kali)-[/home/kali/Scripts/volatility]
