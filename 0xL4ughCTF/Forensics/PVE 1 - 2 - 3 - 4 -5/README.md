@@ -40,6 +40,8 @@ Linux version 4.4.0-186-generic (buildd@lcy01-amd64-002) (gcc version 5.4.0 2016
 
 ## Profil İnşaası
 
+Not: Daha kısa yol için, diğer MD dosyasını inceleyebilirsiniz. Mantığı kavratmak amacıyla bunu paylaşıyorum.
+
 Sistemimizin "Ubuntu 16.04.7 LTS" üzerinde çalıştığını öğrenmiştik. Bir sanal makine oluşturup içine bu sürümü kuracağız.
 
 https://releases.ubuntu.com/16.04/ubuntu-16.04.7-desktop-amd64.iso
