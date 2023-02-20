@@ -138,6 +138,7 @@ Offset(P)          Name                PID   PPID PDB                Time create
 0x0000a20fea04a080 AM_Delta_Patch     6216   5924 0x00000000180ce002 2023-02-15 16:22:36 UTC+0000  
 ```
 5796 PID'sinde OUTLOOK uygulamasını buluyoruz. Maillerde genellikle bulunan "From:" kalıbını 5796 PID'si içerisinde aratıyoruz.
+
 ```
 ┌──(root㉿kali)-[/home/kali/Scripts/volatility]
 └─# python2 vol.py -f /home/kali/Desktop/WANNA/Wanna-MEM.vmem --profile=Win10x64_19041 yarascan --pid=5796 -Y "From:"
@@ -182,6 +183,11 @@ Export edip sha256 değerini alıyoruz.
 12913f9984b8b5a940ef114579b831c0f361feb5f5618ccea11f5cb166a08c47  /home/kali/Desktop/RegistrationFormTemp.doc
 ```
 
+Diğer bir yöntem olarak FTK ile 
+```
+AppData\Local\Microsoft\Outlook\atamer@mmox.lab.ost
+```
+konumundaki dosya export edilip, bir OST Parser ile incelenebilir.
 ## Flag
 0xL4ugh{hr@mm0x.lab_12913f9984b8b5a940ef114579b831c0f361feb5f5618ccea11f5cb166a08c47}
 
