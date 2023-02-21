@@ -319,7 +319,25 @@ Operating System: Win7SP1x64
 
 Bu çözümün daha kesin sonuç vereceğini söyleyebilirim. 
 
-İşletim sistemizin türünü registry kayıtlarından okuyacağız.FTK Imager ile ```C:/Windows/System32/config/SOFTWARE``` dosyasını export etmemiz gerekiyor.
+İşletim sistemizin türünü registry kayıtlarından okuyacağız. Bu işlem için, FTK Imager ile ```C:/Windows/System32/config/SOFTWARE``` dosyasını export etmemiz gerekiyor.
 
 ![image](https://user-images.githubusercontent.com/88983987/220223200-df8510ab-c07a-487c-8eb2-26e88bd97a08.png)
+
+Ardından Registry Explorer (https://www.sans.org/tools/registry-explorer/) yardımı ile dosyamızı açıyoruz.
+
+![image](https://user-images.githubusercontent.com/88983987/220223367-c4395651-ebb8-4854-904e-921bcea18a5f.png)
+
+Ardından aşağıdaki yolu takip ediyoruz.
+
+```CMI-CreateHive{199DAFC2-6F16-4946-BF90-5A3FC3A60902}\Microsoft\Windows NT\CurrentVersion```
+
+Bu key bizim işletim sistemimize dair bilgilerimizi tutar.
+
+![image](https://user-images.githubusercontent.com/88983987/220223582-112856d7-f01b-4a7e-ab56-c113e7e75e75.png)
+
+İşletim sistemimizin build numarasının "7601" olduğunu ve işletim sistemi türümüzün "Windows 7 Professional" olduğunu, ayrıca 64 bit mimariye sahip (BuildLabEx-amd64) olduğunu görüyoruz.
+
+Operating System: Windows 7 Professional SP1 7601 64 Bit
+
+
 
