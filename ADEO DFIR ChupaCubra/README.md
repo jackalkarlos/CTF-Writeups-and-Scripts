@@ -67,5 +67,179 @@ http.host==ofbahar.com
 
 "192.168.43.26" IP adresinin, GET methodu ile "ofbahar.com" üzerindeki zararlıları indirdiği gözüküyor. Kurban makinemizin IP adresi "192.168.43.26".
 
-2. Çözüm:
+2. Çözüm (Kesin Sonuç Değil):
+
+Cihazda DHCP aktifleştirildiğini varsayarak, DHCP trafiğini inceleyebiliriz. Aksi takdirde bu yöntem başarısız olacaktır. Eğer statik ise ve network'e bağlandıktan sonra dump alındıysa, registry içerisinde IP adresimizi bulabiliriz. Fakat bu imaj için buna ihtiyaç yok.
+
+"chupacabra_CTF_2022.E01" imajını FTK Imager yardımı ile mount ederek açıyoruz.
+
+![image](https://user-images.githubusercontent.com/88983987/220218100-bd7ffbef-2483-4771-bbea-d3400897a5bb.png)
+
+![image](https://user-images.githubusercontent.com/88983987/220218188-661f07c0-b6fa-45f1-8f34-ccd4c79b32f0.png)
+
+![image](https://user-images.githubusercontent.com/88983987/220218512-7f919436-552f-44cc-a055-3c390eabb9b2.png)
+
+```%SystemRoot%\System32\Winevt\Logs\``` adresine gidip, ```Microsoft-Windows-Dhcp-Client%4Admin.evtx``` dosyasını extract ediyoruz.
+
+![image](https://user-images.githubusercontent.com/88983987/220218055-137d3f4d-e773-44a9-9af7-aa6a4ab04f96.png)
+
+Windows makinelerde çift tıklayarak inceleme yapabiliriz. 
+
+Linux için: https://github.com/omerbenamram/evtx
+
+![image](https://user-images.githubusercontent.com/88983987/220221546-d8f8fe63-6969-4e5b-b77c-8a00a980609f.png)
+
+En üstteki mesaj iletisinde, 0x0800279F7BD1 (08:00:27:9F:7B:D1) MAC adresli cihazın, 192.168.43.26 IP adresini DHCP sunucusundan istediği fakat Nreddedildiği gözüküyor. DHCPNACK iletisinin bir çok sebebi olabilir. Bu durumdan dolayı bu çözüm kesin değildir. Fakat MAC adresini elde etmiş olduk.
+
+IP Address: 192.168.43.26
+MAC Address: 08:00:27:9F:7B:D1
+
+3. Çözüm: 
+
+Bizle paylaşılan RAM imajındaki network iletişimlerini tarayarak IP adresine erişebiliriz. Bunun için "volatility" aracını kullanacağız.
+
+İlk olarak imajımızın ne tür imaj olduğunu saptamamız gerekiyor. Bunun için "imageinfo" seçeneğini kullanacağız.
+```
+E:\ChupaCubra\Chupacabra\OnlineCTF-2022>volatility_2.6_win64_standalone.exe -f chupacabra_CTF_2022.raw imageinfo
+Volatility Foundation Volatility Framework 2.6
+INFO    : volatility.debug    : Determining profile based on KDBG search...
+          Suggested Profile(s) : Win7SP1x64, Win7SP0x64, Win2008R2SP0x64, Win2008R2SP1x64_23418, Win2008R2SP1x64, Win7SP1x64_23418
+                     AS Layer1 : WindowsAMD64PagedMemory (Kernel AS)
+                     AS Layer2 : FileAddressSpace (E:\ChupaCubra\Chupacabra\OnlineCTF-2022\chupacabra_CTF_2022.raw)
+                      PAE type : No PAE
+                           DTB : 0x187000L
+                          KDBG : 0xf800027f20a0L
+          Number of Processors : 1
+     Image Type (Service Pack) : 1
+                KPCR for CPU 0 : 0xfffff800027f3d00L
+             KUSER_SHARED_DATA : 0xfffff78000000000L
+           Image date and time : 2022-03-23 15:56:26 UTC+0000
+     Image local date and time : 2022-03-23 08:56:26 -0700
+```
+
+Önerilen ilk profil türü "Win7SP1x64". Bu profili kullanarak UDP ve TCP iletişimlerini listeleyen "netscan" seçeneğini kullanacağız.
+
+```
+E:\ChupaCubra\Chupacabra\OnlineCTF-2022>volatility_2.6_win64_standalone.exe -f chupacabra_CTF_2022.raw --profile=Win7SP1x64 netscan
+Volatility Foundation Volatility Framework 2.6
+Offset(P)          Proto    Local Address                  Foreign Address      State            Pid      Owner          Created
+0x7dc01900         UDPv4    10.0.2.15:137                  *:*                                   4        System         2022-03-23 13:28:12 UTC+0000
+0x7dc01b80         UDPv4    10.0.2.15:138                  *:*                                   4        System         2022-03-23 13:28:12 UTC+0000
+0x7dc02370         UDPv4    0.0.0.0:3702                   *:*                                   956      svchost.exe    2022-03-23 15:34:52 UTC+0000
+0x7dc3b940         UDPv4    192.168.43.26:137              *:*                                   4        System         2022-03-23 15:34:45 UTC+0000
+0x7dc44550         UDPv6    ::1:1900                       *:*                                   1292     svchost.exe    2022-03-23 15:34:45 UTC+0000
+0x7dc57960         UDPv4    0.0.0.0:53868                  *:*                                   4032     chrome.exe     2022-03-23 15:53:36 UTC+0000
+0x7dc57960         UDPv6    :::53868                       *:*                                   4032     chrome.exe     2022-03-23 15:53:36 UTC+0000
+0x7dc70d70         UDPv4    0.0.0.0:3702                   *:*                                   1292     svchost.exe    2022-03-23 15:34:50 UTC+0000
+0x7dc70d70         UDPv6    :::3702                        *:*                                   1292     svchost.exe    2022-03-23 15:34:50 UTC+0000
+0x7dcd6310         UDPv4    127.0.0.1:65117                *:*                                   1292     svchost.exe    2022-03-23 15:34:48 UTC+0000
+0x7dcd6ab0         UDPv4    0.0.0.0:3702                   *:*                                   1292     svchost.exe    2022-03-23 15:34:50 UTC+0000
+0x7dd1dcb0         UDPv4    0.0.0.0:0                      *:*                                   960      svchost.exe    2022-03-23 15:53:09 UTC+0000
+0x7dd1dcb0         UDPv6    :::0                           *:*                                   960      svchost.exe    2022-03-23 15:53:09 UTC+0000
+0x7dd2c010         UDPv4    0.0.0.0:3702                   *:*                                   956      svchost.exe    2022-03-23 15:34:52 UTC+0000
+0x7dd486c0         UDPv4    0.0.0.0:3540                   *:*                                   2300     svchost.exe    2022-03-23 13:28:45 UTC+0000
+0x7dd486c0         UDPv6    :::3540                        *:*                                   2300     svchost.exe    2022-03-23 13:28:45 UTC+0000
+0x7dd61ba0         UDPv4    0.0.0.0:5004                   *:*                                   2900     wmpnetwk.exe   2022-03-23 13:28:35 UTC+0000
+0x7dd61ba0         UDPv6    :::5004                        *:*                                   2900     wmpnetwk.exe   2022-03-23 13:28:35 UTC+0000
+0x7dd62880         UDPv4    0.0.0.0:5004                   *:*                                   2900     wmpnetwk.exe   2022-03-23 13:28:35 UTC+0000
+0x7dd63ec0         UDPv4    0.0.0.0:5005                   *:*                                   2900     wmpnetwk.exe   2022-03-23 13:28:35 UTC+0000
+0x7dd65ec0         UDPv4    0.0.0.0:5005                   *:*                                   2900     wmpnetwk.exe   2022-03-23 13:28:35 UTC+0000
+0x7dd65ec0         UDPv6    :::5005                        *:*                                   2900     wmpnetwk.exe   2022-03-23 13:28:35 UTC+0000
+0x7dd8ddc0         UDPv4    0.0.0.0:3702                   *:*                                   1292     svchost.exe    2022-03-23 15:34:50 UTC+0000
+0x7dd9b3e0         UDPv4    0.0.0.0:0                      *:*                                   2300     svchost.exe    2022-03-23 13:28:36 UTC+0000
+0x7dd9b3e0         UDPv6    :::0                           *:*                                   2300     svchost.exe    2022-03-23 13:28:36 UTC+0000
+0x7dda5d00         UDPv4    0.0.0.0:0                      *:*                                   2300     svchost.exe    2022-03-23 13:28:36 UTC+0000
+0x7dda5d00         UDPv6    :::0                           *:*                                   2300     svchost.exe    2022-03-23 13:28:36 UTC+0000
+0x7de719b0         UDPv4    0.0.0.0:53109                  *:*                                   1292     svchost.exe    2022-03-23 13:28:08 UTC+0000
+0x7de719b0         UDPv6    :::53109                       *:*                                   1292     svchost.exe    2022-03-23 13:28:08 UTC+0000
+0x7de72260         UDPv4    0.0.0.0:53108                  *:*                                   1292     svchost.exe    2022-03-23 13:28:08 UTC+0000
+0x7de7aec0         UDPv4    0.0.0.0:5353                   *:*                                   2356     chrome.exe     2022-03-23 15:36:30 UTC+0000
+0x7deb6c60         UDPv4    0.0.0.0:64821                  *:*                                   956      svchost.exe    2022-03-23 15:34:52 UTC+0000
+0x7dfdfc70         UDPv6    fe80::a9cb:981d:94dd:191e:65114 *:*                                   1292     svchost.exe    2022-03-23 15:34:48 UTC+0000
+0x7dffb660         UDPv4    0.0.0.0:5353                   *:*                                   4032     chrome.exe     2022-03-23 15:36:44 UTC+0000
+0x7dffb660         UDPv6    :::5353                        *:*                                   4032     chrome.exe     2022-03-23 15:36:44 UTC+0000
+0x7e131cb0         UDPv4    0.0.0.0:0                      *:*                                   2300     svchost.exe    2022-03-23 13:28:45 UTC+0000
+0x7e131cb0         UDPv6    :::0                           *:*                                   2300     svchost.exe    2022-03-23 13:28:45 UTC+0000
+0x7e1e82c0         UDPv4    0.0.0.0:0                      *:*                                   680      VBoxService.ex 2022-03-23 15:53:45 UTC+0000
+0x7e3bfec0         UDPv6    ::1:65115                      *:*                                   1292     svchost.exe    2022-03-23 15:34:48 UTC+0000
+0x7dac2370         TCPv4    0.0.0.0:49156                  0.0.0.0:0            LISTENING        508      lsass.exe
+0x7dac2370         TCPv6    :::49156                       :::0                 LISTENING        508      lsass.exe
+0x7dc01580         TCPv4    10.0.2.15:139                  0.0.0.0:0            LISTENING        4        System
+0x7dc5d410         TCPv4    0.0.0.0:49156                  0.0.0.0:0            LISTENING        508      lsass.exe
+0x7dd70960         TCPv4    0.0.0.0:10243                  0.0.0.0:0            LISTENING        4        System
+0x7dd70960         TCPv6    :::10243                       :::0                 LISTENING        4        System
+0x7dd72590         TCPv4    0.0.0.0:554                    0.0.0.0:0            LISTENING        2900     wmpnetwk.exe
+0x7dd74cf0         TCPv4    0.0.0.0:554                    0.0.0.0:0            LISTENING        2900     wmpnetwk.exe
+0x7dd74cf0         TCPv6    :::554                         :::0                 LISTENING        2900     wmpnetwk.exe
+0x7ddc29c0         TCPv4    0.0.0.0:2869                   0.0.0.0:0            LISTENING        4        System
+0x7ddc29c0         TCPv6    :::2869                        :::0                 LISTENING        4        System
+0x7df70670         TCPv4    0.0.0.0:445                    0.0.0.0:0            LISTENING        4        System
+0x7df70670         TCPv6    :::445                         :::0                 LISTENING        4        System
+0x7df855a0         TCPv4    0.0.0.0:49155                  0.0.0.0:0            LISTENING        492      services.exe
+0x7df870e0         TCPv4    0.0.0.0:49155                  0.0.0.0:0            LISTENING        492      services.exe
+0x7df870e0         TCPv6    :::49155                       :::0                 LISTENING        492      services.exe
+0x7dfb05f0         TCPv4    0.0.0.0:3587                   0.0.0.0:0            LISTENING        2300     svchost.exe
+0x7dfb05f0         TCPv6    :::3587                        :::0                 LISTENING        2300     svchost.exe
+0x7e0c7200         TCPv4    0.0.0.0:49154                  0.0.0.0:0            LISTENING        960      svchost.exe
+0x7e13f010         TCPv4    0.0.0.0:135                    0.0.0.0:0            LISTENING        756      svchost.exe
+0x7e13fc90         TCPv4    0.0.0.0:135                    0.0.0.0:0            LISTENING        756      svchost.exe
+0x7e13fc90         TCPv6    :::135                         :::0                 LISTENING        756      svchost.exe
+0x7e149cb0         TCPv4    0.0.0.0:49152                  0.0.0.0:0            LISTENING        388      wininit.exe
+0x7e149cb0         TCPv6    :::49152                       :::0                 LISTENING        388      wininit.exe
+0x7e14f6a0         TCPv4    0.0.0.0:49152                  0.0.0.0:0            LISTENING        388      wininit.exe
+0x7e1b8220         TCPv4    0.0.0.0:49153                  0.0.0.0:0            LISTENING        800      svchost.exe
+0x7e1b8220         TCPv6    :::49153                       :::0                 LISTENING        800      svchost.exe
+0x7e1b8be0         TCPv4    0.0.0.0:49153                  0.0.0.0:0            LISTENING        800      svchost.exe
+0x7dc26cf0         TCPv4    192.168.43.26:49531            68.183.67.198:27     ESTABLISHED      568      BodyMassIndex.
+0x7dcab850         TCPv6    -:0                            4810:8b01:80fa:ffff:4810:8b01:80fa:ffff:0 CLOSED           1072     svchost.exe
+0x7dd3b410         TCPv6    -:0                            388b:7d03:80fa:ffff:388b:7d03:80fa:ffff:0 CLOSED           2900     wmpnetwk.exe
+0x7ddcacf0         TCPv4    -:0                            56.139.125.3:0       CLOSED           4        System
+0x7df56cf0         TCPv4    192.168.43.26:49472            213.180.204.179:443  ESTABLISHED      4032     chrome.exe
+0x7e143820         TCPv6    -:0                            38cb:2903:80fa:ffff:38cb:2903:80fa:ffff:0 CLOSED           2        ►??☺????
+0x7e268330         TCPv4    -:0                            56.203.41.3:0        CLOSED           2        ►??☺????
+0x7e53bc20         UDPv4    192.168.43.26:56702            *:*                                   2356     chrome.exe     2022-03-23 15:56:23 UTC+0000
+0x7e79d300         UDPv4    0.0.0.0:3702                   *:*                                   956      svchost.exe    2022-03-23 15:34:52 UTC+0000
+0x7e79d300         UDPv6    :::3702                        *:*                                   956      svchost.exe    2022-03-23 15:34:52 UTC+0000
+0x7e7e14c0         UDPv4    0.0.0.0:64822                  *:*                                   956      svchost.exe    2022-03-23 15:34:52 UTC+0000
+0x7e7e14c0         UDPv6    :::64822                       *:*                                   956      svchost.exe    2022-03-23 15:34:52 UTC+0000
+0x7e5e8c60         TCPv4    0.0.0.0:5357                   0.0.0.0:0            LISTENING        4        System
+0x7e5e8c60         TCPv6    :::5357                        :::0                 LISTENING        4        System
+0x7e7d8010         TCPv4    0.0.0.0:49154                  0.0.0.0:0            LISTENING        960      svchost.exe
+0x7e7d8010         TCPv6    :::49154                       :::0                 LISTENING        960      svchost.exe
+0x7e5d04a0         TCPv6    -:0                            4810:8b01:80fa:ffff:4810:8b01:80fa:ffff:0 CLOSED           2        ►??☺????
+0x7ee8d280         UDPv4    0.0.0.0:3702                   *:*                                   1292     svchost.exe    2022-03-23 15:34:50 UTC+0000
+0x7ee8d280         UDPv6    :::3702                        *:*                                   1292     svchost.exe    2022-03-23 15:34:50 UTC+0000
+0x7eec0ad0         UDPv4    0.0.0.0:5353                   *:*                                   4032     chrome.exe     2022-03-23 15:36:44 UTC+0000
+0x7f264ec0         UDPv4    0.0.0.0:5355                   *:*                                   1072     svchost.exe    2022-03-23 15:34:48 UTC+0000
+0x7f264ec0         UDPv6    :::5355                        *:*                                   1072     svchost.exe    2022-03-23 15:34:48 UTC+0000
+0x7f2ae540         UDPv4    0.0.0.0:0                      *:*                                   1072     svchost.exe    2022-03-23 15:34:46 UTC+0000
+0x7f2ae540         UDPv6    :::0                           *:*                                   1072     svchost.exe    2022-03-23 15:34:46 UTC+0000
+0x7f3cf270         UDPv4    0.0.0.0:52415                  *:*                                   4032     chrome.exe     2022-03-23 15:56:12 UTC+0000
+0x7f3cf970         UDPv6    fe80::a9cb:981d:94dd:191e:1900 *:*                                   1292     svchost.exe    2022-03-23 15:34:45 UTC+0000
+0x7f70e590         UDPv6    fe80::a9cb:981d:94dd:191e:546  *:*                                   800      svchost.exe    2022-03-23 15:56:06 UTC+0000
+0x7eff48c0         TCPv6    ::1:2869                       ::1:49545            CLOSED           4        System
+0x7f552010         TCPv6    ::1:49545                      ::1:2869             CLOSED           2900     wmpnetwk.exe
+0x7f678af0         TCPv4    192.168.43.26:49547            52.109.88.177:443    CLOSED           3252     EXCEL.EXE
+0x7f6a04f0         TCPv4    192.168.43.26:49546            34.104.35.123:80     CLOSED           960      svchost.exe
+0x7f831b10         UDPv4    0.0.0.0:5353                   *:*                                   2356     chrome.exe     2022-03-23 15:36:30 UTC+0000
+0x7f831b10         UDPv6    :::5353                        *:*                                   2356     chrome.exe     2022-03-23 15:36:30 UTC+0000
+0x7f8adec0         UDPv4    192.168.43.26:1900             *:*                                   1292     svchost.exe    2022-03-23 15:34:45 UTC+0000
+0x7f9c0ec0         UDPv4    0.0.0.0:5355                   *:*                                   1072     svchost.exe    2022-03-23 15:34:48 UTC+0000
+0x7fa19cb0         UDPv4    0.0.0.0:65468                  *:*                                   0                       2022-03-23 13:59:34 UTC+0000
+0x7fb06920         UDPv4    0.0.0.0:3702                   *:*                                   956      svchost.exe    2022-03-23 15:34:52 UTC+0000
+0x7fb06920         UDPv6    :::3702                        *:*                                   956      svchost.exe    2022-03-23 15:34:52 UTC+0000
+0x7fc86ec0         UDPv4    192.168.43.26:138              *:*                                   4        System         2022-03-23 15:34:45 UTC+0000
+0x7fcf5010         UDPv4    127.0.0.1:1900                 *:*                                   1292     svchost.exe    2022-03-23 15:34:45 UTC+0000
+0x7fddea30         UDPv4    192.168.43.26:65116            *:*                                   1292     svchost.exe    2022-03-23 15:34:48 UTC+0000
+0x7fa04d30         TCPv4    192.168.43.26:139              0.0.0.0:0            LISTENING        4        System
+0x7f886010         TCPv4    -:49487                        -:443                CLOSED           4032     chrome.exe
+```
+
+Görüldüğü üzere Private IP olarak gözüken belirli bir IP adresi var. 
+
+IP Address: 192.168.43.26
+
+MAC Address:
+
+
 
