@@ -387,7 +387,7 @@ Port: 80
 
 2. Malware hangi adresler üzerinden iletişim kuruyor?
 
-İlk önce ".vbs" dosyası ile başlamak istiyorum. Dosyayı bir editör yardımı ile açtığımda içeriği aşağıdaki gibi karşılıyor beni.
+İlk önce "notamalware.vbs" dosyası ile başlamak istiyorum. Dosyayı bir editör yardımı ile açtığımda içeriği aşağıdaki gibi karşılıyor beni.
 ```
 Dim filesys, filetxt, getname, path
     Set filesys = CreateObject("Scripting.FileSystemObject")
@@ -402,13 +402,22 @@ Base64 ile bir kodlama yapıldığını görüyorum. CyberChef ile decode ediyor
 
 ![image](https://user-images.githubusercontent.com/88983987/220226850-10caec56-fbe2-423a-a34d-356ab95f564c.png)
 
-Bu dosya, çalıştırıldığında ```"C:\Users\RickMartinGrimes\AppData\Local\Temp\"``` konumunda, ```notabadpowershell.ps1``` adında bir dosya oluşturuyor. Ardından içerisine aşağıdaki metini yerleştiriyor ve dosyayı çalıştırıyor.
+Bu dosya, çalıştırıldığında ```"C:\Users\RickMartinGrimes\AppData\Local\Temp\"``` konumunda, ```notabadpowershell.ps1``` adında bir dosya oluşturuyor. Ardından içerisine base64 ile kodlanmış metini yerleştiriyor ve dosyayı çalıştırıyor. 
 ```
+Decoded:
 Start-Process C:\Users\RickMartinGrimes\AppData\Local\Temp\AccessToken.exe
 ```
 Bu bir dropper değil, sadece virüsün tetiklenmesini sağlıyor. 
 
-Sonrasında, "accesstoken.exe" uygulamasını incelemeye başlıyorum.
+Bu dosyanın çalıştırıp çalıştırılmadığını, Temp klasörü altında "notabadpowershell.ps1" adlı bir dosyanın olup olmamasından anlayabiliriz. FTK Imager ile hızlıca kontrol ediyoruz. Kontrol için ```C:\Users\RickMartinGrimes\AppData\Local\Temp\``` klasörüne gidiyoruz. 
+
+![image](https://user-images.githubusercontent.com/88983987/220228062-a86bad7a-8037-4aa6-b109-520cd70e5bf4.png)
+
+Bingo! Rick Martin, "notamalware.vbs" adlı bir dosyayı hiç sorgulamadan çalıştırmış.. Dostum, ne tarz birisi bunu yapar ki?
+
+Burda dikkat edilmesi gereken ikinci bir nokta şu: eğer "BodyMassIndex.exe" dosyası bir dropper değilse, "accestoken.exe" zararlısı "notamalware.vbs" tarafından da droplanmadığı için Rick Martin, "accesstoken.exe" dosyasını kendi isteğiyle indirmiş anlamına gelir.
+
+İşler karışmaya başlıyor, "accesstoken.exe" uygulamasını incelemeye başlıyorum.
 
 
 
