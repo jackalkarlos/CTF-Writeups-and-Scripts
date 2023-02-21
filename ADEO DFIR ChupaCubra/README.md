@@ -436,6 +436,15 @@ CreateToolhelp32Snapshot fonksiyonu ile geçici bir snapshot oluşturuluyor, ard
 
 ![image](https://user-images.githubusercontent.com/88983987/220234533-afeec50b-0cce-4c0b-8536-507700606226.png)
 
+Daha sonra, elde ettiği veriler ile "SeDebugPrivilege" yetkisini elde etmeye çalışarak, işlemin kendi yetkisini yükseltmeye çalışıyor.
+
+![image](https://user-images.githubusercontent.com/88983987/220235955-1fd03e19-0aff-41d1-b2ea-d2862a41ad6b.png)
+
+Tüm bu işlemlerin sonunda asıl zararlımız olan "BodyMassIndex.exe" dosyasını çalıştırıyor. İşlem daha yüksek yetkili bir işlem tarafından çağırıldığı için daha çok yetkiye sahip oluyor. 
+
+![image](https://user-images.githubusercontent.com/88983987/220236205-4c5a885b-0233-470f-8fda-d92fd24ee116.png)
+
+Sonuç olarak "accesstoken.exe" dosyası, privilege escalation (yetki yükseltme) için kullanılıyor, herhangi bir iletişim kurmuyor.
 
 
 
