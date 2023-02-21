@@ -415,5 +415,28 @@ Bu dosyanın çalıştırıp çalıştırılmadığını, Temp klasörü altınd
 
 Dosya çalıştırılmış. Not edip, devam ediyoruz.
 
+"accesstoken.exe" adlı dosyayı IDA üzerinde incelemeye alıyorum.
+
+![image](https://user-images.githubusercontent.com/88983987/220233402-ea8ed342-a567-4ffa-9e3d-46b7bc81ce32.png)
+
+Burda açıklanması gereken bir kaç nokta var. Program ilk çalıştığında atamalarını yaptıktan sonra, ```sub_4011C0``` alt programını çağırıyor. Bu alt program, kullanıcı adı verisini döndürüp ```eax```'ın bulunduğu memory alanına yazıyor. Ardından eax'ın bulunduğu memory alanındaki veriler okunup:
+```
+push eax
+push    offset Format   ; "Su anki kullanici: %s\n"
+```
+komutları ile biçimlendirilerek ekrana yazdırılıyor. Yani eğer bu programın çalıştığı bilgisayardaki kullanıcının adı User ise, çıktı şu şekilde olmalı:
+```
+ "Su anki kullanici: User"
+```
+Ardından kullanıcımızın privilege (yetki) değerini ölçen bir kod bloğu var.
+
+![image](https://user-images.githubusercontent.com/88983987/220234161-181f5521-4674-4333-ba27-aacf50ff1405.png)
+
+CreateToolhelp32Snapshot fonksiyonu ile geçici bir snapshot oluşturuluyor, ardından Process32FirstW fonksiyonu ile process listteki ilk işlemi seçiyor. Ardından bunları bir yapıya yerleştiriyor.
+
+![image](https://user-images.githubusercontent.com/88983987/220234533-afeec50b-0cce-4c0b-8536-507700606226.png)
+
+
+
 
 
