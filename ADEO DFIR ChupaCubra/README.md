@@ -612,5 +612,46 @@ Cevap:
 "accesstoken.exe"
 "BodyMassIndex.xlsm"
 ```
+# 7. Soru
 
+## Description
+> What is the hash value of the infected malware?
+
+## Solution
+
+```
+┌──(root㉿kali)-[/home/kali/Desktop/malwares]
+└─# md5sum *                   
+49c11ece1cd9412fa61b9b30302b7c51  accesstoken.exe
+556df0cc1d9ece696533a2009b5b24c9  BodyMassIndex.exe
+ac44b26b53fdf6eb20ab44b4b6e04792  Body Mass Index.xlsm
+d7ebc2ba7b2e2edfbc0ef020bf57303a  notamalware.vbs
+                                                                                                                                                                         
+┌──(root㉿kali)-[/home/kali/Desktop/malwares]
+└─# sha256sum *             
+a6926daf37d96d2e22a0421b926e1e84bcc94afbeccdafecd5efa3ab7ec1ccf8  accesstoken.exe
+5cdf3c561ac1f1ccd792056ea109d0a6dd378bb74598d18a452401ece64dc254  BodyMassIndex.exe
+8a3b884dc48b7002d28ba92b361172eef4e96463e682fd8bfd41bf4d399562fd  Body Mass Index.xlsm
+7ea23cc76cf864bb297f4b3a36498ed7dd4061e06f00ea2b206fc350e385a83d  notamalware.vbs
+```
+                                                                                           
+Cevap:
+```
+accesstoken.exe:
+MD5: 49c11ece1cd9412fa61b9b30302b7c51
+SHA256: a6926daf37d96d2e22a0421b926e1e84bcc94afbeccdafecd5efa3ab7ec1ccf8
+
+BodyMassIndex.exe:
+MD5: 556df0cc1d9ece696533a2009b5b24c9
+SHA256: 5cdf3c561ac1f1ccd792056ea109d0a6dd378bb74598d18a452401ece64dc254
+
+Body Mass Index.xlsm:
+MD5: ac44b26b53fdf6eb20ab44b4b6e04792
+SHA256: 8a3b884dc48b7002d28ba92b361172eef4e96463e682fd8bfd41bf4d399562fd
+
+notamalware.vbs:
+MD5: d7ebc2ba7b2e2edfbc0ef020bf57303a
+SHA256: 7ea23cc76cf864bb297f4b3a36498ed7dd4061e06f00ea2b206fc350e385a83d
+
+```
 
