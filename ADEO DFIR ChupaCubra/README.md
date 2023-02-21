@@ -268,7 +268,58 @@ En üstteki mesaj iletisinde, 0x0800279F7BD1 (08:00:27:9F:7B:D1) MAC adresli cih
 
 MAC Address: 08:00:27:9F:7B:D1
 
+Operating System:
+
+1. Çözüm:
+
+Volatility ile ram imajının türünü belirleyebiliriz. Bunun için "imageinfo" komutunu çalıştırmamız yetecektir.
 
 
+```
+E:\ChupaCubra\Chupacabra\OnlineCTF-2022>volatility_2.6_win64_standalone.exe -f chupacabra_CTF_2022.raw imageinfo
+Volatility Foundation Volatility Framework 2.6
+INFO    : volatility.debug    : Determining profile based on KDBG search...
+          Suggested Profile(s) : Win7SP1x64, Win7SP0x64, Win2008R2SP0x64, Win2008R2SP1x64_23418, Win2008R2SP1x64, Win7SP1x64_23418
+                     AS Layer1 : WindowsAMD64PagedMemory (Kernel AS)
+                     AS Layer2 : FileAddressSpace (E:\ChupaCubra\Chupacabra\OnlineCTF-2022\chupacabra_CTF_2022.raw)
+                      PAE type : No PAE
+                           DTB : 0x187000L
+                          KDBG : 0xf800027f20a0L
+          Number of Processors : 1
+     Image Type (Service Pack) : 1
+                KPCR for CPU 0 : 0xfffff800027f3d00L
+             KUSER_SHARED_DATA : 0xfffff78000000000L
+           Image date and time : 2022-03-23 15:56:26 UTC+0000
+     Image local date and time : 2022-03-23 08:56:26 -0700
+```
 
+İlk önerilen profil "Win7SP1x64". Emin olmak için bu profil türü ile rastgele bir komut çalıştırmayı deneyebilirsiniz. Örneğin:
+
+```
+E:\ChupaCubra\Chupacabra\OnlineCTF-2022>volatility_2.6_win64_standalone.exe -f chupacabra_CTF_2022.raw --profile=Win7SP1x64 pstree
+Volatility Foundation Volatility Framework 2.6
+Name                                                  Pid   PPid   Thds   Hnds Time
+-------------------------------------------------- ------ ------ ------ ------ ----
+ 0xfffffa8002acfb30:explorer.exe                     1680   1408     30   1061 2022-03-23 13:28:28 UTC+0000
+. 0xfffffa8002999b30:DumpIt.exe                      2788   1680      2     45 2022-03-23 15:56:24 UTC+0000
+. 0xfffffa8003699060:VBoxTray.exe                    1972   1680     14    146 2022-03-23 13:28:28 UTC+0000
+. 0xfffffa80020c06c0:chrome.exe                      2356   1680     30    912 2022-03-23 15:36:22 UTC+0000
+.. 0xfffffa8001a54060:chrome.exe                     1920   2356     11    187 2022-03-23 15:37:11 UTC+0000
+.. 0xfffffa8001c10600:EXCEL.EXE                      3252   2356     17    741 2022-03-23 15:37:26 UTC+0000
+... 0xfffffa8001e32520:splwow64.exe                  3536   3252      6     64 2022-03-23 15:37:33 UTC+0000
+.. 0xfffffa800252eb30:chrome.exe                     4032   2356     14    220 2022-03-23 15:36:22 UTC+0000
+.. 0xfffffa8001afc060:chrome.exe                     27...
+```
+
+Komut başarılı oldu, bu durumda seçtiğimiz profil doğru ve işletim sistemimiz Windows 7 SP1 X64.
+
+Operating System: Win7SP1x64
+
+2. Çözüm:
+
+Bu çözümün daha kesin sonuç vereceğini söyleyebilirim. 
+
+İşletim sistemizin türünü registry kayıtlarından okuyacağız.FTK Imager ile ```C:/Windows/System32/config/SOFTWARE``` dosyasını export etmemiz gerekiyor.
+
+![image](https://user-images.githubusercontent.com/88983987/220223200-df8510ab-c07a-487c-8eb2-26e88bd97a08.png)
 
