@@ -744,3 +744,20 @@ Name                                                  Pid   PPid   Thds   Hnds T
  ```
  
  Görüldüğü üzere, herhangi bir mail clienti çalışmıyor. Fakat "chrome.exe" çalışıyor. Bu durumda Chrome geçmişini FTK Imager yardımı ile alacağız.
+
+FTK Imager ile
+```C:\Users\RickMartinGrimes\AppData\Local\Google\Chrome\User Data\Default\History``` dosyasını export ediyoruz.
+
+![image](https://user-images.githubusercontent.com/88983987/220394492-46709165-5eb1-4d38-bad3-b3b01e160197.png)
+
+Export ettiğimiz dosyayı SQLite yardımı ile açıyoruz. Dosyanın uzantısı olmadığı için açarken "Tüm Dosyalar" seçeneği seçilmeli.
+
+![image](https://user-images.githubusercontent.com/88983987/220394694-1bb4748d-5abd-42cc-96c3-d4069495d1b0.png)
+
+Dosyayı açtıktan sonra, yukarıdaki menüden "Veriyi Görüntüle" sekmesine gelip, "urls" tablosunu açıyoruz.
+
+![image](https://user-images.githubusercontent.com/88983987/220395022-1301891a-f055-4b23-937c-8ad26c2ead51.png)
+
+Rick Martin, "HR" tarafından "Company-Wide Health Screening" başlıklı bir mail aldığını söylemişti. Mail'e Yandex Mail üzerinden ulaştığını belirliyoruz.
+
+Cevap: Yandex Mail
