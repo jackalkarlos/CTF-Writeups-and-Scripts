@@ -599,7 +599,7 @@ Dosyalar indiriliyor, sonrasında aşağıdaki satırda "notamalware.vbs" dosyas
 
 1- İlk önce Macro içeren Excel Dosyası Rick Martin tarafından çalıştırılıyor.<br>
 2- Daha sonrasında Macro tarafından 3 adet Malware indiriliyor.<br>
-3- Ardından "notamalware.vbs" dosyası çalıştırılıyor.<br>
+3- Macro ile "notamalware.vbs" dosyası çalıştırılıyor.<br>
 4- "notamalware.vbs" dosyası, ```"C:\Users\RickMartinGrimes\AppData\Local\Temp\"``` konumunda, ```notabadpowershell.ps1``` adında bir dosya oluşturuyor.<br>
 5- "notabadpowershell.ps1" dosyası ile, "AccessToken.exe" dosyası çalıştırılıyor.<br>
 6- "AccessToken.exe" dosyası privilege değerini yükseltiyor.<br>
