@@ -339,5 +339,27 @@ Bu key bizim işletim sistemimize dair bilgilerimizi tutar.
 
 Operating System: Windows 7 Professional SP1 7601 64 Bit
 
+Hostname:
+
+Bu bilgiyi edinmek için FTK Imager ile ```C:/Windows/System32/config/SYSTEM``` dosyasını export etmemiz gerekiyor.
+
+Ardından Registry Explorer (https://www.sans.org/tools/registry-explorer/) yardımı ile dosyamızı açıyoruz.
+
+Ardından aşağıdaki yolu takip ediyoruz.
+
+```CMI-CreateHive{2A7FB991-7BBE-4F9D-B91E-7CB51D4737F5}\ControlSet001\Control\ComputerName\ComputerName```
+
+![image](https://user-images.githubusercontent.com/88983987/220224176-69994098-d170-425b-b68e-906b7d6cbd0a.png)
+
+Hostname: RICKMARTIN
+
+3. Sorunun Cevabı: 
+```
+IP Address: 192.168.43.26
+MAC Address: 08:00:27:9F:7B:D1
+Operating System: Windows 7 Professional SP1 7601 64 Bit
+Hostname: RICKMARTIN
+```
+
 
 
