@@ -770,3 +770,18 @@ Cevap: ```Yandex Mail```
 
 ## Solution
 
+Kullanıcı hesabı oluşturma işlemleri "Security.evtx" adındaki event kayıtlarında tutulur. Hesap oluşturma işleminin kimlik numarası "4720". 
+
+FTK Imager ile ```C:\Windows\System32\winevt\Logs\Security.evtx``` dosyasını export ediyoruz.
+
+![image](https://user-images.githubusercontent.com/88983987/220397351-19a0a701-0f7b-4988-95b0-a80b30294a87.png)
+
+Windows makinemizde çift tıklayarak açıyoruz. Ardından 4720 işlemi için filtre uygulayacağız.
+
+![image](https://user-images.githubusercontent.com/88983987/220397620-e553ca9d-bd87-4af5-9f67-3cff419a2a2f.png)
+
+![image](https://user-images.githubusercontent.com/88983987/220397748-badeb8eb-38ad-414a-8683-e349cf99427b.png)
+
+23.03.2022 18:52:39 tarihinde MrRobot adında bir hesap oluşturulmuş.
+
+![image](https://user-images.githubusercontent.com/88983987/220398258-90d5aee2-9843-4c36-b3ef-d0c4e4c857e5.png)
