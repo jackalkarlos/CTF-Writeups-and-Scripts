@@ -55,6 +55,7 @@ IP Address:
 1. Çözüm: 
 
 Malware'in bir şekilde ağ trafiği içerisinde karşı trafiğe iletildiğini biliyoruz. Bu yüzden "Export HTTP Objects" seçeneği ile iletilen dosyaları inceliyoruz.
+
 ![image](https://user-images.githubusercontent.com/88983987/220216469-67b8b61d-fc19-415f-b5d9-706a7b9476e3.png)
 
 "ofbahar.com" tarafından iletilen "notamalware.vbs", "BodyMassIndex.exe" ve "accesstoken.exe" dosyaları şüphelidir. ofbahar.com domaininden alınan verileri çıkartmak için filtreleme yapıyoruz.
