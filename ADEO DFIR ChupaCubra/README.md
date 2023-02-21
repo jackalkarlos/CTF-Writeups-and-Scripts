@@ -471,11 +471,13 @@ Bu soruda gidilebilecek birkaç yol var. En basit olanı WireShark üzerinde HTT
 
 Fakat eğer bu bilgiye sahip olmasaydık, nasıl yapabilirdik?
 
-Reverse IP Lookup Araçları kullanabilirdik. Offline olarak kullanılabilecek Linux araçları line olarak kullanılabilecek sorgulama araçları var. Fakat online araçlara veri sunmanın ne kadar doğru olduğuna emin değilim. Gerçek bir veri sızıntısı durumunda gizliliği korumak önemlidir.
+Reverse IP Lookup Araçları kullanabilirdik. Offline olarak kullanılabilecek Linux araçları (örn: dig, nslookup) ve online olarak kullanılabilecek sorgulama araçları var. Fakat online araçlara veri sunmanın ne kadar doğru olduğuna emin değilim. Gerçek bir veri sızıntısı durumunda gizliliği korumak önemlidir.
 
 ![image](https://user-images.githubusercontent.com/88983987/220238651-4ba32492-6178-4bbf-95f3-3e6866ab76ca.png)
 
-Ekstra olarak gelen "hokeren.com" adresi gözüküyor,
+Ekstra olarak gelen "hokeren.com" adresi gözüküyor, shared hosting durumu olabilir, fakat not etmekte fayda var.
+
+Cevap: ```ofbahar.com``` 
 
 
 
