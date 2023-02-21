@@ -242,7 +242,7 @@ IP Address: 192.168.43.26
 
 MAC Address:
 
-İlk Çözüm:
+1. Çözüm:
 
 Cihazın MAC Adresini elde etmek için "chupacabra_CTF_2022.pcap" dosyasını WireShark ile açtıktan sonra, MAC Adreslerinin kontrol protokolü olan ARP sorgularını aratacağız. Bunun için arama çubuğuna "arp" yazıyoruz.
 
@@ -250,7 +250,7 @@ Cihazın MAC Adresini elde etmek için "chupacabra_CTF_2022.pcap" dosyasını Wi
 
 MAC Address: 08:00:27:9F:7B:D1
 
-İkinci Çözüm:
+2. Çözüm:
 
 IP Adresini alırken elde ettiğimiz EVTX logunda MAC adresimize rastlamıştık. Bu şekilde cihazımızın donanım kimliğini alabiliriz. MAC Spoofing yapılmadığı sürece oradaki değer doğru kalacaktır.
 
@@ -264,7 +264,7 @@ Linux için: https://github.com/omerbenamram/evtx
 
 ![image](https://user-images.githubusercontent.com/88983987/220221546-d8f8fe63-6969-4e5b-b77c-8a00a980609f.png)
 
-En üstteki mesaj iletisinde, 0x0800279F7BD1 (08:00:27:9F:7B:D1) MAC adresli cihazın, 192.168.43.26 IP adresini DHCP sunucusundan istediği fakat reddedildiği gözüküyor. MAC adresini elde etmiş olduk.
+En üstteki mesaj iletisinde, 0x0800279F7BD1 (08:00:27:9F:7B:D1) MAC adresli cihazın, 192.168.43.26 IP adresini DHCP sunucusundan istediği fakat reddedildiği gözüküyor. Fakat MAC adresini elde etmiş olduk.
 
 MAC Address: 08:00:27:9F:7B:D1
 
