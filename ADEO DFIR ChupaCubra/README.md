@@ -475,7 +475,7 @@ Reverse IP Lookup Araçları kullanabilirdik. Offline olarak kullanılabilecek L
 
 ![image](https://user-images.githubusercontent.com/88983987/220238651-4ba32492-6178-4bbf-95f3-3e6866ab76ca.png)
 
-Ekstra olarak gelen "hokeren.com" adresi gözüküyor, shared hosting durumu olabilir, fakat not etmekte fayda var.
+Ekstra olarak gelen "hokeren.com" adresi gözüküyor, shared hosting durumu olabilir. Not etmekte fayda var.
 
 Cevap: ```ofbahar.com``` 
 
