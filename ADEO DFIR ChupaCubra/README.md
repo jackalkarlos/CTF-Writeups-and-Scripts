@@ -479,6 +479,12 @@ Ekstra olarak gelen "hokeren.com" adresi gözüküyor, shared hosting durumu ola
 
 Cevap: ```ofbahar.com``` 
 
+# 6. Soru
 
+## Description
+> What are the names of the infected malware?
 
+## Solution
+
+uykum var, yarın devam edicem..
 
