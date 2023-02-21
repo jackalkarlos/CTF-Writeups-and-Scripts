@@ -89,9 +89,10 @@ Linux için: https://github.com/omerbenamram/evtx
 
 ![image](https://user-images.githubusercontent.com/88983987/220221546-d8f8fe63-6969-4e5b-b77c-8a00a980609f.png)
 
-En üstteki mesaj iletisinde, 0x0800279F7BD1 (08:00:27:9F:7B:D1) MAC adresli cihazın, 192.168.43.26 IP adresini DHCP sunucusundan istediği fakat Nreddedildiği gözüküyor. DHCPNACK iletisinin bir çok sebebi olabilir. Bu durumdan dolayı bu çözüm kesin değildir. Fakat MAC adresini elde etmiş olduk.
+En üstteki mesaj iletisinde, 0x0800279F7BD1 (08:00:27:9F:7B:D1) MAC adresli cihazın, 192.168.43.26 IP adresini DHCP sunucusundan istediği fakat reddedildiği gözüküyor. DHCPNACK iletisinin bir çok sebebi olabilir. Bu durumdan dolayı bu çözüm kesin değildir. Fakat MAC adresini elde etmiş olduk.
 
 IP Address: 192.168.43.26
+
 MAC Address: 08:00:27:9F:7B:D1
 
 3. Çözüm: 
@@ -240,6 +241,34 @@ Görüldüğü üzere Private IP olarak gözüken belirli bir IP adresi var.
 IP Address: 192.168.43.26
 
 MAC Address:
+
+İlk Çözüm:
+
+Cihazın MAC Adresini elde etmek için "chupacabra_CTF_2022.pcap" dosyasını WireShark ile açtıktan sonra, MAC Adreslerinin kontrol protokolü olan ARP sorgularını aratacağız. Bunun için arama çubuğuna "arp" yazıyoruz.
+
+![image](https://user-images.githubusercontent.com/88983987/220222311-0203a871-6a2e-48ce-842e-818820ce4c4c.png)
+
+MAC Address: 08:00:27:9F:7B:D1
+
+İkinci Çözüm:
+
+IP Adresini alırken elde ettiğimiz EVTX logunda MAC adresimize rastlamıştık. Bu şekilde cihazımızın donanım kimliğini alabiliriz. MAC Spoofing yapılmadığı sürece oradaki değer doğru kalacaktır.
+
+FTK Imager ile ```%SystemRoot%\System32\Winevt\Logs\``` adresine gidip, ```Microsoft-Windows-Dhcp-Client%4Admin.evtx``` dosyasını extract ediyoruz.
+
+![image](https://user-images.githubusercontent.com/88983987/220218055-137d3f4d-e773-44a9-9af7-aa6a4ab04f96.png)
+
+Windows makinelerde çift tıklayarak inceleme yapabiliriz. 
+
+Linux için: https://github.com/omerbenamram/evtx
+
+![image](https://user-images.githubusercontent.com/88983987/220221546-d8f8fe63-6969-4e5b-b77c-8a00a980609f.png)
+
+En üstteki mesaj iletisinde, 0x0800279F7BD1 (08:00:27:9F:7B:D1) MAC adresli cihazın, 192.168.43.26 IP adresini DHCP sunucusundan istediği fakat reddedildiği gözüküyor. MAC adresini elde etmiş olduk.
+
+MAC Address: 08:00:27:9F:7B:D1
+
+
 
 
 
