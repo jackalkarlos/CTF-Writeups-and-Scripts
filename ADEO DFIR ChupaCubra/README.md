@@ -402,7 +402,7 @@ Base64 ile bir kodlama yapıldığını görüyorum. CyberChef ile decode ediyor
 
 ![image](https://user-images.githubusercontent.com/88983987/220226850-10caec56-fbe2-423a-a34d-356ab95f564c.png)
 
-Bu dosya çalıştırıldığında, ```"C:\Users\RickMartinGrimes\AppData\Local\Temp\"``` konumunda, ```notabadpowershell.ps1``` adında bir dosya oluşturuyor. Ardından içerisine aşağıdaki metini yerleştiriyor ve dosyayı çalıştırıyor.
+Bu dosya, çalıştırıldığında ```"C:\Users\RickMartinGrimes\AppData\Local\Temp\"``` konumunda, ```notabadpowershell.ps1``` adında bir dosya oluşturuyor. Ardından içerisine aşağıdaki metini yerleştiriyor ve dosyayı çalıştırıyor.
 ```
 Start-Process C:\Users\RickMartinGrimes\AppData\Local\Temp\AccessToken.exe
 ```
