@@ -460,4 +460,23 @@ IP Address: 68.183.67.198
 Port: 27
 ```
 
+# 5. Soru
+
+## Description
+> What is the domain name of the attacker's server?
+
+## Solution
+
+Bu soruda gidilebilecek birkaç yol var. En basit olanı WireShark üzerinde HTTP ile aldığımız zararlıların ```ofbahar.com``` adresinden geldiğini ve bu adresin ```68.183.67.198``` olduğunu daha önceden bulmuştuk. Bu durumda cevap: ```ofbahar.com``` oluyor. 
+
+Fakat eğer bu bilgiye sahip olmasaydık, nasıl yapabilirdik?
+
+Reverse IP Lookup Araçları kullanabilirdik. Offline olarak kullanılabilecek Linux araçları line olarak kullanılabilecek sorgulama araçları var. Fakat online araçlara veri sunmanın ne kadar doğru olduğuna emin değilim. Gerçek bir veri sızıntısı durumunda gizliliği korumak önemlidir.
+
+![image](https://user-images.githubusercontent.com/88983987/220238651-4ba32492-6178-4bbf-95f3-3e6866ab76ca.png)
+
+Ekstra olarak gelen "hokeren.com" adresi gözüküyor,
+
+
+
 
