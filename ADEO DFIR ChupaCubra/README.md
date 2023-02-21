@@ -446,6 +446,18 @@ Tüm bu işlemlerin sonunda asıl zararlımız olan "BodyMassIndex.exe" dosyası
 
 Sonuç olarak "accesstoken.exe" dosyası, privilege escalation (yetki yükseltme) için kullanılıyor, herhangi bir iletişim kurmuyor.
 
+BodyMassIndex.exe dosyasını incelemeye başlıyorum. Klasik bir shell dosyası. Reverse shell'in bu dosya ile alındığını zaten tahmin ettiğimizden dolayı fonksiyonları çıkarmakta çok zorlanmıyoruz :) 
 
+![image](https://user-images.githubusercontent.com/88983987/220236866-bd4c030f-032a-4da9-87a3-d8efa194695a.png)
+
+İletişim yaptığı IP adresi ve Port bir sonraki kod bloğunda bulunuyor.
+
+![image](https://user-images.githubusercontent.com/88983987/220236938-02bfb45c-c8d0-4774-9c57-6fccdfcae08e.png)
+
+Cevap:
+```
+IP Address: 68.183.67.198 
+Port: 27
+```
 
 
