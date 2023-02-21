@@ -407,13 +407,13 @@ Bu dosya, çalıştırıldığında ```"C:\Users\RickMartinGrimes\AppData\Local\
 Decoded:
 Start-Process C:\Users\RickMartinGrimes\AppData\Local\Temp\AccessToken.exe
 ```
-Bu bir dropper değil, sadece virüsün tetiklenmesini sağlıyor. 
+Bu bir dropper değil ve bir iletişim kurmuyor, sadece virüsün tetiklenmesini sağlıyor. 
 
 Bu dosyanın çalıştırıp çalıştırılmadığını, Temp klasörü altında "notabadpowershell.ps1" adlı bir dosyanın olup olmamasından anlayabiliriz. FTK Imager ile hızlıca kontrol ediyoruz. Kontrol için ```C:\Users\RickMartinGrimes\AppData\Local\Temp\``` klasörüne gidiyoruz. 
 
 ![image](https://user-images.githubusercontent.com/88983987/220228062-a86bad7a-8037-4aa6-b109-520cd70e5bf4.png)
 
-Dosya çalıştırılmış.
+Dosya çalıştırılmış. Not edip, devam ediyoruz.
 
 
 
