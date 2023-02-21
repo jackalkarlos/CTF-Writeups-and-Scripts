@@ -486,5 +486,30 @@ Cevap: ```ofbahar.com```
 
 ## Solution
 
-uykum var, yarın devam edicem..
+3 adet malware dosyasını zaten WireShark yardımıyla bulmuştuk. 
+
+![image](https://user-images.githubusercontent.com/88983987/220381371-a3e8dc2b-831f-43cd-aee6-5ebef2eec975.png)
+
+```
+"notamalware.vbs"
+"BodyMassIndex.exe"
+"accesstoken.exe"
+```
+
+Fakat Rick Martin bir Excel dosyasını doldurduktan sonra bunların yaşandığını söylüyor. Bu durumda bu malware dosyalarını droplayan bir excel makro dosyası olmalı.
+
+Bu dosyayı Rick Martin'in "Downloads" klasöründe bulabiliyoruz. Ayrıyeten Outlook gibi uygulamalar dosyaları belirli bir dizine kaydettiği için, kullanıcının web tabanlı bir mail yöneticisi kullandığını düşünebiliriz.
+
+![image](https://user-images.githubusercontent.com/88983987/220381815-1d48f468-5413-428d-b2a9-fbd4c1674cab.png)
+
+"BodyMassIndex.xlsm"
+
+Cevap:
+```
+"notamalware.vbs"
+"BodyMassIndex.exe"
+"accesstoken.exe"
+"BodyMassIndex.xlsm"
+```
+
 
