@@ -361,5 +361,35 @@ Operating System: Windows 7 Professional SP1 7601 64 Bit
 Hostname: RICKMARTIN
 ```
 
+# 4. Soru
+
+## Description
+> From which IP address and port is the malware infected?
+
+## Solution
+
+Bu soruda malware'yi bulaştıran IP Adresini mi, yoksa virüsün hangi adresler ile bağlantı kurduğunu mu sorduğuna emin olamadım. Bu yüzden ikisini de çözeceğim.
+
+1. Malware hangi IP Adresi ve Port üzerinden bulaşmıştır?
+
+Wireshark ile daha önce "ofbahar.com" adresi üzerinden GET methodu ile verinin alındığını tespit etmiştik. İlk alınan zararlının paket detaylarını inceleyeceğiz.
+
+Zaman akışına göre ilk alınan zararlı dosya "notamalware.vbs"
+
+![image](https://user-images.githubusercontent.com/88983987/220225219-a46a2b22-5b70-4121-87b0-5a659e12da4f.png)
+
+Veriyi "GET" ile isteyen kurban makinamız olduğu için, Dst adresleri dikkate alınacak.
+
+![image](https://user-images.githubusercontent.com/88983987/220225496-5929dff0-b5e0-40f0-88e0-705a1e372415.png)
+
+IP: 68.138.67.198
+Port: 80
+
+2. Malware hangi adresler üzerinden iletişim kuruyor?
+
+
+
+
+
 
 
