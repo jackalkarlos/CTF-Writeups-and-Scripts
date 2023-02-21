@@ -413,12 +413,7 @@ Bu dosyanın çalıştırıp çalıştırılmadığını, Temp klasörü altınd
 
 ![image](https://user-images.githubusercontent.com/88983987/220228062-a86bad7a-8037-4aa6-b109-520cd70e5bf4.png)
 
-Bingo! Rick Martin, "notamalware.vbs" adlı bir dosyayı hiç sorgulamadan çalıştırmış.. Dostum, ne tarz birisi bunu yapar ki?
-
-Burda dikkat edilmesi gereken ikinci bir nokta şu: eğer "BodyMassIndex.exe" dosyası bir dropper değilse, "accestoken.exe" zararlısı "notamalware.vbs" tarafından da droplanmadığı için Rick Martin, "accesstoken.exe" dosyasını kendi isteğiyle indirmiş anlamına gelir.
-
-İşler karışmaya başlıyor, "accesstoken.exe" uygulamasını incelemeye başlıyorum.
-
+Dosya çalıştırılmış.
 
 
 
