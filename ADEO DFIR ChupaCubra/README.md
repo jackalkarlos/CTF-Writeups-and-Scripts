@@ -785,3 +785,25 @@ Windows makinemizde çift tıklayarak açıyoruz. Ardından 4720 işlemi için f
 23.03.2022 18:52:39 tarihinde MrRobot adında bir hesap oluşturulmuş.
 
 ![image](https://user-images.githubusercontent.com/88983987/220398258-90d5aee2-9843-4c36-b3ef-d0c4e4c857e5.png)
+
+Şifresini almak için volatility yardımımıza koşuyor. "hashdump" özelliğini kullanacağız. Daha sonrasında "john" ile hash'i kıracağız.
+ ```
+E:\ChupaCubra\Chupacabra\OnlineCTF-2022>volatility_2.6_win64_standalone.exe -f chupacabra_CTF_2022.raw --profile=Win7SP1x64 hashdump > hash.txt
+Volatility Foundation Volatility Framework 2.6
+ ```
+Hash.txt dosyasını oluşturduk. John ile kırıyoruz.
+```
+D:\Siber Güvenlik\john-1.9.0-jumbo-1-win64\run>john.exe hash.txt --format=NT --wordlist=rockyou.txt
+Using default input encoding: UTF-8
+Loaded 3 password hashes with no different salts (NT [MD4 256/256 AVX2 8x3])
+Warning: no OpenMP support for this hash type, consider --fork=12
+Press 'q' or Ctrl-C to abort, almost any other key for status
+password         (MrRobot)
+                 (Administrator)
+2g 0:00:00:02 DONE (2023-02-21 19:12) 0.9551g/s 6849Kp/s 6849Kc/s 6852KC/s  Ttwwl789..clarus
+Warning: passwords printed above might not be all those cracked
+Use the "--show --format=NT" options to display all of the cracked passwords reliably
+Session completed
+```
+
+Cevap: ```MrRobot:password```
