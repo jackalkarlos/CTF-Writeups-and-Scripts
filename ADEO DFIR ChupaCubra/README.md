@@ -760,4 +760,13 @@ Dosyayı açtıktan sonra, yukarıdaki menüden "Veriyi Görüntüle" sekmesine 
 
 Rick Martin, "HR" tarafından "Company-Wide Health Screening" başlıklı bir mail aldığını söylemişti. Mail'e Yandex Mail üzerinden ulaştığını belirliyoruz.
 
-Cevap: Yandex Mail
+Cevap: ```Yandex Mail```
+
+
+# 9. Soru
+
+## Description
+> What is the user and password created by the attacker?
+
+## Solution
+
