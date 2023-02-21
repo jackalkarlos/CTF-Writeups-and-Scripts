@@ -654,3 +654,9 @@ MD5: d7ebc2ba7b2e2edfbc0ef020bf57303a
 SHA256: 7ea23cc76cf864bb297f4b3a36498ed7dd4061e06f00ea2b206fc350e385a83d
 ```
 
+# 8. Soru
+
+## Description
+> Which email platform did the phishing attack come from?
+
+## Solution
