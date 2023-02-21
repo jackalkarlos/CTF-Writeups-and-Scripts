@@ -660,3 +660,87 @@ SHA256: 7ea23cc76cf864bb297f4b3a36498ed7dd4061e06f00ea2b206fc350e385a83d
 > Which email platform did the phishing attack come from?
 
 ## Solution
+Daha öncesinde mail iletişiminin bir web tarayıcısı üstünden yapıldığını tahmin etmiştik ancak emin olmak için Mail ile ilgili çalışan bir process olup olmadığını incelemek için ram imajını kullancağız.
+
+```
+E:\ChupaCubra\Chupacabra\OnlineCTF-2022>volatility_2.6_win64_standalone.exe -f chupacabra_CTF_2022.raw --profile=Win7SP1x64 pstree
+Volatility Foundation Volatility Framework 2.6
+Name                                                  Pid   PPid   Thds   Hnds Time
+-------------------------------------------------- ------ ------ ------ ------ ----
+ 0xfffffa8002acfb30:explorer.exe                     1680   1408     30   1061 2022-03-23 13:28:28 UTC+0000
+. 0xfffffa8002999b30:DumpIt.exe                      2788   1680      2     45 2022-03-23 15:56:24 UTC+0000
+. 0xfffffa8003699060:VBoxTray.exe                    1972   1680     14    146 2022-03-23 13:28:28 UTC+0000
+. 0xfffffa80020c06c0:chrome.exe                      2356   1680     30    912 2022-03-23 15:36:22 UTC+0000
+.. 0xfffffa8001a54060:chrome.exe                     1920   2356     11    187 2022-03-23 15:37:11 UTC+0000
+.. 0xfffffa8001c10600:EXCEL.EXE                      3252   2356     17    741 2022-03-23 15:37:26 UTC+0000
+... 0xfffffa8001e32520:splwow64.exe                  3536   3252      6     64 2022-03-23 15:37:33 UTC+0000
+.. 0xfffffa800252eb30:chrome.exe                     4032   2356     14    220 2022-03-23 15:36:22 UTC+0000
+.. 0xfffffa8001afc060:chrome.exe                     2756   2356      7    133 2022-03-23 15:36:22 UTC+0000
+.. 0xfffffa8001a669b0:chrome.exe                     3060   2356      9     87 2022-03-23 15:36:22 UTC+0000
+.. 0xfffffa80039a45d0:chrome.exe                     2000   2356     18    428 2022-03-23 15:36:25 UTC+0000
+.. 0xfffffa800263eb30:chrome.exe                     2224   2356     14    168 2022-03-23 15:36:34 UTC+0000
+.. 0xfffffa8002014060:chrome.exe                     3312   2356     12    193 2022-03-23 15:36:24 UTC+0000
+. 0xfffffa80033bbb30:Wireshark.exe                   2540   1680      6    264 2022-03-23 15:36:14 UTC+0000
+.. 0xfffffa8002088b30:dumpcap.exe                    1748   2540      2     78 2022-03-23 15:36:20 UTC+0000
+ 0xfffffa80035ad7c0:wininit.exe                       388    340      3     75 2022-03-23 13:28:05 UTC+0000
+. 0xfffffa800365c400:lsm.exe                          516    388     10    157 2022-03-23 13:28:06 UTC+0000
+. 0xfffffa800364f260:services.exe                     492    388      9    212 2022-03-23 13:28:06 UTC+0000
+.. 0xfffffa80037d8b30:svchost.exe                     960    492     38   1247 2022-03-23 13:28:07 UTC+0000
+.. 0xfffffa8003391640:spoolsv.exe                    1168    492     13    310 2022-03-23 13:28:08 UTC+0000
+.. 0xfffffa8002a68890:taskhost.exe                   1412    492      9    212 2022-03-23 13:28:28 UTC+0000
+.. 0xfffffa800374fb30:svchost.exe                     800    492     24    630 2022-03-23 13:28:07 UTC+0000
+... 0xfffffa8001e0f060:audiodg.exe                   1452    800      6    130 2022-03-23 15:56:22 UTC+0000
+.. 0xfffffa8003695b30:VBoxService.ex                  680    492     13    136 2022-03-23 13:28:07 UTC+0000
+.. 0xfffffa8001f6cb30:OSE.EXE                        4076    492      4     57 2022-03-23 13:43:47 UTC+0000
+.. 0xfffffa80031ce590:svchost.exe                    1072    492     16    500 2022-03-23 13:28:08 UTC+0000
+.. 0xfffffa8001b17340:OfficeClickToR                 2184    492     53   3960 2022-03-23 13:29:49 UTC+0000
+... 0xfffffa80033c0920:AppVShNotify.e                3188   2184      5     81 2022-03-23 13:32:33 UTC+0000
+... 0xfffffa80019ec060:AppVShNotify.e                3132   2184      7     94 2022-03-23 13:32:33 UTC+0000
+.. 0xfffffa80033bdb30:svchost.exe                    1204    492     18    309 2022-03-23 13:28:08 UTC+0000
+.. 0xfffffa8001d08b30:sppsvc.exe                     2872    492      4    149 2022-03-23 13:30:11 UTC+0000
+.. 0xfffffa80038276c0:svchost.exe                     956    492     21    545 2022-03-23 13:28:07 UTC+0000
+.. 0xfffffa80020d8330:SearchIndexer.                 2628    492     13    694 2022-03-23 13:43:59 UTC+0000
+.. 0xfffffa80031deb30:svchost.exe                    1292    492     23    321 2022-03-23 13:28:08 UTC+0000
+.. 0xfffffa8001f70b30:taskhost.exe                   3476    492      5    113 2022-03-23 15:39:49 UTC+0000
+.. 0xfffffa8003ae4890:wmpnetwk.exe                   2900    492     16    366 2022-03-23 13:28:34 UTC+0000
+.. 0xfffffa8001db4060:svchost.exe                    2492    492     14    371 2022-03-23 13:30:11 UTC+0000
+.. 0xfffffa8003661b30:svchost.exe                     616    492     11    363 2022-03-23 13:28:07 UTC+0000
+... 0xfffffa8002011a30:WmiPrvSE.exe                  2132    616      7    124 2022-03-23 15:55:15 UTC+0000
+... 0xfffffa80023d7920:dllhost.exe                   3812    616      6     89 2022-03-23 15:56:27 UTC+0000
+.. 0xfffffa8003b884a0:svchost.exe                    2300    492      8    347 2022-03-23 13:28:35 UTC+0000
+.. 0xfffffa80037c85c0:svchost.exe                     936    492     26    544 2022-03-23 13:28:07 UTC+0000
+... 0xfffffa800311d1f0:dwm.exe                        648    936      3    274 2022-03-23 13:28:28 UTC+0000
+.. 0xfffffa800329cb30:svchost.exe                     756    492      9    312 2022-03-23 13:28:07 UTC+0000
+. 0xfffffa800365a060:lsass.exe                        508    388      8    761 2022-03-23 13:28:06 UTC+0000
+ 0xfffffa8003586060:csrss.exe                         348    340     10    532 2022-03-23 13:28:05 UTC+0000
+ 0xfffffa80018b1040:System                              4      0     86    593 2022-03-23 13:28:04 UTC+0000
+. 0xfffffa80029e5370:smss.exe                         268      4      2     29 2022-03-23 13:28:04 UTC+0000
+ 0xfffffa80020281d0:BodyMassIndex.                    568   2140      1     78 2022-03-23 15:41:45 UTC+0000
+. 0xfffffa8003c07b30:cmd.exe                         1180    568      0 ------ 2022-03-23 15:49:36 UTC+0000
+.. 0xfffffa8002002060:7za.exe                        2968   1180      0 ------ 2022-03-23 15:49:36 UTC+0000
+. 0xfffffa800206c240:cmd.exe                         2908    568      0 ------ 2022-03-23 15:54:37 UTC+0000
+.. 0xfffffa800214c5f0:reg.exe                        4004   2908      0 ------ 2022-03-23 15:54:37 UTC+0000
+. 0xfffffa8001996060:cmd.exe                         2320    568      0 ------ 2022-03-23 15:45:53 UTC+0000
+. 0xfffffa8001a9a060:cmd.exe                          564    568      0 ------ 2022-03-23 15:52:39 UTC+0000
+. 0xfffffa8001be8970:cmd.exe                         3480    568      0 ------ 2022-03-23 15:49:03 UTC+0000
+. 0xfffffa8002296b30:cmd.exe                         2116    568      0 ------ 2022-03-23 15:50:21 UTC+0000
+. 0xfffffa8001c3ea70:cmd.exe                         3520    568      0 ------ 2022-03-23 15:42:57 UTC+0000
+.. 0xfffffa8001d3f340:whoami.exe                     3736   3520      0 ------ 2022-03-23 15:42:57 UTC+0000
+. 0xfffffa8001b3a440:cmd.exe                         1856    568      0 ------ 2022-03-23 15:49:47 UTC+0000
+. 0xfffffa8003c1a600:cmd.exe                         2508    568      0 ------ 2022-03-23 15:53:13 UTC+0000
+. 0xfffffa8002460220:cmd.exe                         2504    568      0 ------ 2022-03-23 15:43:09 UTC+0000
+. 0xfffffa8003832060:cmd.exe                          356    568      0 ------ 2022-03-23 15:50:32 UTC+0000
+ 0xfffffa8003ca3060:GoogleCrashHan                    304   3152      5     97 2022-03-23 13:59:31 UTC+0000
+ 0xfffffa80025ef060:GoogleCrashHan                   2676   3152      5     90 2022-03-23 13:59:31 UTC+0000
+ 0xfffffa80035d2060:winlogon.exe                      448    380      5    116 2022-03-23 13:28:06 UTC+0000
+ 0xfffffa80035ab4f0:csrss.exe                         400    380     11    471 2022-03-23 13:28:05 UTC+0000
+. 0xfffffa800236db30:conhost.exe                     1836    400      2     54 2022-03-23 15:41:45 UTC+0000
+. 0xfffffa8002b8e220:conhost.exe                     1336    400      2     54 2022-03-23 15:56:24 UTC+0000
+. 0xfffffa80020d3360:conhost.exe                     1720    400      2     48 2022-03-23 15:36:20 UTC+0000
+ 0xfffffa80024f2980:net1.exe                          752    772      0 ------ 2022-03-23 15:53:13 UTC+0000
+ 0xfffffa8001dc1920:net1.exe                         3552    912      0 ------ 2022-03-23 15:52:39 UTC+0000
+ 0xfffffa8001d1f630:OneDriveSetup.                   2660   3880      0 ------ 2022-03-23 13:44:00 UTC+0000
+ 0xfffffa8002531b30:dumpcap.exe                      1364   3472      0 ------ 2022-03-23 13:53:38 UTC+0000
+ ```
+ 
+ Görüldüğü üzere, herhangi bir mail clienti çalışmıyor. Fakat "chrome.exe" çalışıyor. Bu durumda Chrome geçmişini FTK Imager yardımı ile alacağız.
