@@ -1003,6 +1003,7 @@ Cevap:
 ## Description
 > What is the SHA1 value of the image file?
 
+## Solution
 Bu bilgiyi edinebilmek için fotoğrafın bulunduğu konumu bilmemiz gerekmekte. Fotoğrafın yüklendiği streami takip ettiğimizde kullanıcının en başta 7za.exe'yi kullanmaya başlarken Accounting klasöründe olduğunu ve sonrasında fotoğraf yükleme dahil diğer işlemleri yaparken konum değiştirmediğini farkediyoruz. Fotoğrafı yüklerken de aynı konumda oluyor. Yani dosyanın konumu C:/Accounting altında olmalı. FTK Imager ile extract edip SHA1 değerini alıyoruz.
 
 ![image](https://user-images.githubusercontent.com/88983987/220732867-a7269563-1a31-482a-93ed-0524736c37e7.png)
@@ -1010,5 +1011,21 @@ Bu bilgiyi edinebilmek için fotoğrafın bulunduğu konumu bilmemiz gerekmekte.
 Cevap:
 ```0ac09b91d62e091a37624e7c20b08f3f5ecc1c6b```
 
+# 16. Soru
 
+## Description
+> What is the Suspect Machine's Timezone value?
+
+## Solution
+
+Zaman dilimimizin türünü registry kayıtlarından okuyacağız. Bu işlem için, FTK Imager ile C:/Windows/System32/config/SYSTEM dosyasını export etmemiz gerekiyor.
+
+![image](https://user-images.githubusercontent.com/88983987/220734379-697e1b65-778d-46ae-ad88-04785d9733fb.png)
+
+Registry Explorer ile SYSTEM dosyasını açıyoruz. ```CMI-CreateHive{2A7FB991-7BBE-4F9D-B91E-7CB51D4737F5}\CurrentControlSet001\Control\TimeZoneInformation``` adresine gidiyoruz. Sağ kısımda TimeZone değerimize ulaşmak mümkün.
+
+![image](https://user-images.githubusercontent.com/88983987/220734781-a01724ba-2f26-49c7-b350-aabf76efa470.png)
+
+Cevap:
+```Pacific Standart Time```
 
