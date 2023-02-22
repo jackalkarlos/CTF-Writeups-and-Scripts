@@ -978,7 +978,9 @@ Cevap:
 ## Solution
 
 ![image](https://user-images.githubusercontent.com/88983987/220731276-4111de6c-db54-49ef-9a2e-132a2e2a51a9.png)
+
 "-p adepoass" parametresi şifre belirtir.
+
 Cevap:
 ```adeopass```
 
