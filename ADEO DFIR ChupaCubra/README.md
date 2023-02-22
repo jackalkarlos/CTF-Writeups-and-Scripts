@@ -1011,7 +1011,7 @@ Bu bilgiyi edinebilmek için fotoğrafın bulunduğu konumu bilmemiz gerekmekte.
 Cevap:
 ```0ac09b91d62e091a37624e7c20b08f3f5ecc1c6b```
 
-# 16. Soru
+# 17. Soru
 
 ## Description
 > What is the Suspect Machine's Timezone value?
