@@ -953,3 +953,35 @@ Wireshark üzerinden 27. portun trafiğini incelerken 7-zip ile ilgili detaylara
 
 Cevap:
 ```7-zip```
+
+# 13. Soru
+
+## Description
+> Which file has the attacker compressed?
+
+## Solution
+
+Hacker'in 27. portta haberleştiğini ve kullandığı zipleme yazılımının "7za.exe" olduğunu biliyoruz. Daha önceden bulduğumuz ```tcp.stream eq 93``` streami üzerinde "7za.exe" stringini aratıyoruz.
+
+![image](https://user-images.githubusercontent.com/88983987/220731134-95bc9c41-87c9-4319-9425-0102802a182e.png)
+
+![image](https://user-images.githubusercontent.com/88983987/220731276-4111de6c-db54-49ef-9a2e-132a2e2a51a9.png)
+
+Cevap:
+```2022 klasörü```
+
+# 14. Soru
+
+## Description
+> What is the password for the compressed file?
+
+## Solution
+
+![image](https://user-images.githubusercontent.com/88983987/220731276-4111de6c-db54-49ef-9a2e-132a2e2a51a9.png)
+"-p adepoass" parametresi şifre belirtir.
+Cevap:
+```adeopass```
+
+
+
+
