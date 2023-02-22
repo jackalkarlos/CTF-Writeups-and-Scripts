@@ -984,6 +984,16 @@ Cevap:
 Cevap:
 ```adeopass```
 
+# 15. Soru
 
+## Description
+> What is the name of the png file that the attacker uploaded to the system?
 
+## Solution
 
+Hacker'in 27. portta haberleştiğini biliyoruz. Daha önceden bulduğumuz ```tcp.stream eq 93``` streami üzerinde PNG headeri olan "IHDR" metnini, ya da ".png" yazısını aratabiliriz.
+
+![image](https://user-images.githubusercontent.com/88983987/220732180-44cfecfb-8652-4d21-ac23-c959e549db58.png)
+
+Cevap:
+```AdeoWasHere.png```
