@@ -997,3 +997,18 @@ Hacker'in 27. portta haberleştiğini biliyoruz. Daha önceden bulduğumuz ```tc
 
 Cevap:
 ```AdeoWasHere.png```
+
+# 16. Soru
+
+## Description
+> What is the SHA1 value of the image file?
+
+Bu bilgiyi edinebilmek için fotoğrafın bulunduğu konumu bilmemiz gerekmekte. Fotoğrafın yüklendiği streami takip ettiğimizde kullanıcının en başta 7za.exe'yi kullanmaya başlarken Accounting klasöründe olduğunu ve sonrasında fotoğraf yükleme dahil diğer işlemleri yaparken konum değiştirmediğini farkediyoruz. Fotoğrafı yüklerken de aynı konumda oluyor. Yani dosyanın konumu C:/Accounting altında olmalı. FTK Imager ile extract edip SHA1 değerini alıyoruz.
+
+![image](https://user-images.githubusercontent.com/88983987/220732867-a7269563-1a31-482a-93ed-0524736c37e7.png)
+
+Cevap:
+```0ac09b91d62e091a37624e7c20b08f3f5ecc1c6b```
+
+
+
