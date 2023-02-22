@@ -829,4 +829,22 @@ Aşağıdaki komutla filtreleme yapıyoruz.
 Cevap: 
 ```salary.csv```
 
+# 11. Soru
+
+## Description
+> What data has been changed in the modified file?
+
+## Solution
+
+Dosyanın önceki ve sonraki halini TCP stream üzerinden okumuştuk. Herhangi bir text diff aracına sokmamız yeterli olacaktır. (gerçek bir vaka için online bir araç kullanacaksanız sitenin client-side çalıştığına emin olmalısınız.)
+
+![image](https://user-images.githubusercontent.com/88983987/220723815-5204cdf0-473a-4a7f-aef4-3c261e1e36ed.png)
+
+Cevap:
+```
+Maaş değerleri değiştirilmiş.
+Christopher Miller;General Manager ;Male;146856	 > Christopher Miller;General Manager ;Male;5
+Hazel Hunsaker;Human Resources;Female;8000 > Hazel Hunsaker;Human Resources;Female;18000
+Rick Martin Grimes;Accounting Manager;Male;9100 > Rick Martin Grimes;Accounting Manager;Male;19100
+```
 
