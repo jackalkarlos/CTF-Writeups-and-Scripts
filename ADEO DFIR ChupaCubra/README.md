@@ -807,3 +807,26 @@ Session completed
 ```
 
 Cevap: ```MrRobot:password```
+
+# 10. Soru
+
+## Description
+> Which file did the attacker change?
+
+## Solution
+
+Şu soruyu oturup 2 gün düşünüp MFT kayıtlarında aradığım için kendimden utanıyorum.. Reverse shell'in 27.portta çalıştığını öğrenmiştik. 
+
+Aşağıdaki komutla filtreleme yapıyoruz.
+```tcp.port==27```
+
+Çıkan sonuçlarda TCP akışlarını incelerken salary.csv dosyasının önce okunup, sora değişiklikler yapılarak geri yüklendiği, arkasından reverse shell alınan cihazdan "Yukleme basarili!" metni döndüğü gözüküyor.
+
+```tcp.stream eq 93```
+
+![image](https://user-images.githubusercontent.com/88983987/220722715-df718b4a-2ddd-442c-a830-b7c5bf64f572.png)
+
+Cevap: 
+```salary.csv```
+
+
