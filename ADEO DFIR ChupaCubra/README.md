@@ -1022,7 +1022,9 @@ Zaman dilimimizin türünü registry kayıtlarından okuyacağız. Bu işlem iç
 
 ![image](https://user-images.githubusercontent.com/88983987/220734379-697e1b65-778d-46ae-ad88-04785d9733fb.png)
 
-Registry Explorer ile SYSTEM dosyasını açıyoruz. ```CMI-CreateHive{2A7FB991-7BBE-4F9D-B91E-7CB51D4737F5}\CurrentControlSet001\Control\TimeZoneInformation``` adresine gidiyoruz. Sağ kısımda TimeZone değerimize ulaşmak mümkün.
+Registry Explorer ile SYSTEM dosyasını açıyoruz.
+
+```CMI-CreateHive{2A7FB991-7BBE-4F9D-B91E-7CB51D4737F5}\CurrentControlSet001\Control\TimeZoneInformation``` adresine gidiyoruz. Sağ kısımda TimeZone değerimize ulaşmak mümkün.
 
 ![image](https://user-images.githubusercontent.com/88983987/220734781-a01724ba-2f26-49c7-b350-aabf76efa470.png)
 
