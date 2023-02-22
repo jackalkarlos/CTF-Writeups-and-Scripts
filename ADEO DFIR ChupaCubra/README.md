@@ -1031,3 +1031,29 @@ Registry Explorer ile SYSTEM dosyasını açıyoruz.
 Cevap:
 ```Pacific Standart Time```
 
+# 18. Soru
+
+## Description
+> What is “LeaseObtainedTime”?
+
+## Solution
+
+LeaseObtainedTime değerini elde etmek için "SYSTEM" dosyasını kullanacağız. (bkz: 17. soru)
+
+Registry Explorer ile açtıktan sonra, ```CMI-CreateHive{2A7FB991-7BBE-4F9D-B91E-7CB51D4737F5}\CurrentControlSet002\services\Tcpip\Parameters\Interfaces``` konumuna gidip ```{34F2511B-DE53-44FE-B151-8851F9C84483}``` klasöründen "LeaseObtainedTime" değerini seçiyoruz. Sağ tıklayıp Data Interpreter dediğimizde tarihi alabiliriz.
+
+![image](https://user-images.githubusercontent.com/88983987/220783045-bdb491e7-fec3-47ea-a406-f0fa0679b570.png)
+
+Fakat bu değer Pacific Standart Time değerine göre UTC +8 olarak, bizim ülkemize göre UTC +3 olarak hesaplanmalıdır.
+
+Ayrıyeten ControlSet001 yerine ControlSet002'yi seçmemizin sebebi ControlSet002'nin daha güncel kullanılan verileri tutmasıdır. Windows, bir bozulma olma durumunda ControlSet001'i kullanır. Interfaces klasörü içindeki GUID değeri ({34F2511B-DE53-44FE-B151-8851F9C84483}) değişkenlik gösterebilir.
+
+Cevap:
+```
+Saf Tarih: 2022-03-23 23:11:25
+TR Tarih: 2022-03-24 02:11:25
+Pacific Tarih: 2022-03-34 07:11:25
+```
+
+
+
