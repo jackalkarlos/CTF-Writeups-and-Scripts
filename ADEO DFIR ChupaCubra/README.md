@@ -1055,5 +1055,37 @@ TR Tarih: 2022-03-24 02:11:25
 Pacific Tarih: 2022-03-34 07:11:25
 ```
 
+# 19. Soru
 
+## Description
+> What is the operating system version (OS version)?
+
+## Solution
+
+Bu sorunun cevabını 3. soruyu çözerken bulmuştuk.
+
+Cevap:
+
+```Windows 7 Professional SP1 x64```
+
+# 20. Soru
+
+## Description
+> When was the operating system installed?
+
+## Solution
+
+İşletim sisteminin kurulduğu tarihi edinmek için aynı "SYSTEM" dosyasını incelediğimiz gibi "SOFTWARE" dosyasını inceleyeceğiz. Registry Explorer üzerinden açıyoruz.
+```SOFTWARE\Microsoft\Windows NT\CurrentVersion\InstallDate```
+
+![image](https://user-images.githubusercontent.com/88983987/220785438-2929b723-5f0a-42c4-8be1-3adf22d1c2b8.png)
+
+![image](https://user-images.githubusercontent.com/88983987/220785579-c1d9359e-1128-4b41-8add-03a50bb53abd.png)
+
+Cevap:
+```
+Saf Tarih: 2022-03-23 23:11:49
+TR Tarih: 2022-03-24 02:11:49
+Pacific Tarih: 2022-03-34 07:11:49
+```
 
