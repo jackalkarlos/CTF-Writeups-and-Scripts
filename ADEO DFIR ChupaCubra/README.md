@@ -820,7 +820,7 @@ Cevap: ```MrRobot:password```
 Aşağıdaki komutla filtreleme yapıyoruz.
 ```tcp.port==27```
 
-Çıkan sonuçlarda TCP akışlarını incelerken salary.csv dosyasının önce okunup, sora değişiklikler yapılarak geri yüklendiği, arkasından reverse shell alınan cihazdan "Yukleme basarili!" metni döndüğü gözüküyor.
+Çıkan sonuçlarda TCP akışlarını incelerken salary.csv dosyasının önce okunup, sonra değişiklikler yapılarak geri yüklendiği, arkasından reverse shell alınan cihazdan "Yukleme basarili!" metni döndüğü gözüküyor.
 
 ```tcp.stream eq 93```
 
