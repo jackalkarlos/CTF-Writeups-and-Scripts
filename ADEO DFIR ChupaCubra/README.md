@@ -1256,6 +1256,14 @@ BodyMassIndex.xlsm
 > One of the malicious executable files uses an attack technique. What is the name of this technique?
 
 ## Solution
+"accesstoken.exe" dosyamızın yetki yükseltmesi yaparak shell malware'ini çağırdığını keşfetmiştik. Uygulama SeDebugPrivilege token'ini manipüle etmeye çalışıyor ve yükselttiği yetki ile shell malware'ini çağırıyor.
+
+Kaynak: https://book.hacktricks.xyz/windows-hardening/windows-local-privilege-escalation/privilege-escalation-abusing-tokens
+
+Cevap:
+```
+Abusing Tokens
+```
 
 # 37. Soru
 
