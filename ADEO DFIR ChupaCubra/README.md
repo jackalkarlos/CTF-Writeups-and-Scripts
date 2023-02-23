@@ -1272,6 +1272,14 @@ Abusing Tokens
 
 ## Solution
 
+"accesstoken.exe" dosyasının tokenleri çalmak için kullandığı uygulama "winlogon.exe"
+![image](https://user-images.githubusercontent.com/88983987/220957992-cb3bb218-dd91-43cf-9259-af016848ffce.png)
+
+Cevap:
+```
+winlogon.exe
+```
+
 # 38. Soru
 
 ## Description
