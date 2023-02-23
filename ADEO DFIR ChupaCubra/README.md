@@ -1159,12 +1159,26 @@ Pacific Tarih: 2022-03-34 07:11:49
 
 ## Solution
 
+14. Soruda, 2022.7z'nin konumunu ve şifresini elde etmiştik. FTK Imager ile ```C:\Accounting\2022.7z``` dosyasını export ettikten sonra, ```adeopass``` şifresi ile extract ediyoruz.
+
+![image](https://user-images.githubusercontent.com/88983987/220950674-803a4ddc-a378-409a-9c91-e23ae5953afd.png)
+
+Cevap:
+```8 Dosya```
+
 # 30. Soru
 
 ## Description
 > What is the "Creator" information of the "Accounting Manager Job Description Template" file in 2022.7z?
 
 ## Solution
+
+Dosyayı 2022.7z içerisinden "adeopass" şifresi ile çıkarttıktan sonra sağ tık özellikler seçeneğini tıklatıyoruz.
+
+![image](https://user-images.githubusercontent.com/88983987/220951735-d27df29f-2ca4-486f-8983-fb680e571047.png)
+
+Cevap:
+```Megha Sharma```
 
 # 31. Soru
 
@@ -1173,12 +1187,26 @@ Pacific Tarih: 2022-03-34 07:11:49
 
 ## Solution
 
+Dosyayı 2022.7z içerisinden "adeopass" şifresi ile çıkarttıktan sonra sağ tık özellikler seçeneğini tıklatıyoruz.
+
+![image](https://user-images.githubusercontent.com/88983987/220952315-2de937c6-ab9e-4430-8314-39852b718411.png)
+
+Cevap:
+```9.03.2022 09:51```
+
 # 32. Soru
 
 ## Description
 > Where is the domain of the site registered with the attacker's C2 address?
 
 ## Solution
+
+Daha önceden bulduğumuz "ofbahar.com" adresine whois sorgusu atıyoruz.
+
+![image](https://user-images.githubusercontent.com/88983987/220952732-b25c4447-f4a6-4a07-9980-5971802b6451.png)
+
+Cevap:
+```GoDaddy```
 
 # 33. Soru
 
@@ -1187,19 +1215,41 @@ Pacific Tarih: 2022-03-34 07:11:49
 
 ## Solution
 
+Malware'imizin "68.138.67.198" adresinden iletişim kurduğunu saptamıştık. Ülke tespiti yapmak için ASN sorgusu yapmamız gerekiyor. Bunun için IP2Location aracını kullanabiliriz.
+
+![image](https://user-images.githubusercontent.com/88983987/220954187-2b7d2927-a395-4582-ab39-01984fb1f7e9.png)
+
+Cevap:
+```United States```
+
 # 34. Soru
 
 ## Description
 > What are the names of malicious executable files?
 
 ## Solution
+
+Wireshark üzerinde 3 adet, imaj dosyası içinde 1 adet malware tespit etmiştik. Wireshark içindekilerden birisi makro kodu, ikisi executable dosyalar. İmaj içindeki ise makro içeren bir Excel belgesi.
+
+Cevap:
+```
+BodyMassIndex.exe
+accesstoken.exe
+```
 # 35. Soru
 
 ## Description
 > What are the names of malicious document/script files?
 
 ## Solution
+Wireshark üzerinde 3 adet, imaj dosyası içinde 1 adet malware tespit etmiştik. Wireshark içindekilerden birisi makro kodu, ikisi executable dosyalar. İmaj içindeki ise makro içeren bir Excel belgesi. Fakat "vbs" dosyası bir "ps1" dosyası üretiyor. Bunu da ekleyeceğiz.
 
+Cevap:
+```
+notamalware.vbs
+notabadpowershell.ps1
+BodyMassIndex.xlsm
+```
 # 36. Soru
 
 ## Description
