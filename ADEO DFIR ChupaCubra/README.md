@@ -1271,6 +1271,14 @@ Abusing Tokens
 > In the technique used, what is the name of the target process?
 
 ## Solution
+"accesstoken.exe" yaptığı privilege escolation işlemlerinin sonunda asıl zararlımız olan "BodyMassIndex.exe" dosyasını çalıştırıyor. İşlem daha yüksek yetkili bir işlem tarafından çağırıldığı için daha çok yetkiye sahip oluyor. 
+
+![image](https://user-images.githubusercontent.com/88983987/220236205-4c5a885b-0233-470f-8fda-d92fd24ee116.png)
+
+Cevap:
+```
+BodyMassIndex.exe
+```
 
 # 38. Soru
 
