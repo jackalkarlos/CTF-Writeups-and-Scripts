@@ -1131,13 +1131,6 @@ Pacific Tarih: 2022-03-34 07:11:49
 
 ## Solution
 
-# 24. Soru
-
-## Description
-> This computer had a "Network Listening Tool" running, what's its name? Which path is it on and when was it last used?
-
-## Solution
-
 # 27. Soru
 
 ## Description
@@ -1151,6 +1144,12 @@ Pacific Tarih: 2022-03-34 07:11:49
 > On which directory did the attacker compress?
 
 ## Solution
+
+Wireshark ile trafiği incelerken önce "dir" ile olduğu konumu gösterdiğini, sonrasında 2022 klasörünü "adeopass" ile şifreleyerek 7z ile sıkıştırdığını görmüştük. Bu durumda sıkıştırılan klasör 2022, sıkıştırmanın yapıldığı konum C:\Accounting oluyor.
+![image](https://user-images.githubusercontent.com/88983987/220731276-4111de6c-db54-49ef-9a2e-132a2e2a51a9.png)
+
+Cevap:
+```C:\Accounting```
 
 # 29. Soru
 
