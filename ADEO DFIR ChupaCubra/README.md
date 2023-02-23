@@ -1089,3 +1089,156 @@ TR Tarih: 2022-03-24 02:11:49
 Pacific Tarih: 2022-03-34 07:11:49
 ```
 
+# 21. Soru
+
+## Description
+> With which user were suspicious transactions made?
+
+## Solution
+
+# 22. Soru
+
+## Description
+> When was the last time the suspicious user logged in?
+
+## Solution
+
+# 23. Soru
+
+## Description
+> What is the SID of the user performing the transactions?
+
+## Solution
+
+# 24. Soru
+
+## Description
+> This computer had a "Network Listening Tool" running, what's its name? Which path is it on and when was it last used?
+
+## Solution
+
+# 25. Soru
+
+## Description
+> Identify the persistence point created for the malicious file.
+
+## Solution
+
+# 26. Soru
+
+## Description
+> In which directory was the malicious executable downloaded to the machine?
+
+## Solution
+
+# 24. Soru
+
+## Description
+> This computer had a "Network Listening Tool" running, what's its name? Which path is it on and when was it last used?
+
+## Solution
+
+# 27. Soru
+
+## Description
+> What is the creation time value of the downloaded malicious executables?
+
+## Solution
+
+# 28. Soru
+
+## Description
+> On which directory did the attacker compress?
+
+## Solution
+
+# 29. Soru
+
+## Description
+> How many files are in 2022.7z?
+
+## Solution
+
+# 30. Soru
+
+## Description
+> What is the "Creator" information of the "Accounting Manager Job Description Template" file in 2022.7z?
+
+## Solution
+
+# 31. Soru
+
+## Description
+> What is the "File Creation Date/Time" information of the "Uniform Chart of Accounts" file in 2022.7z?
+
+## Solution
+
+# 32. Soru
+
+## Description
+> Where is the domain of the site registered with the attacker's C2 address?
+
+## Solution
+
+# 33. Soru
+
+## Description
+> Where is the country where the attack came from as likely?
+
+## Solution
+
+# 34. Soru
+
+## Description
+> What are the names of malicious executable files?
+
+## Solution
+# 35. Soru
+
+## Description
+> What are the names of malicious document/script files?
+
+## Solution
+
+# 36. Soru
+
+## Description
+> One of the malicious executable files uses an attack technique. What is the name of this technique?
+
+## Solution
+
+# 37. Soru
+
+## Description
+> In the technique used, what is the name of the target process?
+
+## Solution
+
+# 38. Soru
+
+## Description
+> What is the file path of the application that the malicious file named Accesstoken runs with the technique it uses?
+
+## Solution
+
+# 39. Soru
+
+## Description
+> What is the command contained in the malicious file with the “ps1” extension ?
+
+## Solution
+
+# 40. Soru
+
+## Description
+> Is there a powershell command in the file with “xlsm” extension? What is it if it exists?
+
+## Solution
+
+# 41. Soru
+
+## Description
+> A windows application is running from within the file with the “xlsm” extension. What is the name of this app?
+
+## Solution
+
