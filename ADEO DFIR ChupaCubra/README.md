@@ -1115,6 +1115,50 @@ Cevap:
 > When was the last time the suspicious user logged in?
 
 ## Solution
+```nt authority\system``` hesabını şüpheli işlemlerin yapıldığı hesap kabul edersek, ```Security.evtx``` loglarına göre en son oturum açma tarihi 24.03.2022 02:09:46'dır.
+
+MrRobot hesabı ile giriş yapılmamıştır.
+
+winlogon.exe ile kullanılarak RickMartin hesabına giriş yapılan tarih: 24.03.2022 02:11:52
+```
+Bir hesapta başarılı bir şekilde oturum açıldı.
+
+Konu:
+	Güvenlik Kimliği:		SYSTEM
+	Hesap Adı:		WIN-J3MURPJ91BH$
+	Hesap Etki Alanı:		WORKGROUP
+	Oturum Açma Kimliği:		0x3E7
+
+Oturum Türü:			2
+
+Yeni Oturum:
+	Güvenlik Kimliği:		S-1-5-21-1317116276-3394102102-2644462213-1001
+	Hesap Adı:		RickMartinGrimes
+	Hesap Etki Alanı:		RickMartin
+	Oturum Açma Kimliği:		0x35C55
+	Oturum Açma GUID'si:		{00000000-0000-0000-0000-000000000000}
+
+İşlem Bilgileri:
+	İşlem Kimliği:		0x178
+	İşlem Adı:		C:\Windows\System32\winlogon.exe
+
+Ağ Bilgileri:
+	İş İstasyonu Adı:	WIN-J3MURPJ91BH
+	Kaynak Ağ Adresi:	127.0.0.1
+	Kaynak Bağlantı Noktası:		0
+
+Ayrıntılı Kimlik Doğrulama Bilgileri:
+	Oturum Açma İşlemi:		User32 
+	Kimlik Doğrulama Paketi:	Negotiate
+	Aktarılan Hizmetler:	-
+	Paket Adı (yalnızca NTLM):	-
+	Anahtar Uzunluğu:		0
+```
+Cevap:
+```
+nt authority\system: 24.03.2022 02:09:46
+RickMartinGrimes: 24.03.2022 02:09:46
+```
 
 # 23. Soru
 
@@ -1122,6 +1166,12 @@ Cevap:
 > What is the SID of the user performing the transactions?
 
 ## Solution
+```nt authority\system``` kullanıcısının varsayılan SID değeri: S-1-5-18 
+```RickMartinGrimes``` kullanıcısının SID değeri: S-1-5-21-1317116276-3394102102-2644462213-1001
+
+Cevap:
+```nt authority\system: S-1-5-18```
+```RickMartinGrimes: S-1-5-21-1317116276-3394102102-2644462213-1001```
 
 # 24. Soru
 
