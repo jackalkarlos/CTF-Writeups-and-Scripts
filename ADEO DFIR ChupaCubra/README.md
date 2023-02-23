@@ -1095,6 +1095,19 @@ Pacific Tarih: 2022-03-34 07:11:49
 > With which user were suspicious transactions made?
 
 ## Solution
+Bu sorunun bir sürü cevabı var.
+
+RickMartinGrimes malware dosyalarının indirilmesine sebep olan hesap. Şüpheli transferlerin gerçekleştiği hesap. 
+
+Hacker'in kalıcılık için MrRobot adında oluşturduğu bir hesap var. 
+
+Ayriyeten Reverse Shell alınırken privilege escalation kullanıldığını biliyorduk. Port 27 TCP Stream'in başında whoami komutu çalıştırılmış. Şüpheli işlemler "nt authority\system" tarafından gerçekleştirilmiş. Cevabı nt authority\system olarak kabul edeceğim. 
+
+![image](https://user-images.githubusercontent.com/88983987/220977809-5e6353de-2775-4f71-9423-d220e8c86242.png)
+
+Cevap:
+
+```nt authority\system```
 
 # 22. Soru
 
@@ -1153,6 +1166,17 @@ dumpcap.exe
 > Identify the persistence point created for the malicious file.
 
 ## Solution
+
+Hacker'in zaten en yüksek yetkiye sahip olan ```nt authority\system``` yetkisine sahip olduğunu biliyoruz. Fakat buna rağmen MrRobot adında bir hesap daha oluşturması, bu işlemi kalıcılık için yaptığı anlamına gelir. 
+
+23.03.2022 18:52:39 tarihinde MrRobot adında bir hesap oluşturulmuş.
+
+![image](https://user-images.githubusercontent.com/88983987/220398258-90d5aee2-9843-4c36-b3ef-d0c4e4c857e5.png)
+
+Cevap:
+```
+Creating MrRobot Account
+```
 
 # 26. Soru
 
