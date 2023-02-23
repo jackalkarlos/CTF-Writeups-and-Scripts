@@ -1180,6 +1180,63 @@ C:\Users\RickMartinGrimes\AppData\Local\Temp\
 > What is the creation time value of the downloaded malicious executables?
 
 ## Solution
+Bu soru bizi bir tık uğraştırabilir, ama problem yok:) 
+
+İlk olarak dosyaların indirildiği konumun Temp klasörü olduğunu belirlemiştik. Bu klasör içindeki "$I30" dosyasını FTK Imager yardımı ile export ediyoruz.
+
+![image](https://user-images.githubusercontent.com/88983987/220971112-52d465cd-e057-4b9c-990b-f51e19587677.png)
+
+Ardından bazı sistemlerde görünmesi engellendiği için dosyayı export ettiğimiz klasörde aşağıdaki komutu çalıştırıyoruz.
+
+```attrib -r -s -h /s /d *.*```
+
+Ardından aktardığımız dosyayı parse etmek için INDXParse aracını kullanacağız.
+
+https://github.com/williballenthin/INDXParse
+
+Python'um kalide kurulu olduğu için ben dosyayı Kali'ye alacağım.
+
+Dosyanın adında bulunan "$" karakteri Linux'ta değişkenleri belirten özel bir karakterdir. Escape Character ile bundan kurtulup dosyanın ismini değiştiriyoruz.
+
+```
+┌──(root㉿kali)-[/home/kali/Desktop]
+└─# mv "\$I30" I30
+```
+
+Ardından github üzerinden bulduğumuz scripti çalıştırıyoruz. Dosyayı CSV şeklinde export etmesini istiyoruz.
+```
+┌──(root㉿kali)-[/home/kali/Desktop/INDXParse]
+└─# python INDXParse.py "../I30~" -c > INDXParse.csv   
+```
+
+Excel ile dosyayı açıp birkaç işlem yapıp değerlerimizi alıyoruz.
+
+Metni sütünlara dönüştürebilmek için birinciden sonraki sütünleri virgül ile ayırarak ilk sütüna alıyoruz.
+
+Yani ilk sütün "FILENAME" ikinci sütün "PYSHICAL SIZE"... ise, ilk sütün "FILENAME,  PHYSICAL SIZE, LOGICAL SIZE, MODIFIED TIME, ACCESSED TIME, CHANGED TIME, CREATED TIME" olmalı, diğer sütünlar silinmeli.
+
+![image](https://user-images.githubusercontent.com/88983987/220973907-f3e538f4-e6c7-4b82-84da-7ac7b21c00e3.png)
+
+Ardından A sütununu seçip, "Veri" sekmesinden "Metni Sütünlara Dönüştür" seçeneğini seçiyoruz. 
+
+![image](https://user-images.githubusercontent.com/88983987/220974092-d682f27e-5c9f-4017-863e-49235e97d1e4.png)
+
+![image](https://user-images.githubusercontent.com/88983987/220974302-7b2aea05-9b00-4b23-9353-21f2ca4f2b19.png)
+
+![image](https://user-images.githubusercontent.com/88983987/220974448-54656b66-c836-470b-91dc-9189246f0465.png)
+
+Zararlı uygulamalarımızı bulup, Created Time değerlerini alıyoruz.
+
+![image](https://user-images.githubusercontent.com/88983987/220974625-eee44882-3f31-4f5e-af3e-050a2a84c611.png)
+
+Cevap:
+```
+AccessToken.exe : 2022-03-23 15:38:10.162565
+notabadpowershell.ps1: 2022-03-23 15:38:14.38522
+notamalware.vbs: 2022-03-23 15:38:04.959440
+BodyMassIndex.exe: 2022-03-23 15:38:07.514128
+```
+
 # 28. Soru
 
 ## Description
