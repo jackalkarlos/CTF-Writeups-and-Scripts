@@ -1117,6 +1117,36 @@ Pacific Tarih: 2022-03-34 07:11:49
 
 ## Solution
 
+Memory imajı üzerinde "pstree" modülünü çalıştırıyoruz. "Wireshark.exe" ve onun modülü olan "dumpcap.exe" adındaki Network Listening aracına rastlıyoruz.
+```
+E:\ChupaCubra\Chupacabra\OnlineCTF-2022>volatility_2.6_win64_standalone.exe -f chupacabra_CTF_2022.raw --profile=Win7SP1x64 pstree
+Volatility Foundation Volatility Framework 2.6
+Name                                                  Pid   PPid   Thds   Hnds Time
+-------------------------------------------------- ------ ------ ------ ------ ----
+ 0xfffffa8002acfb30:explorer.exe                     1680   1408     30   1061 2022-03-23 13:28:28 UTC+0000
+. 0xfffffa8002999b30:DumpIt.exe                      2788   1680      2     45 2022-03-23 15:56:24 UTC+0000
+. 0xfffffa8003699060:VBoxTray.exe                    1972   1680     14    146 2022-03-23 13:28:28 UTC+0000
+. 0xfffffa80020c06c0:chrome.exe                      2356   1680     30    912 2022-03-23 15:36:22 UTC+0000
+.. 0xfffffa8001a54060:chrome.exe                     1920   2356     11    187 2022-03-23 15:37:11 UTC+0000
+.. 0xfffffa8001c10600:EXCEL.EXE                      3252   2356     17    741 2022-03-23 15:37:26 UTC+0000
+... 0xfffffa8001e32520:splwow64.exe                  3536   3252      6     64 2022-03-23 15:37:33 UTC+0000
+.. 0xfffffa800252eb30:chrome.exe                     4032   2356     14    220 2022-03-23 15:36:22 UTC+0000
+.. 0xfffffa8001afc060:chrome.exe                     2756   2356      7    133 2022-03-23 15:36:22 UTC+0000
+.. 0xfffffa8001a669b0:chrome.exe                     3060   2356      9     87 2022-03-23 15:36:22 UTC+0000
+.. 0xfffffa80039a45d0:chrome.exe                     2000   2356     18    428 2022-03-23 15:36:25 UTC+0000
+.. 0xfffffa800263eb30:chrome.exe                     2224   2356     14    168 2022-03-23 15:36:34 UTC+0000
+.. 0xfffffa8002014060:chrome.exe                     3312   2356     12    193 2022-03-23 15:36:24 UTC+0000
+. 0xfffffa80033bbb30:Wireshark.exe                   2540   1680      6    264 2022-03-23 15:36:14 UTC+0000
+.. 0xfffffa8002088b30:dumpcap.exe                    1748   2540      2     78 2022-03-23 15:36:20 UTC+...
+```
+
+Cevap:
+
+```
+Wireshark.exe
+dumpcap.exe
+```
+
 # 25. Soru
 
 ## Description
