@@ -2,4 +2,12 @@
 
 ## Solution
 
-Its about Vigenere Encryption. There was no hint about vigenere, but you can guess it. Because you need key and there is weird text.
+This is about Vigenere encryption. There was no hint about Vigenere, but you can guess it because you need a key and there is weird text. You will find the key in the picture.
+
+<img src="https://github.com/jackalkarlos/CTF-Writeups-and-Scripts/blob/main/SpringForward2023/Crypto/Dear%20Tom/stickynote.png?raw=true"></img>
+
+Key is : TIME
+
+![image](https://user-images.githubusercontent.com/88983987/224638468-f0778f8d-549d-4534-998f-a0d12ffe8655.png)
+
+nicc{see_you_in_the_future}
