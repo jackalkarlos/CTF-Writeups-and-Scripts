@@ -37,4 +37,4 @@ Image Size                      : 589x733
 Megapixels                      : 0.432
 ```
 
-nicc{Securiy_Camera_Kmart_Special}
+nicc{Security_Camera_Kmart_Special}
