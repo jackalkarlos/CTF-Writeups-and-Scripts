@@ -1,2 +1,3 @@
 # CTF-Writeups-and-Scripts
-I share the solutions and scripts of the questions I like in the CTF I enter.
+I'm tryna create a Turkish resources for interested peoples. Thats why most of them Turkish. I will add English versions some of them.
+
