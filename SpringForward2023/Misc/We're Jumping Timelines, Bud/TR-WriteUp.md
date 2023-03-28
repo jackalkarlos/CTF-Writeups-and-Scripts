@@ -36,7 +36,6 @@ drwxr-xr-x 3 kali kali 4096 Mar 13 13:51 ..
 
 İlk zip boş???
 
-<img src="https://user-images.githubusercontent.com/88983987/224681146-412f43cc-7bf9-4273-b092-637e7f5582d6.png" width="200" height="150">
 
 ``` 
 ┌──(kali㉿kali)-[~/Desktop/out]
