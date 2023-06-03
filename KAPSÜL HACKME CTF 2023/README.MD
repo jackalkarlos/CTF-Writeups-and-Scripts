@@ -1,0 +1,1 @@
+Kaçıncı bitirdiğimizi hala bilmiyoz
