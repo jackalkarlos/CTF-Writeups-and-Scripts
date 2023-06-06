@@ -1,3 +1,7 @@
+## Soru
+
+![soru](https://github.com/jackalkarlos/CTF-Writeups-and-Scripts/assets/88983987/04480f65-e448-4f3f-8b07-d4b359358658)
+
 ## Description
 > Soruda paylaşılan dosya PyInstaller ile paketlenmişti. Pyinstxtractor kullanarak paketi ayrıştırdık. Sonrasında uncompyle6 kullanarak kaynak kodlarını elde ettik. Kaynak kodları şu şekilde.
 ```
