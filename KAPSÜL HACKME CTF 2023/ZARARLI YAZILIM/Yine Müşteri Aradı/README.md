@@ -1,3 +1,8 @@
+## Soru
+![soru](https://github.com/jackalkarlos/CTF-Writeups-and-Scripts/assets/88983987/e19fa5c2-0988-4f52-a5ba-539d9be7b3ea)
+
+
+
 ## Description
 > Soruda paylaşılan virüs dosyası PyInstaller ile paketlenmişti. Pyinstxtractor kullanarak paketi ayrıştırdık. Sonrasında uncompyle6 kullanarak kaynak kodlarını elde ettik. Kaynak kodları şu şekilde.
 ```
