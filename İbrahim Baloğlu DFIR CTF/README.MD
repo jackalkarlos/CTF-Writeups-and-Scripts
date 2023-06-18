@@ -123,29 +123,52 @@ Bunun için sunucu kayıtlarının tutulduğu dosyayı bulmamız gerekiyor. Loka
 
 ```Sunucunun "192.168.23.23:21" ve kullanıcı adının "ibaloglu" olduğunu görüyoruz.```
 
-# 7. Soru
+# 7. Soru ve 7.*
+
+![image](https://github.com/jackalkarlos/CTF-Writeups-and-Scripts/assets/88983987/33c41c2b-93c9-41e1-9058-9c0a8e425bba)
 
 ## Solution
+
 7. soruda bizden sistemde çalıştırılmış bir ağ tarama aracı olup olmadığını sormakta.
 Sistem üzerinde son çalıştırılan programları listelemek için NTUSER.dat dosyasını VEYA Prefetch kayıtlarını incelemeye ihtiyacımız var. NTUSER.dat dosyasını almak için "C:/Users/ibaloglu" klasörüne gidiyoruz. Diğer dosyalarda yaptığımız gibi NTUSER.dat ve onun ismine benzerlik gösteren tüm dosyaları bir klasöre kaydediyoruz. 
-Registry Explorer ile kaydettiğimiz dosyayı açtıktan sonra, "SOFTWARE" klasörü altında "NMAP" adlı bir programın kaydını görüyoruz. İnternet üzerinden arama yaptığımızda bu programın bir ağ tarama aracı olduğunu anlıyoruz.
-Cevap: Evet, NMAP
+Registry Explorer ile kaydettiğimiz dosyayı açtıktan sonra, "SOFTWARE" klasörü altında "NMAP" adlı bir programın kaydını görüyoruz.
 
-7.1. soruda bizden tarama aracının adını ve versiyonunu istemekte. Programın ismini zaten biliyoruz, 7. soruda aldığımız konum bilgisi ile programın kurulu olduğu yere gidiyoruz. (C:\Program Files (x86)\Nmap) Lokasyondaki "scan_log_nmap.xml" dosyasını kaydedip, sevdiğimiz bir text editörü ile açıyoruz. Ben WordPad ile açmayı tercih ettim.
-Yazıyı incelediğimizde versiyonun 7.92 olduğuna dair bir ibare görüyoruz. Ekran görüntüsü üzerinde işaretleme yaptım.
-Cevap: NMAP, 7.92
+![image](https://github.com/jackalkarlos/CTF-Writeups-and-Scripts/assets/88983987/1f52501b-4816-4ae1-ad0e-f776ba3be585)
+
+```Cevap: Evet, NMAP```
+
+7.1. soruda bizden tarama aracının adını ve versiyonunu istemekte. Programın ismini zaten biliyoruz, 7. soruda aldığımız konum bilgisi ile programın kurulu olduğu yere gidiyoruz. (C:\Program Files (x86)\Nmap) Lokasyondaki "scan_log_nmap.xml" dosyasını kaydedip, sevdiğimiz bir text editörü ile açıyoruz.
+
+![image](https://github.com/jackalkarlos/CTF-Writeups-and-Scripts/assets/88983987/7dc6b7bb-6c79-4f27-9788-b497ccb419a9)
+
+<b>Yazıyı incelediğimizde versiyonun 7.92 olduğuna dair bir ibare görüyoruz. </b>
+```Cevap: NMAP, 7.92```
 
 7.2. soruda bizden taramanın başlangıç tarihini sormakta. Aynı dosya içerisinde "startstr" ile başlayan metinde başlangıç tarihini ve saatini görüntüleyebiliyoruz.
-Cevap: Tue Sep 21 16:24:36 2021
+
+![image](https://github.com/jackalkarlos/CTF-Writeups-and-Scripts/assets/88983987/253b8302-10c0-49f9-86dc-ee289afd7b84)
+
+```Cevap: Tue Sep 21 16:24:36 2021```
 
 7.3 soruda bizden tarama aracında kullanılan parameterleri sormakta. Aynı dosya içerisinde "args" ile başlayan metinde saldırganın girdiği komutu görebiliyoruz.
-Cevap: nmap -T4 -F 192.168.52.134
+
+![image](https://github.com/jackalkarlos/CTF-Writeups-and-Scripts/assets/88983987/7d887bab-fd3e-4ba4-b517-4f996996b990)
+
+```Cevap: nmap -T4 -F 192.168.52.134```
 
 7.4. soruda bizden tarama sonucunda açık olarak tespit edilen portları sormakta. Sonuçları hatasız olarak almak için elimle dosyayı birazcık düzeltiyorum. Düzelttiğim dosyayı incelediğimde, 5 tane açık port olduğunu görüyorum. 
-Cevap: 135, 139, 445, 3389, 5357
+
+![image](https://github.com/jackalkarlos/CTF-Writeups-and-Scripts/assets/88983987/6d9a7e39-1b02-4172-8146-76f765d9f4a7)
+
+```Cevap: 135, 139, 445, 3389, 5357```
 
 7.5. soruda bizden taratılan IP'ye ait MAC adresini istiyor. Aynı dosya içerisinde, port sonuçlarının altında MAC adresini görüntüleyebiliyoruz.
-Cevap: 00:0C:29:CD:D2:68 
+
+![image](https://github.com/jackalkarlos/CTF-Writeups-and-Scripts/assets/88983987/fad503cd-04fe-47bb-841f-c6764b7b0652)
+
+```Cevap: 00:0C:29:CD:D2:68```
+
+# 8. Soru
 
 8. soruda bizden bilgisayara takılan USB Depolama Aygıtının takılma tarihini istemekte. 
 Registry Explorer üstünde daha önce açtığımız SYSTEM dosyasına gidiyoruz. Registry hives menüsüne dönüyoruz. Sırasıyla 
@@ -245,12 +268,10 @@ Aynı satırda değiştirilme tarihini görüyoruz.
 
 24. Soru Cevap: Desktop
 
-25. soruda bizden bir rar dosyasının şifresi isteniyor. Bunun için Brute-Force kullanacağız. Ben bunu linux ortamında yapmayı tercih ediyorum. (Windows için "Free RAR Password Recover" kullanılabilir.) Dosyayı sanal makine içerisine aktarıyoruz.
-
-Terminalde "crunch 6 6 abcdefghijklmnopqrstuwvyz -o wordlist.txt(veya hangi ismi vermek isterseniz)" komutu ile bir wordlist oluşturuyoruz.
+25. soruda bizden bir rar dosyasının şifresi isteniyor. Bunun için Brute-Force kullanacağız. Ben bunu linux ortamında yapmayı tercih ediyorum.
 
 rar2john Flag.rar > output.txt
-john output.txt --wordlist wordlist.txt
+john output.txt --wordlist /usr/share/wordlists/rockyou.txt
 
 Komutları ile BruteForce başlatıyoruz. İşlem biraz uzun sürebilir.
 
