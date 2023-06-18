@@ -347,19 +347,31 @@ Export ettiğimiz dosyayı SQLite yardımı ile açıyoruz. Veriyi görüntüle 
 
 # 21. Soru
 
+![image](https://github.com/jackalkarlos/CTF-Writeups-and-Scripts/assets/88983987/44ba814a-efcb-40bd-bdfd-77a7cb711a5f)
 
 ## Solution
 21. soruda bizden oturum açma tarihi ve saati isteniyor. SQLite üzerinden devam ediyoruz. "last_visit_time" sütunu, 7. satırdaki veriyi kopyalıyoruz. "13276709901254517"
+
+![image](https://github.com/jackalkarlos/CTF-Writeups-and-Scripts/assets/88983987/dfe88ca0-0b6b-4048-8786-f7ef06a8c7ed)
+
 İnternet üzerinden "Chrome Timestamp Converter" araması yapıp, ilk çıkan siteye giriyoruz. Çıkan kodu girip dönüştürüyoruz.
 Hedef makinedeki Time-zone bizimkiyle aynı olduğu için direkt "Your time zone" kısmındaki sonucu alıyoruz.
 
-Cevap: Salı, 21 Eylül 2021 17:58:21
+![image](https://github.com/jackalkarlos/CTF-Writeups-and-Scripts/assets/88983987/31b13a35-8794-4aba-b052-bc46a2563478)
 
-22, 23 ve 24. soru:
+```Cevap: Salı, 21 Eylül 2021 17:58:21```
+
+# 22, 23 ve 24. soru:
+
+![image](https://github.com/jackalkarlos/CTF-Writeups-and-Scripts/assets/88983987/75210ebc-f4ca-4fe2-8084-cd61465cb284)
+
+## Solution
 Bu sorular için FTK Imager'den 2 dosya almamız gerekiyor.
 "C:\$LOGFILE"
 "C:\$Extend\$UsnJrnl\$J"
 Bu dosyaları ayrı bir klasöre export ediyoruz.
+
+![image](https://github.com/jackalkarlos/CTF-Writeups-and-Scripts/assets/88983987/75210ebc-f4ca-4fe2-8084-cd61465cb284)
 
 "NTFS Log Tracker" programını açtıktan sonra aktardığımız dosyaları seçiyoruz.
 
