@@ -82,7 +82,7 @@ Windows FILETIME (64 bit) yazısının yanında işletim sisteminin kurulum tari
 
 # 4. Soru
 
-![image](https://github.com/jackalkarlos/CTF-Writeups-and-Scripts/assets/88983987/e4ab386d-6871-4d3d-b52b-48534fbfa5eb)
+![image](https://github.com/jackalkarlos/CTF-Writeups-and-Scripts/assets/88983987/ceb9916d-73fc-496b-a9a1-70201724d5ad)
 
 ## Solution
 4. soruda FTK Imager ile aynı lokasyondan ("C:\Windows\system32\config") SYSTEM dosyasını alıyoruz. Registry Explorer ile SYSTEM dosyasını aynı şekilde açıyoruz. 
