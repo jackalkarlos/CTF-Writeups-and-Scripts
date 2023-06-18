@@ -395,30 +395,54 @@ Oluşan "NLT_UsnJrnl_2021*" diye devam eden dosyayı Excel üzerinde açıyoruz.
 
 Aynı satırda değiştirilme tarihini görüyoruz.
 
-23. Soru Cevap: 2021-09-21 18:06:58
+![image](https://github.com/jackalkarlos/CTF-Writeups-and-Scripts/assets/88983987/9648a15f-6bb8-425d-bf49-7a4023a8eff4)
+
+```23. Soru Cevap: 2021-09-21 18:06:58```
 
 24. soru için fazla bir çaba göstermeye gerek yok. FTK Imager ile makinenin masaüstü (Desktop) klasörüne gittiğimizde "OncekiAdimiBul" dosyasını görebiliyoruz.
 
-24. Soru Cevap: Desktop
+![image](https://github.com/jackalkarlos/CTF-Writeups-and-Scripts/assets/88983987/94fc843c-caf2-40b9-ae4e-1c0ca6beb3d6)
+
+```24. Soru Cevap: Desktop```
+
+# 25. Soru
+
+![image](https://github.com/jackalkarlos/CTF-Writeups-and-Scripts/assets/88983987/dc888dce-5176-494b-99cd-a918888158c7)
 
 25. soruda bizden bir rar dosyasının şifresi isteniyor. Bunun için Brute-Force kullanacağız. Ben bunu linux ortamında yapmayı tercih ediyorum.
 
+```
 rar2john Flag.rar > output.txt
 john output.txt --wordlist /usr/share/wordlists/rockyou.txt
-
+```
 Komutları ile BruteForce başlatıyoruz. İşlem biraz uzun sürebilir.
 
-Cevap: infect
+```Cevap: infect```
 
+# 26. Soru
+
+![image](https://github.com/jackalkarlos/CTF-Writeups-and-Scripts/assets/88983987/ddcbf7af-5294-456d-a11b-871521c11e8f)
+
+## Solution
 26. soruda Word dosyası içerisindeki Flag'i alıyoruz.
 
-Cevap: Windows Forensic {Bu_benim_başarım}
+```Cevap: Windows Forensic {Bu_benim_başarım}```
 
+# 27. Soru
+
+![image](https://github.com/jackalkarlos/CTF-Writeups-and-Scripts/assets/88983987/1c0cfb25-84c0-4655-b4bc-147d943e08a2)
+
+## Solution
 27. soruda FTK Imager ile "C:\$Recycle.Bin\" içerisindeki "S-1-5-21-1302114328-2508369510-30667992-1000" SID numaralı klasörü export ediyoruz. 
 $I Parser uygulamasını açıp kaydettiğimiz yeri ve yeni verilerin kaydedilmesini istediğimiz konumu seçip "Parse!" tuşuna basıyoruz.
+
+![image](https://github.com/jackalkarlos/CTF-Writeups-and-Scripts/assets/88983987/c54da303-13fe-4a7a-a659-203829fc8da5)
+
 İki dosya silindiğini ve isimlerinin "mimikatz.exe" ve "FileZilla_3.54.1_win64-setup.exe" olduğunu görüyoruz.
 
-Cevap: FileZilla_3.54.1_win64-setup.exe ve mimikatz.exe
+![image](https://github.com/jackalkarlos/CTF-Writeups-and-Scripts/assets/88983987/3c25ae44-6bf8-41a2-a4a7-d955c1abc8ec)
+
+```Cevap: FileZilla_3.54.1_win64-setup.exe ve mimikatz.exe```
 
 28. soruda cihazda "IMG_7294.JPG" adlı bir dosya olduğundan bahsediyor. Bu dosyayı bulduktan sonra 28, 29 ve 30. soruları cevaplayacağız. Bunun için ilk önce dosyanın konumunu ve kendisini bulmamız gerekiyor. Yine imdadımıza FTK Imager koşuyor. 
 
