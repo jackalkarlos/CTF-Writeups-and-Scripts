@@ -452,12 +452,33 @@ $I Parser uygulamasını açıp kaydettiğimiz yeri ve yeni verilerin kaydedilme
 28. soruda cihazda "IMG_7294.JPG" adlı bir dosya olduğundan bahsediyor. Bu dosyayı bulduktan sonra 28, 29 ve 30. soruları cevaplayacağız. Bunun için ilk önce dosyanın konumunu ve kendisini bulmamız gerekiyor. Yine imdadımıza FTK Imager koşuyor. 
 
 Bunun için 2 yöntemimiz var.
-1- İmajı sisteme bağlayıp Windows'un arama özelliğini kullanmak:
-İncelediğimiz imajın üstüne sağ tık ile tıklıyoruz, "Image Mounting" tıklıyoruz. Gelen menüde "Mount" tuşuna basıyoruz. Daha sonra bilgisayarım kısmında oluşan, dataların yer aldığı Yerel Disk'e erişim sağlıyoruz. Arama kısmından IMG_7294.JPG araması yapıyoruz. Konumu AppData\Local kısmında.
-2- İmajın lokasyon bilgilerini çıkartmak:
-Basic Data Partition (3)'ün üstüne sağ tık ile tıklıyoruz, Export Directory List butonunu seçiyoruz. Dosyayı kaydedeceğimiz konumu ve ismini seçip "Kaydet" butonuna basıyoruz. İşlemin tamamlanmasını bekliyoruz. Oluşan Excel dosyasında ufak bir aratma yaparak sonuca ulaşıyoruz. Tavsiye edilen yöntem genellikle budur. Bu yönteme alışmanızı şiddetle tavsiye ederim.
 
-Konumu AppData\Local kısmında demiştik. Dosyayı kolaylıkla erişebileceğimiz bir yere export ediyoruz. İnternet üzerinden "https://exiftool.org/" adresinden işletim sistemimize uygun olan Exiftool versiyonunu indiriyoruz. İnen exe dosyasını export ettiğimiz fotoğraf ile aynı klasöre alıyoruz. Terminali klasörde çalıştırıyoruz ve "exiftool(-k).exe" IMG_7294.JPG.copy0 komutunu çalıştırıyoruz. 
+1- İmajı sisteme bağlayıp Windows'un arama özelliğini kullanmak:
+
+İncelediğimiz imajın üstüne sağ tık ile tıklıyoruz, "Image Mounting" tıklıyoruz. 
+
+![image](https://github.com/jackalkarlos/CTF-Writeups-and-Scripts/assets/88983987/8b3b2ab8-3ab5-464b-bc56-39465d0d5b69)
+
+Gelen menüde "Mount" tuşuna basıyoruz. 
+
+![image](https://github.com/jackalkarlos/CTF-Writeups-and-Scripts/assets/88983987/d974da87-ccaf-4c09-8019-894e539748e6)
+
+Daha sonra bilgisayarım kısmında oluşan, dataların yer aldığı Yerel Disk'e erişim sağlıyoruz. Arama kısmından IMG_7294.JPG araması yapıyoruz. Konumu AppData\Local kısmında.
+
+2- İmajın lokasyon bilgilerini çıkartmak:
+
+Basic Data Partition (3)'ün üstüne sağ tık ile tıklıyoruz, Export Directory List butonunu seçiyoruz. Dosyayı kaydedeceğimiz konumu ve ismini seçip "Kaydet" butonuna basıyoruz. 
+
+![image](https://github.com/jackalkarlos/CTF-Writeups-and-Scripts/assets/88983987/64b4639c-0385-4c67-893c-5d9fe0cf25e2)
+![image](https://github.com/jackalkarlos/CTF-Writeups-and-Scripts/assets/88983987/ce25b854-1ba0-41d5-bb61-6d7135b0c20a)
+
+İşlemin tamamlanmasını bekliyoruz. Oluşan Excel dosyasında ufak bir aratma yaparak sonuca ulaşıyoruz. Tavsiye edilen yöntem genellikle budur. Bu yönteme alışmanızı şiddetle tavsiye ederim.
+
+![image](https://github.com/jackalkarlos/CTF-Writeups-and-Scripts/assets/88983987/c8494e2e-4a12-47a1-beaf-dd5d9fe8d8ff)
+
+Konumu AppData\Local kısmında demiştik. Dosyayı kolaylıkla erişebileceğimiz bir yere export ediyoruz. `exiftool IMG_7294.JPG.copy0` komutunu çalıştırıyoruz.
+
+![image](https://github.com/jackalkarlos/CTF-Writeups-and-Scripts/assets/88983987/d065e845-6808-47b5-ae9d-c3a9ebf2652e)
 
 Karşımıza çıkan detaylar fotoğraf dosyasının bilgilerini içeriyor. Telefon modelinin "iPhone SE (2nd generation)" olduğunu görüyoruz.
 
@@ -465,9 +486,13 @@ Karşımıza çıkan detaylar fotoğraf dosyasının bilgilerini içeriyor. Tele
 
 29. soruda aynı tabloda "Flash:" yazısının karşısında "Off, Did Not Fire" yazısını görüyoruz. Bu flaşın açık olmadığı anlamına geliyor.
 
+![image](https://github.com/jackalkarlos/CTF-Writeups-and-Scripts/assets/88983987/d96d889d-d927-492c-a85b-f9a9a84b2692)
+
 ```Cevap: Flash Kapalı```
 
 30. soruda aynı tabloda Date/Time Original ve Create Date karşısında fotoğrafın orjinal oluşturulma tarihini ve saatini görüntüleyebiliyoruz.
+
+![image](https://github.com/jackalkarlos/CTF-Writeups-and-Scripts/assets/88983987/d70994a5-6194-4942-a520-aacdeb70acc2)
 
 ```Cevap: 2021:09:21 18:27:32```
 
@@ -477,15 +502,28 @@ Karşımıza çıkan detaylar fotoğraf dosyasının bilgilerini içeriyor. Tele
 
 ## Solution
 31. soruda daha önce yaptığımız gibi Registry Explorer yardımı ile SYSTEM dosyasını açıyoruz. Available Bookmarks menüsü altında ilk Windows klasörüne geliyoruz. Sağ tarafta ShutdownTime değerinin üstüne tıklıyoruz.
+
+![image](https://github.com/jackalkarlos/CTF-Writeups-and-Scripts/assets/88983987/1ce355c4-7683-486f-b109-b37f90aa7ca8)
+
 Sağ alttan Data Interpreter seçeneğini seçiyoruz. "Windows Filetime (64 bit)" karşısında aradığımız tarih ve saate rastlıyoruz.
 
-Cevap: 2021-02-22 13:42:42
+![image](https://github.com/jackalkarlos/CTF-Writeups-and-Scripts/assets/88983987/19fb300c-2621-4eb3-adeb-a0053a7ee58f)
+
+````Cevap: 2021-02-22 13:42:42````
 
 # 32. Soru
 
 ## Solution
 32. soruda, 28. soruda olduğu gibi imajı sisteme bağlıyoruz. "Autoruns" adlı forensic programını çalıştırıyoruz. Sol üstteki "File" seçeneğinin altından "Analyze Offline System" seçeneğini seçiyoruz.
+
+![image](https://github.com/jackalkarlos/CTF-Writeups-and-Scripts/assets/88983987/94743447-f745-4fcd-a012-dbf0a6ab9367)
+
 Çıkan menüde sisteme bağladığımız imajın "Windows" klasörünü gösteriyoruz. Alttaki kısım otomatik olarak tamamlanıyor. "OK" tuşuna basıp devam ediyoruz. Kısa bir süre bekletiyor ve sonra inceleme işlemimize başlıyoruz.
+
+![image](https://github.com/jackalkarlos/CTF-Writeups-and-Scripts/assets/88983987/dc37df85-bf97-4e0b-8d88-666956fc53a5)
+
 Logon sekmesi altında otomatik çalıştırılan işlemlerin: "cmd.exe, vmtoolsd.exe, vm3dservice.exe, onedrivesetup.exe, chrmstp.exe" olduğunu ve diğer işlemlerin sistem dosyası olduğunu görüntülüyoruz.
 
-Cevap: "cmd.exe, vmtoolsd.exe, vm3dservice.exe, onedrivesetup.exe, chrmstp.exe"
+![image](https://github.com/jackalkarlos/CTF-Writeups-and-Scripts/assets/88983987/8daba6f3-a631-4759-a200-3caffa4ee58c)
+
+````Cevap: "cmd.exe, vmtoolsd.exe, vm3dservice.exe, onedrivesetup.exe, chrmstp.exe"````
