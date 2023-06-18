@@ -87,22 +87,45 @@ Windows FILETIME (64 bit) yazısının yanında işletim sisteminin kurulum tari
 ## Solution
 4. soruda FTK Imager ile aynı lokasyondan ("C:\Windows\system32\config") SYSTEM dosyasını alıyoruz. Registry Explorer ile SYSTEM dosyasını aynı şekilde açıyoruz. 
 
-![image](https://github.com/jackalkarlos/CTF-Writeups-and-Scripts/assets/88983987/5aeef06e-76e5-4e09-9ffe-a57ef99a78c6)
-
 Interfaces klasörü altındaki kayıtları birazcık kurcaladıktan sonra, bulduğumuz değerlerin bir tanesinde cihazın aldığı son IP Adresine erişim sağlıyoruz.
+
+![image](https://github.com/jackalkarlos/CTF-Writeups-and-Scripts/assets/88983987/5aeef06e-76e5-4e09-9ffe-a57ef99a78c6)
 
 ```Cevap: 192.168.52.131```
 
+# 5. Soru
+
+![image](https://github.com/jackalkarlos/CTF-Writeups-and-Scripts/assets/88983987/6ddd0f0f-628d-4fc0-94e6-613c2d2f037d)
+
+## Solution
+
 5. soruda FTK Imager ile aynı lokasyondan ("C:\Windows\system32\config") SAM dosyasını alıyoruz. Registry Explorer ile SAM dosyasını aynı şekilde açıyoruz.
 "Users" klasörüne erişim sağlıyoruz, sağ taraftaki "User Accounts" menüsünde tüm kullanıcıların isimleri ve toplam giriş sayıları yazmakta. "Total Login Count" sütunu altında, giriş yapılan tek hesabın "ibaloglu" hesabı olduğunu ve toplamda 5 kez giriş yapıldığını öğreniyoruz.
-Cevabımız "ibaloglu"
+
+![image](https://github.com/jackalkarlos/CTF-Writeups-and-Scripts/assets/88983987/b20ac722-86ca-491e-ae82-76cd70fbc07d)
+
+```Cevabımız "ibaloglu"```
+
+# 6. Soru
+
+![image](https://github.com/jackalkarlos/CTF-Writeups-and-Scripts/assets/88983987/9b4643af-81bf-4b11-ae21-f77fc420b2d1)
+
+## Solution
 
 6. soruda "FTP bağlantısı yapılan sunucunun IP adresi ve kullanıcısı isteniyor. İpucumuz ise "Filezilla".
 Bunun için sunucu kayıtlarının tutulduğu dosyayı bulmamız gerekiyor. Lokasyonu: "C:/Users/ibaloglu/AppData/Roaming/FileZilla"
+
+![image](https://github.com/jackalkarlos/CTF-Writeups-and-Scripts/assets/88983987/2436f53c-b4b4-4b81-880c-23fce8c4562d)
+
 "recentservers.xml" adlı dosyaya tıkladığımızda, export etmemize gerek kalmadan önizlemesi gösteriliyor.
 
-Sunucunun "192.168.23.23:21" ve kullanıcı adının "ibaloglu" olduğunu görüyoruz.
+![image](https://github.com/jackalkarlos/CTF-Writeups-and-Scripts/assets/88983987/ae894b6d-5271-4586-82b9-2dd326b8b237)
 
+```Sunucunun "192.168.23.23:21" ve kullanıcı adının "ibaloglu" olduğunu görüyoruz.```
+
+# 7. Soru
+
+## Solution
 7. soruda bizden sistemde çalıştırılmış bir ağ tarama aracı olup olmadığını sormakta.
 Sistem üzerinde son çalıştırılan programları listelemek için NTUSER.dat dosyasını VEYA Prefetch kayıtlarını incelemeye ihtiyacımız var. NTUSER.dat dosyasını almak için "C:/Users/ibaloglu" klasörüne gidiyoruz. Diğer dosyalarda yaptığımız gibi NTUSER.dat ve onun ismine benzerlik gösteren tüm dosyaları bir klasöre kaydediyoruz. 
 Registry Explorer ile kaydettiğimiz dosyayı açtıktan sonra, "SOFTWARE" klasörü altında "NMAP" adlı bir programın kaydını görüyoruz. İnternet üzerinden arama yaptığımızda bu programın bir ağ tarama aracı olduğunu anlıyoruz.
