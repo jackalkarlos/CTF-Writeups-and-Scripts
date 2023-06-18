@@ -171,73 +171,179 @@ Registry Explorer ile kaydettiğimiz dosyayı açtıktan sonra, "SOFTWARE" klas�
 
 # 8. Soru
 
+![image](https://github.com/jackalkarlos/CTF-Writeups-and-Scripts/assets/88983987/b6f91838-1b49-4cee-9e09-e37b2be3b0c2)
+
+## Solution
 8. soruda bizden bilgisayara takılan USB Depolama Aygıtının takılma tarihini istemekte. 
 Registry Explorer üstünde daha önce açtığımız SYSTEM dosyasına gidiyoruz. Registry hives menüsüne dönüyoruz. Sırasıyla 
 ROOT > ControlSet001 > Enum > USBSTOR > Disk&Ven_SanDisk&Prod_Cruzer_Blade&Rev_1.00 > 4C530001220905112112&0 > Properties >  {83da6326-97a6-4088-9453-a1923f573b29} > 0064 klasörüne gidiyoruz. Sağ tarafta USB cihazının ilk takıldığı tarih gözükmekte.
-Cevap: 2021-09-21 13:49:08
 
-9. soruda bizden bilgisayara takılan USB Depolama Aygıtının çıkartılma tarihini istemekte. Aynı dizinde 0067 klasörüne gidiyoruz. Çıkartılma tarihi sağ tarafta gözükmekte.
-Cevap: 2021-09-21 13:51:52
+![image](https://github.com/jackalkarlos/CTF-Writeups-and-Scripts/assets/88983987/857c2074-fffc-43c3-9136-ac09956e44fc)
 
+```Cevap: 2021-09-21 13:49:08```
+
+# 9. Soru
+
+![image](https://github.com/jackalkarlos/CTF-Writeups-and-Scripts/assets/88983987/57f4ee66-99dd-4360-a9d9-b74a817b43fd)
+
+## Solution
+9. soruda bizden bilgisayara takılan USB Depolama Aygıtının çıkartılma tarihini istemekte.
+Registry Explorer üstünde daha önce açtığımız SYSTEM dosyasına gidiyoruz. Registry hives menüsüne dönüyoruz. Sırasıyla
+ROOT > ControlSet001 > Enum > USBSTOR > Disk&Ven_SanDisk&Prod_Cruzer_Blade&Rev_1.00 > 4C530001220905112112&0 > Properties > {83da6326-97a6-4088-9453-a1923f573b29} > 0067 klasörüne gidiyoruz. Sağ tarafta USB cihazının ilk takıldığı tarih gözükmekte.
+
+![image](https://github.com/jackalkarlos/CTF-Writeups-and-Scripts/assets/88983987/9aef3ba3-79bd-4f84-be53-414582b9eb81)
+
+```Cevap: 2021-09-21 13:51:52```
+
+# 10. Soru
+
+![image](https://github.com/jackalkarlos/CTF-Writeups-and-Scripts/assets/88983987/19473395-f3bc-48a9-95f0-ed221e944473)
+
+## Solution
 10. soruda bizden bilgisayara takılan USB Depolama Aygıtının seri numarasını istemekte. ROOT > ControlSet001 > Enum > USBSTOR > Disk&Ven_SanDisk&Prod_Cruzer_Blade&Rev_1.00 > 4C530001220905112112&0 dizinindeki "4C530001220905112112&0" USB aygıtının seri numarasını temsil etmekte. 
-Cevap: 4C530001220905112112&0
 
+```Cevap: 4C530001220905112112&0```
+
+# 11. Soru
+
+![image](https://github.com/jackalkarlos/CTF-Writeups-and-Scripts/assets/88983987/2afe8a75-bc6d-46b2-8413-6af9dc66c313)
+
+## Solution
 11. soruda bizden "Kullanıcı parolalarını elde etmek için kullanılan zararlı yazılımın çalıştırılma tarihi" isteniyor. Windowsta yaygın olarak tanınan ve kullanıcı parolalarını çalmak amacıyla kullanılan ünlü bir yazılım var. Aradığımız yazılımın MimikAtz olduğunu varsayarak, Prefetch kayıtlarını inceliyoruz.
 
 FTK Imager yardımı ile "C:/Windows/Prefetch" klasörünü export ediyoruz. Daha sonra "WinPrefetchView" programını çalıştırıyoruz. Options > Advanced Options seçeneğine girip, Prefetch Folder seçeneğine kaydettiğimiz klasörü gösteriyoruz.
 
+![image](https://github.com/jackalkarlos/CTF-Writeups-and-Scripts/assets/88983987/f3815770-d421-4ddf-b141-93d1bb3b9be4)
+
 Daha sonra karşımıza çıkan listede ufak bir göz gezdiriyoruz. Gözümüze ismi değişik gelen, yanlış yazılmış, benzer yazılmış program isimlerine bakıyoruz. Bahsettiğim MimikAtz yazılımının listede olduğunu farkediyoruz. Çift tıklayıp detaylarına girdikten sonra, "Last Run Time" seçeneği altında cevaba erişiyoruz. Bir dahaki işlemlerde ihtiyacımız olacağı için WinPrefetchView'i kapatmıyoruz.
 
-Cevap: 21.09.2021 17:14:21, 21.09.2021 16:59:40
+![image](https://github.com/jackalkarlos/CTF-Writeups-and-Scripts/assets/88983987/c3715bd7-53d3-46b2-a53d-b5298c750d31)
 
+![image](https://github.com/jackalkarlos/CTF-Writeups-and-Scripts/assets/88983987/18cdeefa-5eb5-47ac-a217-20dd75950d13)
+
+```Cevap: 21.09.2021 17:14:21, 21.09.2021 16:59:40```
+
+# 12. Soru
+
+![image](https://github.com/jackalkarlos/CTF-Writeups-and-Scripts/assets/88983987/70f08649-04fb-4854-88b0-f835eb245183)
+
+## Solution
 12. soruda bizden Mimikatz ile hangi aktif kullanıcıların parola bilgilerinin elde edildiğini istiyor. WinPrefetchView ile Mimikatz'ın olduğu konumu öğreniyoruz.
 "C:/Users/ibaloglu/Downloads/mimikatz_trunk/x64"
+
+![image](https://github.com/jackalkarlos/CTF-Writeups-and-Scripts/assets/88983987/585552e3-dd4d-4bea-9d27-4519ec77fe89)
+
 FTK Imager yardımı ile Mimikatz'ın olduğu konuma gidiyoruz. Konumda "mimikatz_output.txt" adlı bir text dosyası ile karşılaşıyoruz. İncelediğimizde ibaloglu adlı kullanıcının NTLM ve SHA1 değerinin çalınmış olduğunu görüyoruz.
 
-Cevap: ibaloglu
+![image](https://github.com/jackalkarlos/CTF-Writeups-and-Scripts/assets/88983987/25865f35-3f55-49f4-82d0-db33d86c1f4e)
 
+```Cevap: ibaloglu```
+
+# 13. Soru
+
+![image](https://github.com/jackalkarlos/CTF-Writeups-and-Scripts/assets/88983987/e7e84231-8079-4d58-92d4-87b19a7dbacd)
+
+## Solution
 13. soruda bizden çalınan parolanın text halini istiyor. "https://crackstation.net/" adresine gidip, NTLM ve SHA1 değerini alt alta yazıyoruz. Captcha onaylamasını yaptıktan sonra, "Crack Hashes" butonuna basıyoruz. NTLM için "Password1" sonucunu çıkarıyor.
 
-Cevap: Password1
+![image](https://github.com/jackalkarlos/CTF-Writeups-and-Scripts/assets/88983987/916ca329-47e0-4ffb-990c-506413e8a3ef)
+
+```Cevap: Password1```
+
+# 14. Soru
+
+![image](https://github.com/jackalkarlos/CTF-Writeups-and-Scripts/assets/88983987/1fe7e302-d43d-4845-9137-9bebefbb08dc)
+
+## Solution
 
 14. soruda bizden sistemdeki Prefetch sayısını istiyor. WinPrefetchView programında sol alt kısma bakıyoruz.
 
-Cevap: 167
+![image](https://github.com/jackalkarlos/CTF-Writeups-and-Scripts/assets/88983987/d8642167-d02a-4ab8-9e9d-ab0b3fae1406)
 
+```Cevap: 167```
+
+# 15. Soru
+
+![image](https://github.com/jackalkarlos/CTF-Writeups-and-Scripts/assets/88983987/7d0140cc-d8ee-4ebb-8190-2d8f579c3635)
+
+## Solution
 15. soruda bizden paylaşıma açılmış dosyaları istiyor. SYSTEM dosyasını Registry Explorer ile açıyoruz. Available Bookmarks altından "Shares" klasörüne giriyoruz. Sağ tarafta paylaşıma açılmış dosyalar yazıyor.
 
-Cevap: Temp ve Users
+![image](https://github.com/jackalkarlos/CTF-Writeups-and-Scripts/assets/88983987/650bbbf0-63b7-45ff-afe5-f93533a67a77)
 
+```Cevap: Temp ve Users```
+
+# 16. Soru
+
+![image](https://github.com/jackalkarlos/CTF-Writeups-and-Scripts/assets/88983987/e5495592-6ec2-4017-b2af-dcf753bc7ebc)
+
+## Solution
 16. soruda bizden paylaşıma açılmış klasörlerin içerisinde yer alan txt çıktısında yazan, aktif bağlantı kurulan IP adresi ve Yerel Bağlantı Portu istenmekte. Users klasörüne gittiğimizde içerisinde herhangi bir txt dosyası olmadığını görüyoruz. "C:/Users/ibaloglu/Appdata/Local/Temp" klasörüne gidiyoruz. 
+
+![image](https://github.com/jackalkarlos/CTF-Writeups-and-Scripts/assets/88983987/b04dc1d7-9f8c-47f7-9f90-3a6c6eeeeeff)
+
 "network_connection_ib.txt" adlı bir dosyaya rastlıyoruz. İçeriğini incelediğimizde bir takım bağlantı logları olduğunu görüyoruz. Txt dosyasında görüldüğü üzere 445 portundan, 192.168.52.134 adresine bağlantı sağlanmış.
 
-Cevap: 192.168.52.134, 445
+```Cevap: 192.168.52.134, 445```
 
+# 17. Soru
+
+![image](https://github.com/jackalkarlos/CTF-Writeups-and-Scripts/assets/88983987/b69d21ad-146f-4b19-8b49-69eb1f6f7c24)
+
+## Solution
 17. soruda bizden 9/21/2021 tarihinde yapılmış uzak bağlantı işlemlerine dair tarih ve oturum açma tipi detaylarını istiyor. "C:/Windows/System32/winevt/Logs" dizini altından "Security.evtx" ve "Microsoft-Windows-TerminalServices-LocalSessionManager%4Operational.evtx" dosyalarını export ediyoruz. EvtxExplorer programı ile aynı klasör içine kopyalıyoruz. Klasörün içerisinde terminali çalıştırıyoruz.
+
+![image](https://github.com/jackalkarlos/CTF-Writeups-and-Scripts/assets/88983987/ecd4ccff-ea30-47ab-81bc-4cffb37475f8)
 
 “EvtxECmd.exe -f “logfile” --csv “outputfolder” –-csvf security.csv” komutunda gerekli yerleri dolduruyoruz. Oluşan dosya içerisinde filtreleme yaparak devam ediyoruz. EventId sütunu altından "4624" filtrelemesi (başarılı giriş kodu) yapıyoruz. TimeCreated sütunu altından 09-21 araması yapıp çıkan sonuçlara filtre uyguluyoruz. Logon type kısmından "LogonType3" ve "LogonType 7" filtrelemesi uyguluyoruz. Thread kısmından küçükten büyüğe sıralama yapıyoruz ve kesin tarih-saatler elde ediyoruz. Çıkan sonuçları değerlendirmeye başlayabiliriz.
 
-Cevap: Oturum Açma Tipi 4624
+![image](https://github.com/jackalkarlos/CTF-Writeups-and-Scripts/assets/88983987/5733e9c3-5c3c-4fc0-a6a8-9b6f86b00a7a)
+
+
+```Cevap: Oturum Açma Tipi 4624
 Tarihler: 
 2021-09-21 14:23:03.4899964
 2021-09-21 16:12:06.6335956
 2021-09-21 14:49:17.2927314
 2021-09-21 14:23:00.6737119
 (Salise farklar olan 1-2 kayıt var, onları atlayarak yazdım. Ana tarih ve dakikaları aldım.)
+```
 
+# 18. Soru
+
+![image](https://github.com/jackalkarlos/CTF-Writeups-and-Scripts/assets/88983987/471d5b3a-132d-4bea-a1eb-e2f1ab1b8804)
+
+## Solution
 18. soruda oturum açılan makinenin IP adresini istemekte. Aynı tabloyu sağa kaydırarak IP Adresine erişim sağlıyoruz.
 
-Cevap: 192.168.52.134
+![image](https://github.com/jackalkarlos/CTF-Writeups-and-Scripts/assets/88983987/57b75c38-67c4-4ace-afdd-23368a30d586)
 
+```Cevap: 192.168.52.134```
+
+# 19. Soru
+
+![image](https://github.com/jackalkarlos/CTF-Writeups-and-Scripts/assets/88983987/1e280b43-4dba-4e7d-a6f3-aa39f79fb35e)
+
+## Solution 
 19. soruda oturum açılırken kullanılan kullanıcı adını istemekte. PayloadData1 sütunu altında kullanıcı adını görüntülüyoruz. DESKTOP-69U8AFV domainine bağlı "ibaloglu" kullanıcısı.
 
-Cevap: ibaloglu
+![image](https://github.com/jackalkarlos/CTF-Writeups-and-Scripts/assets/88983987/c3f73a19-5044-4f1d-9614-8b69d11b4938)
+
+```Cevap: ibaloglu```
+
+# 20. Soru
+
+![image](https://github.com/jackalkarlos/CTF-Writeups-and-Scripts/assets/88983987/0ccfa7e5-6130-40f8-be0b-3c33157ffaf2)
+
+## Solution
 
 20. soruda "İnternet tarayıcısı üzerinden oturum açılan bir e-posta hizmeti var mı, Varsa; Oturum açan e-posta adresi nedir?" sorusu ile karşılaşıyoruz. Daha önce incelediğimiz Prefetch verilerine dayanaraktan makine sahibinin "Google Chrome" kullandığını düşünüyoruz. FTK Imager yardımı ile imaj içindeki Google Chrome geçmişinin depolandığı "C:\Users\ibaloglu\AppData\Local\Google\Chrome\User Data\Default" konumuna gidiyoruz. "History" dosyasını export ediyoruz.
 
 Export ettiğimiz dosyayı SQLite yardımı ile açıyoruz. Veriyi görüntüle kısmına gelip, tablo kısmından "urls" seçeneğini seçiyoruz. Geçmişi inceleyerek aradığımız cevaplara ulaşıyoruz.
 
-Cevap: ProtonMail, Forensics_ibaloglu@protonmail.com
+![image](https://github.com/jackalkarlos/CTF-Writeups-and-Scripts/assets/88983987/6beda165-b4bd-487e-9d42-23c48282ea87)
+
+```Cevap: ProtonMail, Forensics_ibaloglu@protonmail.com```
 
 21. soruda bizden oturum açma tarihi ve saati isteniyor. SQLite üzerinden devam ediyoruz. "last_visit_time" sütunu, 7. satırdaki veriyi kopyalıyoruz. "13276709901254517"
 İnternet üzerinden "Chrome Timestamp Converter" araması yapıp, ilk çıkan siteye giriyoruz. Çıkan kodu girip dönüştürüyoruz.
