@@ -345,6 +345,10 @@ Export ettiğimiz dosyayı SQLite yardımı ile açıyoruz. Veriyi görüntüle 
 
 ```Cevap: ProtonMail, Forensics_ibaloglu@protonmail.com```
 
+# 21. Soru
+
+
+## Solution
 21. soruda bizden oturum açma tarihi ve saati isteniyor. SQLite üzerinden devam ediyoruz. "last_visit_time" sütunu, 7. satırdaki veriyi kopyalıyoruz. "13276709901254517"
 İnternet üzerinden "Chrome Timestamp Converter" araması yapıp, ilk çıkan siteye giriyoruz. Çıkan kodu girip dönüştürüyoruz.
 Hedef makinedeki Time-zone bizimkiyle aynı olduğu için direkt "Your time zone" kısmındaki sonucu alıyoruz.
