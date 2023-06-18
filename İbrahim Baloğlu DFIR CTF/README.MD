@@ -2,8 +2,6 @@
 
 # Ad Soyad ve E-posta adresimizi kaydettikten sonra ilk soruya geçebiliriz.
 
-# CTF'e erişmek için URL: http://www.ibrahimbaloglu.com/2021/10/windows-forensics-challange.html
-
 # 1. Soru
 
 ![image](https://github.com/jackalkarlos/CTF-Writeups-and-Scripts/assets/88983987/b5cc0578-f50f-4556-a1e9-f86642d184bd)
