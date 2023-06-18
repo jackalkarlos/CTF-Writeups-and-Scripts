@@ -142,6 +142,7 @@ Registry Explorer ile kaydettiğimiz dosyayı açtıktan sonra, "SOFTWARE" klas�
 ![image](https://github.com/jackalkarlos/CTF-Writeups-and-Scripts/assets/88983987/7dc6b7bb-6c79-4f27-9788-b497ccb419a9)
 
 <b>Yazıyı incelediğimizde versiyonun 7.92 olduğuna dair bir ibare görüyoruz. </b>
+
 ```Cevap: NMAP, 7.92```
 
 7.2. soruda bizden taramanın başlangıç tarihini sormakta. Aynı dosya içerisinde "startstr" ile başlayan metinde başlangıç tarihini ve saatini görüntüleyebiliyoruz.
