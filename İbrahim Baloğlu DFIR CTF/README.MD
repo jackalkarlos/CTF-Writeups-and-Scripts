@@ -513,6 +513,8 @@ Sağ alttan Data Interpreter seçeneğini seçiyoruz. "Windows Filetime (64 bit)
 
 # 32. Soru
 
+![image](https://github.com/jackalkarlos/CTF-Writeups-and-Scripts/assets/88983987/9b501e09-c91e-4ec9-a853-73cd72bc63f4)
+
 ## Solution
 32. soruda, 28. soruda olduğu gibi imajı sisteme bağlıyoruz. "Autoruns" adlı forensic programını çalıştırıyoruz. Sol üstteki "File" seçeneğinin altından "Analyze Offline System" seçeneğini seçiyoruz.
 
