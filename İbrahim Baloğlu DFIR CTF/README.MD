@@ -367,21 +367,31 @@ Hedef makinedeki Time-zone bizimkiyle aynı olduğu için direkt "Your time zone
 
 ## Solution
 Bu sorular için FTK Imager'den 2 dosya almamız gerekiyor.
+```
 "C:\$LOGFILE"
 "C:\$Extend\$UsnJrnl\$J"
+```
 Bu dosyaları ayrı bir klasöre export ediyoruz.
 
 ![image](https://github.com/jackalkarlos/CTF-Writeups-and-Scripts/assets/88983987/75210ebc-f4ca-4fe2-8084-cd61465cb284)
 
 "NTFS Log Tracker" programını açtıktan sonra aktardığımız dosyaları seçiyoruz.
 
+![image](https://github.com/jackalkarlos/CTF-Writeups-and-Scripts/assets/88983987/39c56b4c-baa0-476f-b999-79041c27b46c)
+
 "Parse" tuşuna bastıktan sonra, dosyaların kaydedileceği konum ve ismini seçiyoruz. Ardından "Start" butonuna basıyoruz.
+
+![image](https://github.com/jackalkarlos/CTF-Writeups-and-Scripts/assets/88983987/b426f388-ecbe-49af-89f9-48f5d8960c8b)
 
 İşlem bittikten sonra, "Export CSV" butonuna basıp dosyaların kaydedileceği klasörü seçiyoruz.
 
+![image](https://github.com/jackalkarlos/CTF-Writeups-and-Scripts/assets/88983987/cb877ff0-ea09-4d1a-ab8c-ac2b82812a32)
+
 Oluşan "NLT_UsnJrnl_2021*" diye devam eden dosyayı Excel üzerinde açıyoruz. CTRL + F yaparak "OncekiAdimiBul" aratması yapıyoruz. Kayıtları incelediğimizde dosyanın eski adının "Windows_Forensic" olduğunu görüyoruz.
 
-22. Soru Cevap: Windows_ Forensic
+![image](https://github.com/jackalkarlos/CTF-Writeups-and-Scripts/assets/88983987/b287aa1d-b599-4e37-bfdf-c44e3695ea90)
+
+```22. Soru Cevap: Windows_ Forensic```
 
 Aynı satırda değiştirilme tarihini görüyoruz.
 
