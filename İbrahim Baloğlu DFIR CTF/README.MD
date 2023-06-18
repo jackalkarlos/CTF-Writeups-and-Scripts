@@ -65,16 +65,35 @@ Uyarı gelirse sırasıyla "NO", sonra da "YES" onayını veriyoruz.
 
 # 3. Soru
 
+![image](https://github.com/jackalkarlos/CTF-Writeups-and-Scripts/assets/88983987/6d3b2021-4fe0-4aa6-817f-0e898cd3e032)
+
+## Solution
 3. soruda, 2. CurrentVersion seçeneğine geliyoruz. En altta InstallTime seçeneğine geliyoruz. Data kısmındaki veriye tıklıyoruz.
+
+![image](https://github.com/jackalkarlos/CTF-Writeups-and-Scripts/assets/88983987/409f6881-ac06-494b-885e-99f8cbb9090a)
 
 "Binary viewer" seçeneğine tıklıyoruz. Sağ alttan "Data interpreter" seçeneğine geliyoruz.
 
+![image](https://github.com/jackalkarlos/CTF-Writeups-and-Scripts/assets/88983987/f64ec9ae-e5a4-40e2-bcf1-c6ecc792d730)
+
 Windows FILETIME (64 bit) yazısının yanında işletim sisteminin kurulum tarihine erişmiş oluyoruz. 
-Cevap: 2021-02-22 13:41:03
 
-4. soruda FTK Imager ile aynı lokasyondan ("C:\Windows\system32\config") SYSTEM dosyasını alıyoruz. Registry Explorer ile SYSTEM dosyasını aynı şekilde açıyoruz. Interfaces klasörü altındaki kayıtları birazcık kurcaladıktan sonra, bulduğumuz değerlerin bir tanesinde cihazın aldığı son IP Adresine erişim sağlıyoruz.
+![image](https://github.com/jackalkarlos/CTF-Writeups-and-Scripts/assets/88983987/3fc3a9d7-3130-468c-b4b9-f93cd73ae0c0)
 
-Cevap: 192.168.52.131
+```Cevap: 2021-02-22 13:41:03```
+
+# 4. Soru
+
+![image](https://github.com/jackalkarlos/CTF-Writeups-and-Scripts/assets/88983987/e4ab386d-6871-4d3d-b52b-48534fbfa5eb)
+
+## Solution
+4. soruda FTK Imager ile aynı lokasyondan ("C:\Windows\system32\config") SYSTEM dosyasını alıyoruz. Registry Explorer ile SYSTEM dosyasını aynı şekilde açıyoruz. 
+
+![image](https://github.com/jackalkarlos/CTF-Writeups-and-Scripts/assets/88983987/5aeef06e-76e5-4e09-9ffe-a57ef99a78c6)
+
+Interfaces klasörü altındaki kayıtları birazcık kurcaladıktan sonra, bulduğumuz değerlerin bir tanesinde cihazın aldığı son IP Adresine erişim sağlıyoruz.
+
+```Cevap: 192.168.52.131```
 
 5. soruda FTK Imager ile aynı lokasyondan ("C:\Windows\system32\config") SAM dosyasını alıyoruz. Registry Explorer ile SAM dosyasını aynı şekilde açıyoruz.
 "Users" klasörüne erişim sağlıyoruz, sağ taraftaki "User Accounts" menüsünde tüm kullanıcıların isimleri ve toplam giriş sayıları yazmakta. "Total Login Count" sütunu altında, giriş yapılan tek hesabın "ibaloglu" hesabı olduğunu ve toplamda 5 kez giriş yapıldığını öğreniyoruz.
