@@ -36,16 +36,34 @@ MD5 Hash değerimiz: 4367a88268faa047989fe50f286ec3ba
 ## Solution
 
 2. soruda "Kurulu işletim sisteminin adı ve sürümü" isteniyor. Bu veriler SOFTWARE adlı registry kayıtlarında tutulmaktadır.
+
 SOFTWARE dosyasını almak için, FTK Imager üzerinden "C:\Windows\system32\config" konumuna gitmemiz gerekmekte. Bunun için sol üst tarafta bulunan "Evidence Tree" menüsünden "config" klasörüne ilerlememiz gerekiyor.
 
-Windows_10_Forensic_Image.e01 > Basic data partition (3) > root > Windows > System32 > config
+![image](https://github.com/jackalkarlos/CTF-Writeups-and-Scripts/assets/88983987/7b342184-5dcf-4565-9582-48fe8f4c0f4e)
+
+```Windows_10_Forensic_Image.e01 > Basic data partition (3) > root > Windows > System32 > config```
 
 Ulaştıktan sonra, SOFTWARE ve SOFTWARE.LOG1, SOFTWARE.LOG2 dosyalarını export ediyoruz.
 
-Export ettiğimiz dosyaları incelemek için "Registry Explorer" programını açıyoruz. "File" menüsünden "Load Hive" seçeneğini seçiyoruz. "SOFTWARE" dosyasını açıyoruz. Uyarı gelirse sırasıyla "NO", sonra da "YES" onayını veriyoruz.
+![image](https://github.com/jackalkarlos/CTF-Writeups-and-Scripts/assets/88983987/3d2ea24b-ab36-4ab0-88e3-db4d6efd930d)
+
+![image](https://github.com/jackalkarlos/CTF-Writeups-and-Scripts/assets/88983987/7e994b1d-36e9-4172-b595-64eba4d22804)
+
+Export ettiğimiz dosyaları incelemek için "Registry Explorer" programını açıyoruz. "File" menüsünden "Load Hive" seçeneğini seçiyoruz. "SOFTWARE" dosyasını açıyoruz. 
+
+![image](https://github.com/jackalkarlos/CTF-Writeups-and-Scripts/assets/88983987/06d84cfb-9be7-49e9-b39c-25d81f3f337d)
+
+Uyarı gelirse sırasıyla "NO", sonra da "YES" onayını veriyoruz.
+
+![image](https://github.com/jackalkarlos/CTF-Writeups-and-Scripts/assets/88983987/5dcaaa86-0366-4a74-b5ca-2840ccf117d5)
+
 Üstteki menüden "Available bookmarks" seçeneğine geliyoruz. "Key Name" altında "CurrentVersion" seçeneklerini kurcaladığımızda, sistemin Windows 10 Pro 2004 sürümü olduğunu görüyoruz.
 
-Cevap: Windows 10 Pro 2004
+![image](https://github.com/jackalkarlos/CTF-Writeups-and-Scripts/assets/88983987/526809fc-278b-4b14-9932-942e7c1eaee7)
+
+```Cevap: Windows 10 Pro 2004```
+
+# 3. Soru
 
 3. soruda, 2. CurrentVersion seçeneğine geliyoruz. En altta InstallTime seçeneğine geliyoruz. Data kısmındaki veriye tıklıyoruz.
 
