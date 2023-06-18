@@ -444,6 +444,11 @@ $I Parser uygulamasını açıp kaydettiğimiz yeri ve yeni verilerin kaydedilme
 
 ```Cevap: FileZilla_3.54.1_win64-setup.exe ve mimikatz.exe```
 
+# 28. 29. 30. soru
+
+![image](https://github.com/jackalkarlos/CTF-Writeups-and-Scripts/assets/88983987/9b78a1b3-68e8-4ef7-be4e-c32324ea1453)
+
+## Solution
 28. soruda cihazda "IMG_7294.JPG" adlı bir dosya olduğundan bahsediyor. Bu dosyayı bulduktan sonra 28, 29 ve 30. soruları cevaplayacağız. Bunun için ilk önce dosyanın konumunu ve kendisini bulmamız gerekiyor. Yine imdadımıza FTK Imager koşuyor. 
 
 Bunun için 2 yöntemimiz var.
@@ -456,21 +461,29 @@ Konumu AppData\Local kısmında demiştik. Dosyayı kolaylıkla erişebileceğim
 
 Karşımıza çıkan detaylar fotoğraf dosyasının bilgilerini içeriyor. Telefon modelinin "iPhone SE (2nd generation)" olduğunu görüyoruz.
 
-Cevap: iPhone SE (2nd generation) 
+```Cevap: iPhone SE (2nd generation) ```
 
 29. soruda aynı tabloda "Flash:" yazısının karşısında "Off, Did Not Fire" yazısını görüyoruz. Bu flaşın açık olmadığı anlamına geliyor.
 
-Cevap: Flash Kapalı
+```Cevap: Flash Kapalı```
 
 30. soruda aynı tabloda Date/Time Original ve Create Date karşısında fotoğrafın orjinal oluşturulma tarihini ve saatini görüntüleyebiliyoruz.
 
-Cevap: 2021:09:21 18:27:32
+```Cevap: 2021:09:21 18:27:32```
 
+# 31. Soru
+
+![image](https://github.com/jackalkarlos/CTF-Writeups-and-Scripts/assets/88983987/d2473f7b-0431-4dce-a8f4-de54f77fa025)
+
+## Solution
 31. soruda daha önce yaptığımız gibi Registry Explorer yardımı ile SYSTEM dosyasını açıyoruz. Available Bookmarks menüsü altında ilk Windows klasörüne geliyoruz. Sağ tarafta ShutdownTime değerinin üstüne tıklıyoruz.
 Sağ alttan Data Interpreter seçeneğini seçiyoruz. "Windows Filetime (64 bit)" karşısında aradığımız tarih ve saate rastlıyoruz.
 
 Cevap: 2021-02-22 13:42:42
 
+# 32. Soru
+
+## Solution
 32. soruda, 28. soruda olduğu gibi imajı sisteme bağlıyoruz. "Autoruns" adlı forensic programını çalıştırıyoruz. Sol üstteki "File" seçeneğinin altından "Analyze Offline System" seçeneğini seçiyoruz.
 Çıkan menüde sisteme bağladığımız imajın "Windows" klasörünü gösteriyoruz. Alttaki kısım otomatik olarak tamamlanıyor. "OK" tuşuna basıp devam ediyoruz. Kısa bir süre bekletiyor ve sonra inceleme işlemimize başlıyoruz.
 Logon sekmesi altında otomatik çalıştırılan işlemlerin: "cmd.exe, vmtoolsd.exe, vm3dservice.exe, onedrivesetup.exe, chrmstp.exe" olduğunu ve diğer işlemlerin sistem dosyası olduğunu görüntülüyoruz.
