@@ -9,13 +9,12 @@ import socket
 import socks
 import re
 
-tor_proxy_host = '127.0.0.1'  # Tor proxy'nin çalıştığı localhost IP adresi
-tor_proxy_port = 9050  # Tor proxy'nin portu
+tor_proxy_host = '127.0.0.1'
+tor_proxy_port = 9050
 
 target_host = 'otpxxwpvfjume6kdlii5gcghgg53lj7gnl7hoigg4sx2wc45xwasw7id.onion'
-target_port = 21  # Bağlanmak istediğiniz hedef port numarası (21: FTP örneği)
+target_port = 21
 
-# Tor proxy üzerinden bağlantı kurma
 sock = socks.socksocket()
 sock.set_proxy(socks.SOCKS5, tor_proxy_host, tor_proxy_port)
 sock.connect((target_host, target_port))
